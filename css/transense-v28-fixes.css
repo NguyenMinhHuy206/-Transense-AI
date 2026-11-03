@@ -1,0 +1,85 @@
+/* V28 — approved scoped patch. The latest stylesheet wins over previous one-off overrides. */
+:root{--v28-font:"Be Vietnam Pro",Arial,sans-serif}
+/* Menu/account: clean readable palette, theme knob below the "Thiết kế sau" right edge. */
+html[data-theme] body header.ts13-navbar .ts13-account .user-dropdown,
+html[data-theme] body header.ts13-navbar .user-dropdown{font-family:var(--v28-font)!important;}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-theme{
+ display:grid!important;grid-template-columns:36px minmax(0,1fr) 50px!important;column-gap:10px!important;
+ align-items:center!important;justify-content:initial!important;min-height:66px!important;
+ padding:8px 12px!important;margin:8px 0!important;box-sizing:border-box!important;width:100%!important;
+}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-theme > .menu-theme-icon{grid-column:1!important;grid-row:1!important;margin:0!important}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-theme > span:not(.menu-theme-icon){grid-column:2!important;grid-row:1!important;white-space:nowrap!important;justify-self:start!important;min-width:0!important;font:450 13px/1.4 var(--v28-font)!important;}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-theme .theme-mode-name{font-weight:700!important;}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-theme > button.theme-toggle{grid-column:3!important;grid-row:1!important;justify-self:end!important;align-self:center!important;margin:0!important;width:46px!important;min-width:46px!important;height:27px!important;}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout,
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout .menu-logout-icon,
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout .menu-logout-label{
+ color:#2563eb!important;transition:color .2s ease,background .2s ease!important;
+}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout:hover,
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout:focus-visible{color:#ef4444!important;background:#fef2f2!important;}
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout:hover .menu-logout-label,
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout:hover .menu-logout-icon,
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout:focus-visible .menu-logout-label,
+html[data-theme] body header.ts13-navbar .user-dropdown .menu-logout:focus-visible .menu-logout-icon{color:#ef4444!important;}
+/* Fix ALL shared navbar/dropdown dark theme contrast, without imposing rejected Graphite theme. */
+html[data-theme="dark"] body header.ts13-navbar{background:#17253a!important;border-color:#344c6e!important;color:#eaf3ff!important;}
+html[data-theme="dark"] body header.ts13-navbar .ts13-brand,
+html[data-theme="dark"] body header.ts13-navbar .ts13-brand .brand-name,
+html[data-theme="dark"] body header.ts13-navbar .ts13-brand span{color:#f1f6ff!important;}
+html[data-theme="dark"] body header.ts13-navbar .ts13-links a{color:#d9e6fa!important;}
+html[data-theme="dark"] body header.ts13-navbar .ts13-links a.active,
+html[data-theme="dark"] body header.ts13-navbar .ts13-links a:hover{color:#fff!important;background:#28528c!important;}
+html[data-theme="dark"] body header.ts13-navbar .header-theme-btn{background:#223b5e!important;color:#dbeaff!important;border-color:#496387!important;}
+html[data-theme="dark"] body header.ts13-navbar .ts13-account .nav-user-trigger{background:#233c61!important;border-color:#48648d!important;color:#edf5ff!important;}
+html[data-theme="dark"] body header.ts13-navbar .ts13-account .user-dropdown{background:#1b2c44!important;border-color:#466083!important;color:#f0f5ff!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .account-dropdown-person{background:#294569!important;color:#f6faff!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .account-dropdown-name,
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .account-dropdown-role,
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .account-action-stable:not(.menu-placeholder){color:#ecf5ff!important;opacity:1!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .menu-placeholder{color:#c0d1ea!important;opacity:.76!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .account-action-stable small{color:#b9cbe7!important;opacity:1!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .account-action-stable .menu-icon{color:#8ebcff!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .account-action-stable:not(:disabled):hover{background:#2e4566!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .menu-theme{color:#f1f6ff!important;border-color:#405c7d!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .menu-theme > span:not(.menu-theme-icon){color:#f1f6ff!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .menu-theme .menu-theme-icon{color:#d5e7ff!important;background:#2b4972!important;}
+html[data-theme="dark"] body header.ts13-navbar .user-dropdown .menu-logout:hover{background:rgba(239,68,68,.13)!important;}
+/* Compact correct icon-only marks: shared icon tile is applied ONCE, not baked twice. */
+html[data-theme] body .technology-showcase .technology-icon img.v28-brand-symbol,
+html[data-theme] body .v22-tech-group .usage-card .usage-icon img.v28-brand-symbol{
+ object-fit:contain!important;display:block!important;width:29px!important;height:29px!important;
+ max-width:29px!important;max-height:29px!important;opacity:1!important;filter:none!important;
+}
+html[data-theme] body .technology-showcase .technology-icon.icon-gemini,
+html[data-theme] body .technology-showcase .technology-icon.icon-google-translate{border:1px solid #dce7fb!important;}
+html[data-theme] body .v22-technology-usage .v22-tech-group .usage-icon{display:grid!important;place-items:center!important;flex:none!important;}
+/* Academic banner: preserve V27 pastel and user-approved illustration while eliminating square image boundaries. */
+html[data-theme] body .v15-about-heading.v28-pastel-refined{
+ min-height:272px!important;padding:30px 47% 30px 36px!important;
+ background:linear-gradient(108deg,#fff 0%,#f6faff 32%,#ecf6ff 68%,#dfeeff 100%)!important;
+ border:1px solid #c6ddff!important;border-radius:25px!important;
+ box-shadow:0 10px 26px rgba(42,105,178,.065)!important;overflow:hidden!important;
+}
+html[data-theme] body .v28-pastel-refined:before{height:48%!important;bottom:-28%!important;opacity:.7!important;}
+html[data-theme] body .v28-pastel-refined h1{font-size:clamp(30px,3vw,44px)!important;line-height:1.2!important;}
+html[data-theme] body .v28-pastel-refined > p{font-size:13px!important;line-height:1.65!important;max-width:660px!important;}
+html[data-theme] body .v28-pastel-refined .v22-about-illustration{width:47%!important;overflow:visible!important;}
+html[data-theme] body .v28-pastel-refined .v22-about-illustration img{
+ display:block!important;filter:none!important;mix-blend-mode:multiply!important;
+ -webkit-mask-image:linear-gradient(to right,transparent 0%,#000 10%,#000 88%,transparent 100%)!important;
+ mask-image:linear-gradient(to right,transparent 0%,#000 10%,#000 88%,transparent 100%)!important;
+}
+@media(max-width:740px){
+ html[data-theme] body .v15-about-heading.v28-pastel-refined{padding:22px 17px 16px!important;min-height:0!important;}
+ html[data-theme] body .v28-pastel-refined .v22-about-illustration{width:100%!important;}
+ html[data-theme] body .v28-pastel-refined h1{font-size:clamp(27px,6vw,35px)!important;}
+ html[data-theme] body .v28-pastel-refined > p{font-size:12px!important;}
+}
+/* Avoid static over-large completion label. Keep three CTA states identical dimensions. */
+html body .v25-demo-button,html body .v25-demo-button.v25-finished{height:32px!important;min-height:32px!important;font-size:12px!important;font-weight:500!important;letter-spacing:0!important;}
+html body .v25-demo-button .v26-demo-icon{width:13px!important;height:13px!important;}
+@media(prefers-reduced-motion:reduce){
+ html body #v25LaptopScreenUI,html body #v25LaptopScreenUI *{transition:none!important;animation:none!important;}
+}

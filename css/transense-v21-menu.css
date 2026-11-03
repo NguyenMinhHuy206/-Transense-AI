@@ -1,0 +1,51 @@
+/* Transense AI V21 — dropdown theme-row pixel alignment; no other UI impacted. */
+html body .navbar .nav-user-wrap .user-dropdown > .menu-theme,
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme,
+html body header.navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme {
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr) 48px!important;
+  justify-content:initial!important;align-items:center!important;
+  column-gap:10px!important;min-height:62px!important;
+  padding:8px 12px!important;margin:8px 0!important;
+  width:100%!important;box-sizing:border-box!important;
+  border-top:1px solid #dfebfa!important;
+  border-bottom:1px solid #dfebfa!important;
+}
+html body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .menu-theme-icon,
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme > .menu-theme-icon {
+  grid-column:1!important;width:36px!important;height:36px!important;min-width:36px!important;
+  border-radius:11px!important;background:#eaf2ff!important;color:#236ee9!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  margin:0!important;padding:0!important;justify-self:start!important;
+}
+html body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .menu-theme-icon svg {width:19px!important;height:19px!important;}
+html body .navbar .nav-user-wrap .user-dropdown > .menu-theme > span:not(.menu-theme-icon),
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme > span:not(.menu-theme-icon) {
+  grid-column:2!important;justify-self:start!important;align-self:center!important;
+  display:block!important;min-width:0!important;width:auto!important;
+  font-family:inherit!important;font-size:13px!important;font-weight:450!important;
+  color:inherit!important;white-space:nowrap!important;text-align:left!important;
+  margin:0!important;padding:0!important;line-height:1.45!important;
+}
+html body .navbar .nav-user-wrap .user-dropdown > .menu-theme > span strong {font-weight:700!important;}
+html body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .theme-toggle,
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme > button.theme-toggle {
+  grid-column:3!important;justify-self:end!important;align-self:center!important;
+  width:46px!important;height:27px!important;min-width:46px!important;
+  border:0!important;border-radius:999px!important;padding:3px!important;
+  display:flex!important;align-items:center!important;justify-content:flex-start!important;
+  margin:0!important;box-sizing:border-box!important;cursor:pointer;
+}
+html body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .theme-toggle > .theme-knob {
+  width:21px!important;height:21px!important;min-width:21px!important;
+  flex:none!important;border-radius:50%!important;background:#fff!important;
+  box-shadow:0 1px 3px #21375b35!important;margin:0!important;
+}
+html[data-theme=light] body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .theme-toggle{background:#236df0!important;}
+html[data-theme=light] body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .theme-toggle > .theme-knob{transform:translateX(19px)!important;}
+html[data-theme=dark] body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .theme-toggle{background:#495a78!important;}
+html[data-theme=dark] body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .theme-toggle > .theme-knob{transform:translateX(0px)!important;}
+html[data-theme=dark] body .navbar .nav-user-wrap .user-dropdown > .menu-theme > .menu-theme-icon{background:#273a55!important;color:#d4e8ff!important;}
+@media(max-width:640px){
+ html body .navbar .nav-user-wrap .user-dropdown > .menu-theme{grid-template-columns:36px minmax(0,1fr) 46px!important;gap:9px!important;padding-inline:8px!important;}
+}

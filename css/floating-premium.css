@@ -1,0 +1,132 @@
+/* Transense AI — Floating Navigation + Capsule Account + Premium Model Switcher */
+/* Scope all appearance to the approved UI, avoid affecting dropdown menu buttons. */
+html body .navbar {
+  width:calc(100% - 36px)!important;max-width:1360px!important;min-height:66px!important;
+  padding:9px 20px!important;margin:14px auto!important;border-radius:999px!important;
+  display:flex!important;align-items:center!important;gap:24px!important;overflow:visible!important;
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+}
+html[data-theme="light"] body .navbar {background:rgba(255,255,255,.95)!important;border:1px solid #C9E0F8!important;box-shadow:0 10px 30px rgba(33,102,172,.09)!important}
+html[data-theme="dark"] body .navbar {background:rgba(13,29,52,.94)!important;border:1px solid #2C547D!important;box-shadow:0 15px 34px rgba(0,8,25,.25)!important}
+html body .navbar .brand{flex:0 0 auto!important;min-width:0!important;gap:8px!important}
+html body .navbar .brand-logo{display:block!important;width:37px!important;height:37px!important;flex:0 0 37px!important;object-fit:contain!important;background:transparent!important;filter:none!important;box-shadow:none!important}
+html body .navbar .brand-name{font-size:19px!important;white-space:nowrap!important}
+html body .navbar .nav-links{display:flex!important;flex:1 1 auto!important;align-items:center!important;justify-content:flex-start!important;flex-wrap:nowrap!important;gap:9px!important;min-width:0!important}
+html body .navbar .nav-links>a.nav-page,html body .navbar .nav-links>a.nav-page:not(.active){min-height:43px!important;height:43px!important;display:inline-flex!important;align-items:center!important;gap:8px!important;padding:6px 13px!important;border-radius:999px!important;min-width:max-content!important;background:transparent!important;border:1px solid transparent!important;box-shadow:none!important;font-size:14px!important;font-weight:580!important}
+html body .navbar .nav-links>a.nav-page svg.nav-art{width:25px!important;height:25px!important;flex:0 0 25px!important}
+html body .navbar .nav-links>a.nav-page span{font-size:14px!important;white-space:nowrap!important}
+html[data-theme="light"] body .navbar .nav-links>a.nav-page:not(.active){color:#536883!important}
+html[data-theme="dark"] body .navbar .nav-links>a.nav-page:not(.active){color:#B9CCE7!important}
+html body .navbar .nav-links>a.nav-page.active,html body .navbar .nav-links>a.nav-page[aria-current="page"]{background:linear-gradient(115deg,#EFF7FF,#DCEEFF)!important;border-color:#B5D8FD!important;box-shadow:0 3px 10px rgba(51,125,225,.07)!important;color:#145CCD!important}
+html[data-theme="dark"] body .navbar .nav-links>a.nav-page.active,html[data-theme="dark"] body .navbar .nav-links>a.nav-page[aria-current="page"]{background:linear-gradient(125deg,#183D76,#154778)!important;border-color:#459FE6!important;color:#F5FAFF!important}
+html body .navbar .nav-links>a.nav-page.active>span::after,html body .navbar .nav-links>a.nav-page[aria-current="page"]>span::after{top:calc(100% + 4px)!important;bottom:auto!important;height:2px!important;background:linear-gradient(90deg,#2563EB,#24C4DF)!important;pointer-events:none!important}
+/* Floating Profile Capsule, preserving the existing trigger / accountName / menu script. */
+html body .navbar .nav-links .nav-user-wrap{margin-left:auto!important;flex:0 0 auto!important}
+html body .navbar .nav-links .nav-user-trigger{min-height:44px!important;height:44px!important;width:auto!important;min-width:0!important;max-width:270px!important;display:inline-flex!important;align-items:center!important;gap:9px!important;padding:7px 16px!important;border-radius:999px!important;font-size:13px!important;font-weight:550!important;white-space:nowrap!important;transition:border-color .18s ease,box-shadow .18s ease,background .18s ease!important}
+html body .navbar .nav-links .nav-user-trigger svg{width:18px!important;height:18px!important;flex:0 0 18px!important}
+html body .navbar .nav-links .nav-user-trigger #accountName{overflow:hidden;text-overflow:ellipsis;min-width:0;white-space:nowrap}
+html body .navbar .nav-links .nav-user-trigger .user-arrow{display:inline-flex!important;align-items:center!important;justify-content:center!important;width:16px!important;height:16px!important;flex:0 0 16px!important;font-size:0!important;transform:none!important}
+html body .navbar .nav-links .nav-user-trigger .user-arrow::after{content:'';width:7px;height:7px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:translateY(-2px) rotate(45deg);transition:transform .2s ease}
+html body .navbar .nav-user-wrap.menu-open .nav-user-trigger .user-arrow::after,html body .navbar .nav-user-wrap:focus-within .nav-user-trigger .user-arrow::after{transform:translateY(2px) rotate(225deg)}
+html[data-theme="light"] body .navbar .nav-links .nav-user-trigger{background:linear-gradient(115deg,#FFFFFF,#F0F7FF)!important;border:1px solid #C3D9F1!important;color:#1A2D4E!important}
+html[data-theme="dark"] body .navbar .nav-links .nav-user-trigger{background:linear-gradient(115deg,#1B2A41,#233552)!important;border:1px solid #455F7D!important;color:#E7F1FF!important}
+html body .navbar .nav-links .nav-user-trigger:hover{border-color:#72B8F2!important;box-shadow:0 4px 15px rgba(38,115,220,.10)!important}
+/* Premium Model Switcher (user-approved design 2). */
+html body .ai-model-wrap{max-width:100%!important}
+html body .ai-model-wrap .ai-model-trigger{height:57px!important;min-height:57px!important;min-width:276px!important;max-width:315px!important;width:auto!important;display:inline-flex!important;align-items:center!important;gap:10px!important;padding:7px 12px!important;border-radius:16px!important;text-align:left!important;transition:border-color .2s ease,box-shadow .2s ease!important}
+html[data-theme="light"] body .ai-model-trigger{background:linear-gradient(120deg,#FFFFFF,#EAF5FF)!important;border:1px solid #A9D7FD!important;box-shadow:0 5px 16px rgba(51,132,230,.065)!important}
+html[data-theme="dark"] body .ai-model-trigger{background:linear-gradient(120deg,#1B2B45,#203A5A)!important;border:1px solid #426D9C!important;box-shadow:0 5px 16px rgba(0,10,30,.15)!important}
+html body .ai-model-trigger .ai-model-icon{width:42px!important;height:42px!important;min-width:42px!important;flex:0 0 42px!important;border-radius:12px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#2675EC,#21C7E5)!important;color:#FFF!important}
+html body .ai-model-trigger .ai-model-icon svg{display:block!important;width:26px!important;height:26px!important;fill:none!important;stroke:none!important}
+html body .ai-model-trigger .ai-model-meta{display:flex!important;flex:1 1 auto!important;min-width:0!important;flex-direction:column!important;gap:3px!important;align-items:flex-start!important}
+html body .ai-model-trigger .ai-model-name{font-size:13px!important;font-weight:750!important;line-height:1.15!important;white-space:nowrap!important}
+html body .ai-model-trigger .ai-model-caption{position:relative;font-size:11px!important;line-height:1.1!important;padding-left:11px!important;white-space:nowrap!important;color:#62809B!important}
+html body .ai-model-trigger .ai-model-caption::before{content:'';position:absolute;left:0;top:50%;transform:translateY(-50%);width:6px;height:6px;border-radius:50%;background:#10B981}
+html[data-theme="dark"] body .ai-model-trigger .ai-model-caption{color:#A2C6E8!important}
+html body .ai-model-trigger .ai-model-arrow{flex:0 0 auto!important;transform:none}
+html body .ai-model-trigger:hover{border-color:#58B8E9!important;box-shadow:0 6px 22px rgba(39,130,226,.13)!important}
+@media(max-width:1100px){html body .navbar{gap:12px!important;padding:8px 13px!important}html body .navbar .nav-links{gap:2px!important}html body .navbar .brand-name{font-size:16px!important}html body .navbar .nav-links>a.nav-page,html body .navbar .nav-links>a.nav-page:not(.active){font-size:12px!important;padding:6px 9px!important}html body .navbar .nav-links>a.nav-page span{font-size:12px!important}html body .navbar .nav-links>a.nav-page svg.nav-art{width:22px!important;height:22px!important;flex-basis:22px!important}html body .navbar .nav-links .nav-user-trigger{max-width:215px!important;padding:7px 11px!important}}
+@media(max-width:780px){html body .navbar{width:calc(100% - 16px)!important;flex-wrap:wrap!important;border-radius:23px!important;gap:8px!important}html body .navbar .brand{flex:1 1 100%!important}html body .navbar .nav-links{flex:1 1 100%!important;flex-wrap:wrap!important;gap:4px!important}html body .navbar .nav-links>a.nav-page,html body .navbar .nav-links>a.nav-page:not(.active){min-width:0!important;flex:1 1 auto!important;justify-content:center!important}html body .navbar .nav-links .nav-user-wrap{margin-left:auto!important}html body .ai-model-wrap .ai-model-trigger{min-width:0!important;width:100%!important;max-width:100%!important}}
+@media(prefers-reduced-motion:reduce){html body .navbar *,html body .ai-model-trigger{transition:none!important}}
+
+/* User-approved premium brain icon + Soft Duotone Compact account menu */
+html body .ai-model-trigger .ai-model-icon svg {width:29px!important;height:29px!important;display:block!important}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown{
+  width:318px!important;max-width:calc(100vw - 24px)!important;
+  padding:13px!important;border-radius:19px!important;overflow:hidden!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .account-dropdown-person{
+  padding:12px!important;border-radius:14px!important;margin-bottom:8px!important;
+}
+html[data-theme="light"] body .navbar .nav-links .nav-user-wrap .user-dropdown .account-dropdown-person{background:#EFF5FF!important}
+html[data-theme="dark"] body .navbar .nav-links .nav-user-wrap .user-dropdown .account-dropdown-person{background:#263854!important}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .account-menu-line{
+  display:grid!important;grid-template-columns:34px minmax(0,1fr) auto!important;
+  gap:10px!important;min-height:47px!important;height:auto!important;
+  align-items:center!important;padding:7px 9px!important;text-align:left!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .account-menu-line .menu-icon{
+  display:grid!important;place-items:center!important;width:33px!important;height:33px!important;
+  min-width:33px!important;max-width:33px!important;border-radius:10px!important;
+  grid-column:1!important;color:#2468E6!important;background:#E7F0FF!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .account-menu-line .menu-icon svg,
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-theme-icon svg,
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-logout-icon svg{
+  display:block!important;width:19px!important;height:19px!important;flex:none!important;
+}
+html[data-theme="dark"] body .navbar .nav-links .nav-user-wrap .user-dropdown > .account-menu-line .menu-icon{background:#2C4060!important;color:#93B8FF!important}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .account-menu-line .menu-action-label{
+  display:block!important;min-width:0!important;width:auto!important;grid-column:2!important;
+  font-size:13px!important;line-height:1.25!important;white-space:nowrap!important;
+  text-overflow:ellipsis!important;overflow:hidden!important;font-weight:550!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .account-menu-line small{
+  grid-column:3!important;font-size:10px!important;white-space:nowrap!important;opacity:.83!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-theme{display:flex!important;gap:10px!important;align-items:center!important}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-theme-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:9px;background:#E7F0FF;color:#2563EB;flex:0 0 29px}
+html[data-theme="dark"] body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-theme-icon{background:#263C5B;color:#92B9FF}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-logout{display:flex!important;align-items:center!important;gap:10px!important;text-align:left!important}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-logout-icon{width:29px;height:29px;display:grid;place-items:center;border-radius:9px;color:#DE3946;background:rgba(239,68,68,.08);flex:0 0 29px}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-logout-label{font-size:13px!important;white-space:nowrap!important}
+
+/* Account menu icon/text alignment – final targeted fix */
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme {
+  display:grid!important;grid-template-columns:33px minmax(0,1fr) auto!important;
+  gap:10px!important;align-items:center!important;justify-content:stretch!important;
+  padding:12px 9px!important;margin:8px 0!important;
+  min-height:55px!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme > .menu-theme-icon {
+  grid-column:1!important;width:33px!important;height:33px!important;
+  min-width:33px!important;flex:none!important;border-radius:10px!important;
+  display:grid!important;place-items:center!important;margin:0!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme > span:not(.menu-theme-icon) {
+  grid-column:2!important;display:block!important;min-width:0!important;
+  margin:0!important;padding:0!important;line-height:1.3!important;
+  white-space:nowrap!important;font-size:13px!important;text-align:left!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > .menu-theme > button.theme-toggle {
+  grid-column:3!important;justify-self:end!important;margin:0!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > button.menu-logout {
+  display:grid!important;grid-template-columns:33px minmax(0,1fr)!important;
+  gap:10px!important;align-items:center!important;justify-items:start!important;
+  justify-content:stretch!important;width:100%!important;
+  min-height:50px!important;padding:8px 9px!important;text-align:left!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > button.menu-logout > .menu-logout-icon {
+  grid-column:1!important;width:33px!important;height:33px!important;
+  display:grid!important;place-items:center!important;margin:0!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown > button.menu-logout > .menu-logout-label {
+  grid-column:2!important;justify-self:start!important;display:block!important;
+  width:auto!important;margin:0!important;padding:0!important;
+  text-align:left!important;white-space:nowrap!important;font-size:13px!important;
+}
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-theme-icon svg,
+html body .navbar .nav-links .nav-user-wrap .user-dropdown .menu-logout-icon svg {
+  width:19px!important;height:19px!important;display:block!important;
+}

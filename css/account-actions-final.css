@@ -1,0 +1,38 @@
+/* Transense AI - consistent four account menu actions. */
+html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable {
+  display:grid!important;
+  grid-template-columns:38px minmax(0,1fr) max-content!important;
+  gap:10px!important;align-items:center!important;
+  min-height:50px!important;padding:6px 10px!important;
+  font-family:Arial,"Segoe UI",sans-serif!important;
+  letter-spacing:0!important;word-spacing:normal!important;
+}
+html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable > .menu-icon {
+  grid-column:1!important;width:38px!important;height:38px!important;
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  min-width:38px!important;margin:0!important;
+}
+html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable > .menu-icon svg { width:20px!important;height:20px!important;display:block!important;stroke-width:1.9!important; }
+html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable > .menu-action-label {
+  grid-column:2!important;min-width:0!important;width:auto!important;
+  display:block!important;flex:none!important;position:static!important;
+  font:500 14px/1.4 Arial,"Segoe UI",sans-serif!important;
+  letter-spacing:0!important;word-spacing:normal!important;
+  white-space:nowrap!important;margin:0!important;padding:0!important;
+  text-align:left!important;opacity:1!important;
+}
+html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable > small {
+  grid-column:3!important;margin:0!important;white-space:nowrap!important;
+  font:400 12px/1.4 Arial,"Segoe UI",sans-serif!important;
+  letter-spacing:0!important;text-align:right!important;
+}
+html body header.navbar .nav-user-wrap .user-dropdown > button.account-action-stable:disabled > .menu-action-label { color:#74849B!important; }
+html body header.navbar .nav-user-wrap .user-dropdown > button.account-action-stable:disabled > small { color:#8492A6!important; }
+html body header.navbar .nav-user-wrap .user-dropdown > button.account-action-stable:disabled > .menu-icon { color:#759BD7!important; }
+html[data-theme="dark"] body header.navbar .nav-user-wrap .user-dropdown > button.account-action-stable:disabled > .menu-action-label {color:#ACB9CC!important;}
+html[data-theme="dark"] body header.navbar .nav-user-wrap .user-dropdown > button.account-action-stable:disabled > small {color:#A0AEC1!important;}
+@media(max-width:480px) {
+ html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable {grid-template-columns:34px minmax(0,1fr) max-content!important;gap:10px!important;padding:6px 8px!important;}
+ html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable > .menu-icon {width:34px!important;height:34px!important;min-width:34px!important;}
+ html body header.navbar .nav-user-wrap .user-dropdown > .account-action-stable > .menu-action-label {font-size:13px!important;}
+}

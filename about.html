@@ -1,0 +1,1818 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+        Giới Thiệu Đồ Án 1 - Transense AI
+    </title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+
+        /* =========================================================
+           ABOUT PAGE - ADDITIONAL COMPONENTS
+           KHÔNG THAY ĐỔI PALETTE CHÍNH
+        ========================================================= */
+
+
+        /* ================= SUMMARY ================= */
+
+        .summary-text {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.9;
+        }
+
+
+        .keyword-area {
+            margin-top: 22px;
+
+            padding-top: 18px;
+
+            border-top: 1px solid var(--border);
+        }
+
+
+        .keyword-title {
+            margin-bottom: 12px;
+
+            color: var(--muted-2);
+
+            font-size: 9px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.2px;
+        }
+
+
+        .keyword-list {
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+
+        .keyword-pill {
+            display: inline-flex;
+
+            align-items: center;
+
+            min-height: 34px;
+
+            padding: 0 12px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 999px;
+
+            background: var(--surface-2);
+
+            color: var(--muted);
+
+            font-size: 10px;
+
+            font-weight: 600;
+        }
+
+
+        /* ================= LIMIT ================= */
+
+        .limit-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+
+        .limit-item {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 12px;
+
+            padding: 16px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            background: var(--surface-2);
+        }
+
+
+        .limit-icon {
+            width: 30px;
+
+            height: 30px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: var(--surface);
+
+            color: var(--muted);
+
+            font-size: 14px;
+        }
+
+
+        .limit-item strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--text);
+
+            font-size: 12px;
+        }
+
+
+        .limit-item p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.6;
+        }
+
+
+        /* ================= METHODS ================= */
+
+        .method-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+
+        .method-card {
+            position: relative;
+
+            min-height: 185px;
+
+            padding: 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: var(--surface-2);
+        }
+
+
+        .method-number {
+            width: 36px;
+
+            height: 36px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            margin-bottom: 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            background: var(--surface);
+
+            color: var(--blue);
+
+            font-size: 11px;
+
+            font-weight: 700;
+        }
+
+
+        .method-card h3 {
+            margin: 0 0 8px;
+
+            color: var(--text);
+
+            font-size: 14px;
+
+            font-weight: 700;
+        }
+
+
+        .method-card p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= EVALUATION ================= */
+
+        .criteria-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+
+            gap: 12px;
+
+            margin-top: 18px;
+        }
+
+
+        .criteria-card {
+            padding: 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 14px;
+
+            background: var(--surface-2);
+        }
+
+
+        .criteria-number {
+            margin-bottom: 12px;
+
+            color: var(--blue);
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        .criteria-card strong {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color: var(--text);
+
+            font-size: 13px;
+        }
+
+
+        .criteria-card p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= CURRENT STATUS ================= */
+
+        .status-box {
+            display: flex;
+
+            align-items: flex-start;
+
+            gap: 13px;
+
+            margin-top: 18px;
+
+            padding: 16px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            background: var(--surface-2);
+        }
+
+
+        .status-dot {
+            width: 9px;
+
+            height: 9px;
+
+            margin-top: 4px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background: var(--green);
+        }
+
+
+        .status-box strong {
+            display: block;
+
+            margin-bottom: 5px;
+
+            color: var(--text);
+
+            font-size: 12px;
+        }
+
+
+        .status-box p {
+            margin: 0;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        /* ================= PHASE BADGES ================= */
+
+        .phase-current {
+            color: var(--green);
+        }
+
+
+        .phase-next {
+            color: var(--blue);
+        }
+
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (max-width: 950px) {
+
+            .method-grid {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+
+            .criteria-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .limit-grid,
+            .method-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    
+        /* =========================================================
+           TECHNOLOGY SHOWCASE
+        ========================================================= */
+
+        .technology-showcase {
+            width: 100%;
+
+            margin:
+                8px auto
+                40px;
+
+            padding:
+                34px 0
+                40px;
+
+            overflow: hidden;
+
+            border-top:
+                1px solid
+                var(--border);
+
+            border-bottom:
+                1px solid
+                var(--border);
+        }
+
+
+        .technology-heading {
+            max-width: 760px;
+
+            margin:
+                0 auto
+                34px;
+
+            padding:
+                0 20px;
+
+            text-align: center;
+        }
+
+
+        .technology-label {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            margin-bottom: 10px;
+
+            color:
+                var(--blue);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .technology-label::before {
+            content: "";
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+        }
+
+
+        .technology-heading h2 {
+            margin: 0;
+
+            color:
+                var(--text);
+
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+
+        .technology-heading p {
+            max-width: 650px;
+
+            margin:
+                10px auto 0;
+
+            color:
+                var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.8;
+        }
+
+
+        /* =========================================================
+           MARQUEE
+        ========================================================= */
+
+        .logo-marquee {
+            position: relative;
+
+            width: 100%;
+
+            overflow: hidden;
+
+            padding:
+                12px 0;
+        }
+
+
+        .second-marquee {
+            margin-top: 20px;
+        }
+
+
+        .logo-track {
+            display: flex;
+
+            width: max-content;
+
+            will-change: transform;
+        }
+
+
+        .logo-group {
+            display: flex;
+            align-items: center;
+
+            gap: 66px;
+
+            padding-right: 66px;
+        }
+
+
+        .technology-logo {
+            min-width: 120px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 9px;
+
+            opacity: 0.93;
+
+            transition:
+                transform 0.25s ease,
+                opacity 0.25s ease;
+        }
+
+
+        .technology-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 16px;
+
+            background:
+                var(--surface);
+
+            box-shadow:
+                var(--shadow);
+
+            transition:
+                transform 0.25s ease;
+        }
+
+
+        .technology-icon i {
+            font-size: 31px;
+        }
+
+
+        .technology-icon img {
+            width: 37px;
+            height: 37px;
+
+            object-fit: contain;
+        }
+
+
+        .technology-logo > span {
+            color:
+                var(--muted);
+
+            font-size: 10px;
+            font-weight: 650;
+
+            white-space: nowrap;
+        }
+
+
+        .technology-logo:hover {
+            opacity: 1;
+
+            transform:
+                translateY(-4px);
+        }
+
+
+        .technology-logo:hover
+        .technology-icon {
+            transform:
+                scale(1.08);
+        }
+
+
+        /* =========================================================
+           TECHNOLOGY COLORS
+        ========================================================= */
+
+        .icon-html {
+            color: #E34F26;
+
+            background:
+                rgba(
+                    227,
+                    79,
+                    38,
+                    0.08
+                );
+        }
+
+
+        .icon-css {
+            color: #1572B6;
+
+            background:
+                rgba(
+                    21,
+                    114,
+                    182,
+                    0.08
+                );
+        }
+
+
+        .icon-js {
+            color: #F7DF1E;
+
+            background:
+                rgba(
+                    247,
+                    223,
+                    30,
+                    0.10
+                );
+        }
+
+
+        .icon-vscode {
+            color: #007ACC;
+
+            background:
+                rgba(
+                    0,
+                    122,
+                    204,
+                    0.08
+                );
+        }
+
+
+        .icon-github {
+            color: #181717;
+
+            background:
+                rgba(
+                    24,
+                    23,
+                    23,
+                    0.06
+                );
+        }
+
+
+        .icon-api {
+            color: #7C3AED;
+
+            background:
+                rgba(
+                    124,
+                    58,
+                    237,
+                    0.08
+                );
+        }
+
+
+        .icon-ai {
+            color: #10A37F;
+
+            background:
+                rgba(
+                    16,
+                    163,
+                    127,
+                    0.08
+                );
+        }
+
+
+        .icon-gemini {
+            color: #8B5CF6;
+
+            background:
+                rgba(
+                    139,
+                    92,
+                    246,
+                    0.10
+                );
+        }
+
+
+        .icon-context {
+            color: #2563EB;
+
+            background:
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.08
+                );
+        }
+
+
+        .icon-mic {
+            color: #EA4335;
+
+            background:
+                rgba(
+                    234,
+                    67,
+                    53,
+                    0.08
+                );
+        }
+
+
+        .icon-speaker {
+            color: #F59E0B;
+
+            background:
+                rgba(
+                    245,
+                    158,
+                    11,
+                    0.09
+                );
+        }
+
+
+        .icon-history {
+            color: #06B6D4;
+
+            background:
+                rgba(
+                    6,
+                    182,
+                    212,
+                    0.08
+                );
+        }
+
+
+        .icon-storage {
+            color: #10B981;
+
+            background:
+                rgba(
+                    16,
+                    185,
+                    129,
+                    0.08
+                );
+        }
+
+
+        .icon-responsive {
+            color: #6366F1;
+
+            background:
+                rgba(
+                    99,
+                    102,
+                    241,
+                    0.08
+                );
+        }
+
+
+        .icon-language {
+            color: #14B8A6;
+
+            background:
+                rgba(
+                    20,
+                    184,
+                    166,
+                    0.08
+                );
+        }
+
+
+        /* Chuyển động chỉ được định nghĩa một lần ở cuối CSS. */
+
+
+/* ===== About overview & moving technology showcase ===== */
+.overview-panel{position:relative;margin:28px 0;padding:30px;border:1px solid var(--border);background:var(--surface);border-radius:24px;box-shadow:var(--shadow-large)}
+.overview-intro{padding:0 0 22px;border-bottom:1px solid var(--border)}
+.overview-eyebrow{color:#7394ff;letter-spacing:2px;font-size:10px;font-weight:800}
+.overview-intro h2,.usage-header h3{font-size:25px;margin:10px 0;color:var(--text)}
+.overview-intro p,.usage-header p{font-size:13px;color:var(--muted);line-height:1.8}
+.overview-item{position:relative;padding:25px 0 26px 60px;border-bottom:1px solid var(--border)}
+.overview-item:last-child{border-bottom:0;padding-bottom:0}
+.overview-index{position:absolute;top:27px;left:0;display:grid;place-items:center;width:40px;height:40px;border-radius:12px;background:var(--surface-2);border:1px solid var(--border);color:#7394ff;font-size:13px;font-weight:800}
+.overview-item .info-header{margin-bottom:14px}
+.overview-item .section-small{color:#7394ff}
+.overview-item p{color:var(--muted);font-size:13px;line-height:1.9}
+.technology-showcase{margin:38px 0 48px;border-top:1px solid var(--border);padding-top:32px;overflow:hidden}
+.technology-usage{margin-top:30px;padding:25px;border:1px solid var(--border);border-radius:20px;background:var(--surface)}
+.usage-header{text-align:center;margin-bottom:24px}
+.usage-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.usage-card{display:flex;align-items:flex-start;gap:12px;padding:16px;border-radius:14px;border:1px solid var(--border);background:var(--surface-2);transition:transform .2s ease,border-color .2s ease}
+.usage-card:hover{transform:translateY(-3px);border-color:#7394ff}
+.usage-icon{flex-shrink:0;display:grid;place-items:center;width:38px;height:38px;border-radius:11px;background:rgba(105,132,255,.1);color:#7895ff}
+.usage-card h4{margin:0 0 6px;font-size:13px;color:var(--text)}
+.usage-card p{margin:0;font-size:11px;line-height:1.65;color:var(--muted)}
+@media(max-width:850px){.usage-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:550px){.overview-panel{padding:18px}.overview-item{padding-left:0;padding-top:70px}.overview-index{top:20px}.usage-grid{grid-template-columns:1fr}.technology-usage{padding:16px}}
+@media(prefers-reduced-motion:reduce){.usage-card{transition:none}}
+
+/* Gemini and Google Translate branded logos */
+.icon-google-translate { color:#4D6BFE; background:rgba(77,107,254,.09); border-color:rgba(77,107,254,.24); }
+.icon-gemini .gemini-logo,.icon-google-translate .google-translate-logo { width:38px; height:38px; object-fit:contain; display:block; }
+.technology-logo:hover .gemini-logo,.technology-logo:hover .google-translate-logo { transform:scale(1.10); transition:transform .25s ease; }
+.usage-icon .usage-brand-logo { width:25px; height:25px; object-fit:contain; display:block; }
+
+
+/* MARQUEE THEO VIDEO: cả hai hàng trôi từ phải qua trái,
+   hàng dưới nhanh hơn 1.25 lần; không dừng khi rê chuột. */
+.technology-showcase { width:100%; overflow:hidden; }
+.technology-showcase .logo-marquee {
+    width:100%; overflow:hidden; padding:14px 0;
+    -webkit-mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent);
+    mask-image:linear-gradient(to right,transparent,#000 9%,#000 91%,transparent);
+}
+.technology-showcase .logo-track {
+    display:flex; width:max-content; flex-wrap:nowrap;
+    will-change:transform; backface-visibility:hidden;
+    animation-play-state:running !important;
+}
+.technology-showcase .logo-track .logo-group {
+    display:flex; flex:0 0 auto; width:max-content;
+    align-items:center; gap:60px; padding-right:60px;
+}
+.technology-showcase .logo-track .technology-logo {
+    flex:0 0 120px; min-width:120px;
+}
+.technology-showcase .logo-track-left {
+    animation:transenseMarqueeLeft 40s linear infinite !important;
+}
+.technology-showcase .logo-track-right {
+    animation:transenseMarqueeLeft 32s linear infinite !important;
+}
+@keyframes transenseMarqueeLeft {
+    from { transform:translate3d(0,0,0); }
+    to { transform:translate3d(-50%,0,0); }
+}
+.technology-showcase:hover .logo-track,
+.technology-showcase:focus-within .logo-track {
+    animation-play-state:running !important;
+}
+@media(max-width:600px) {
+    .technology-showcase .logo-track .logo-group {gap:26px;padding-right:26px;}
+    .technology-showcase .logo-track .technology-logo {flex-basis:86px;min-width:86px;}
+}
+
+
+
+/* Enhanced overview colors & lecturer highlight */
+.overview-item.item-summary .overview-index,
+.overview-item.item-summary .info-icon {
+    background: rgba(59,130,246,.12);
+    color: #60a5fa;
+    border-color: rgba(96,165,250,.28);
+}
+.overview-item.item-reason .overview-index,
+.overview-item.item-reason .info-icon {
+    background: rgba(16,185,129,.12);
+    color: #34d399;
+    border-color: rgba(52,211,153,.28);
+}
+.overview-item.item-objective .overview-index,
+.overview-item.item-objective .info-icon {
+    background: rgba(245,158,11,.12);
+    color: #fbbf24;
+    border-color: rgba(251,191,36,.28);
+}
+.overview-item.item-scope .overview-index,
+.overview-item.item-scope .info-icon {
+    background: rgba(168,85,247,.12);
+    color: #c084fc;
+    border-color: rgba(192,132,252,.28);
+}
+.overview-item.item-summary .section-small { color:#7fb1ff; }
+.overview-item.item-reason .section-small { color:#46d9a5; }
+.overview-item.item-objective .section-small { color:#ffc857; }
+.overview-item.item-scope .section-small { color:#d4a6ff; }
+
+.teacher-card {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(96,165,250,.28);
+    background:
+      radial-gradient(circle at top right, rgba(59,130,246,.10), transparent 42%),
+      linear-gradient(180deg, rgba(99,102,241,.06), rgba(37,99,235,.03)),
+      var(--surface-2);
+    box-shadow: 0 0 0 1px rgba(96,165,250,.08), 0 18px 42px rgba(37,99,235,.10);
+}
+.teacher-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(96,165,250,.12), transparent 30%, transparent 70%, rgba(52,211,153,.08));
+}
+.teacher-card .person-icon {
+    background: linear-gradient(180deg, rgba(59,130,246,.18), rgba(59,130,246,.09));
+    border-color: rgba(147,197,253,.42);
+    color: #8bb7ff;
+    box-shadow: 0 0 0 3px rgba(59,130,246,.05), 0 0 18px rgba(96,165,250,.14);
+}
+.teacher-card .person-label,
+.teacher-card .school { color: #8fb8ff; }
+.teacher-card h3,
+.teacher-card .teacher-name {
+    color: #f8fbff;
+    text-shadow: 0 0 14px rgba(96,165,250,.20);
+}
+.teacher-card .teacher-name {
+    font-size: 19px;
+    font-weight: 700;
+}
+.teacher-card .teacher-tag {
+    border-color: rgba(96,165,250,.34);
+    background: linear-gradient(135deg, rgba(59,130,246,.18), rgba(147,197,253,.08));
+    color: #dbeafe;
+    box-shadow: 0 0 18px rgba(96,165,250,.10);
+}
+
+
+
+/* Additional framed content blocks and people-card emphasis */
+.overview-content-box {
+    margin-top: 8px;
+    padding: 22px 22px 18px;
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    background: var(--surface-2);
+    box-shadow: 0 10px 26px rgba(15,23,42,.04);
+}
+.overview-content-box .keyword-area {
+    margin-top: 20px;
+    padding-top: 16px;
+}
+.item-reason .overview-content-box p,
+.item-summary .overview-content-box p {
+    margin: 0;
+}
+.team-card {
+    position: relative;
+    overflow: hidden;
+    border-color: rgba(96,165,250,.24);
+    background:
+      radial-gradient(circle at bottom right, rgba(59,130,246,.08), transparent 40%),
+      linear-gradient(180deg, rgba(59,130,246,.04), rgba(147,197,253,.02)),
+      var(--surface-2);
+    box-shadow: 0 10px 24px rgba(37,99,235,.08);
+}
+.team-card .person-icon {
+    background: linear-gradient(180deg, rgba(59,130,246,.14), rgba(59,130,246,.06));
+    border-color: rgba(147,197,253,.34);
+    color: #5b8cff;
+}
+.team-card .person-label {
+    color: #7aa2ff;
+}
+.team-card h3,
+.team-card .student-name {
+    color: var(--text);
+}
+html[data-theme="light"] .teacher-card,
+html[data-theme="light"] .team-card {
+    border-color: rgba(96,165,250,.34);
+    background:
+      radial-gradient(circle at top right, rgba(59,130,246,.09), transparent 36%),
+      linear-gradient(180deg, rgba(209,224,255,.62), rgba(243,247,255,.92)),
+      #f8fbff;
+    box-shadow: 0 14px 34px rgba(59,130,246,.08), inset 0 1px 0 rgba(255,255,255,.75);
+}
+html[data-theme="light"] .teacher-card::before,
+html[data-theme="light"] .team-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(135deg, rgba(255,255,255,.34), transparent 38%, transparent 70%, rgba(56,189,248,.06));
+}
+html[data-theme="light"] .teacher-card .person-label,
+html[data-theme="light"] .team-card .person-label,
+html[data-theme="light"] .teacher-card .school,
+html[data-theme="light"] .team-card .student-role,
+html[data-theme="light"] .team-card .student-id {
+    color: #58709a !important;
+}
+html[data-theme="light"] .teacher-card h3,
+html[data-theme="light"] .teacher-card .teacher-name,
+html[data-theme="light"] .team-card h3,
+html[data-theme="light"] .team-card .student-name {
+    color: #14213d !important;
+    text-shadow: none;
+}
+html[data-theme="light"] .teacher-card .teacher-tag {
+    color: #466896;
+    background: rgba(59,130,246,.08);
+    border-color: rgba(96,165,250,.30);
+}
+html[data-theme="light"] .overview-content-box {
+    background: linear-gradient(180deg, rgba(255,255,255,.7), rgba(248,250,252,.95));
+    border-color: rgba(148,163,184,.22);
+    box-shadow: 0 10px 22px rgba(15,23,42,.03);
+}
+
+/* Responsive fixes */
+
+@media(max-width:760px){
+ .about-page{width:calc(100% - 24px)!important;max-width:100%;}
+ .project-card,.overview-panel,.technology-usage{min-width:0;}
+ .project-members,.member-grid,.overview-grid,.info-grid-2{grid-template-columns:minmax(0,1fr)!important;}
+ .project-title,.project-top{flex-wrap:wrap;}
+ .student-row{flex-wrap:wrap;min-width:0;}
+ .usage-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+ .logo-marquee{width:100%;overflow:hidden;}
+ .technology-showcase{width:100%;overflow:hidden;}
+}
+@media(max-width:440px){.usage-grid{grid-template-columns:minmax(0,1fr)!important;}}
+
+</style>
+<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/><link href="css/floating-premium.css?v=20261023-spacing2" rel="stylesheet"/>
+<link href="css/clean-floating-final.css?v=20261023-1" rel="stylesheet"/>
+<link href="css/account-actions-final.css?v=20261023-3" rel="stylesheet"/>
+<link href="css/final-static-polish.css?v=20261023-final" rel="stylesheet"/>
+<link href="css/transense-v13-final.css?v=20261102" rel="stylesheet"/><link href="css/transense-v14-refinement.css?v=20261102" rel="stylesheet"/><link href="css/transense-v15-polish.css?v=20261102" rel="stylesheet"/><link href="css/transense-v16-history.css?v=20261102" rel="stylesheet"/><script>try { document.documentElement.classList.toggle('v15-guest', localStorage.getItem('isLoggedIn') !== 'true'); } catch(e) {document.documentElement.classList.add('v15-guest');}</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="css/transense-v17-unified.css?v=20261102" rel="stylesheet"/>
+<link rel="stylesheet" href="css/transense-v21-menu.css?v=21.0"/>
+<link rel="stylesheet" href="css/transense-v22.css?v=22.1"/>
+<link rel="stylesheet" href="css/transense-v26-polish.css?v=26.0"/>
+<link rel="stylesheet" href="css/transense-v27-approved.css?v=27.1"/>
+<link rel="stylesheet" href="css/transense-v28-fixes.css?v=28.0"/>
+<link rel="stylesheet" href="css/transense-v30-approved.css?v=30.2"/>
+<link rel="stylesheet" href="css/transense-v31-final-scope.css?v=31.0"/>
+</head>
+<body class="v30-about-page">
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+<header class="navbar ts13-navbar" id="top" role="banner">
+<a aria-label="Transense AI – Trang chủ" class="brand ts13-brand" href="index.html">
+<img alt="" class="brand-logo" height="44" src="images/transense-logo-mark.png" width="44"/>
+<span class="brand-name">Transense <span class="brand-ai">AI</span></span>
+</a>
+<nav aria-label="Điều hướng chính" class="nav-links ts13-links"><a class="nav-page" data-nav="index.html" href="index.html">Trang chủ</a><a href="index.html#whyChoose">Tính năng</a><a href="index.html#howItWorks">Hướng dẫn</a><a class="nav-page v15-history-link" data-nav="history.html" href="history.html">Lịch sử</a><a class="nav-page" data-nav="about.html" href="about.html">Giới thiệu</a></nav>
+<div class="ts13-actions">
+<button aria-label="Đổi chế độ sáng tối" class="header-theme-btn ts13-theme" type="button"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg></button>
+<div class="guest-auth-buttons guest-only ts13-guest-auth">
+<a class="header-auth-btn outline" href="login.html">Đăng nhập</a>
+<a class="header-auth-btn solid" href="register.html">Đăng ký</a>
+</div>
+<div class="auth-only nav-user-wrap ts13-account">
+<a aria-haspopup="true" aria-label="Mở menu tài khoản" class="account-button nav-user-trigger" href="profile.html" id="accountButton">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21"></path></svg>
+<span id="accountName">Tài khoản</span>
+<span aria-hidden="true" class="v15-user-chevron">⌄</span></a>
+<div aria-label="Menu người dùng" class="user-dropdown">
+<div class="account-dropdown-person"><div aria-hidden="true" class="account-dropdown-avatar">T</div><div><strong class="account-dropdown-name">Tài khoản</strong><small>Tài khoản Demo</small></div></div>
+<a class="account-action-stable" href="profile.html"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-2a8 8 0 0 1 16 0v2"></path></svg></span><span class="menu-action-label">Thông tin tài khoản</span><span aria-hidden="true">›</span></a>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></span><span class="menu-action-label">Thông báo</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M3 14v-3a9 9 0 0 1 18 0v3"></path><path d="M21 16a3 3 0 0 1-3 3h-1v-6h1a3 3 0 0 1 3 3Z"></path><path d="M3 16a3 3 0 0 0 3 3h1v-6H6a3 3 0 0 0-3 3Z"></path><path d="M18 19a5 5 0 0 1-5 3h-2"></path></svg></span><span class="menu-action-label">Trợ giúp &amp; hỗ trợ</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path><path d="m19.4 15 .1.1 1.4 1.4-2.4 2.4-1.4-1.4A8 8 0 0 1 14 19v2h-4v-2a8 8 0 0 1-3.1-1.5l-1.4 1.4-2.4-2.4 1.4-1.4A8 8 0 0 1 3 13h-2v-3h2a8 8 0 0 1 1.5-3.1L3.1 5.5l2.4-2.4 1.4 1.4A8 8 0 0 1 10 3V1h4v2a8 8 0 0 1 3.1 1.5l1.4-1.4 2.4 2.4-1.4 1.4A8 8 0 0 1 21 10h2v3h-2a8 8 0 0 1-1.6 2Z"></path></svg></span><span class="menu-action-label">Cài đặt</span><small>Thiết kế sau</small></button>
+<div class="menu-theme"><span aria-hidden="true" class="menu-theme-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.5 1.5m11.2 11.2 1.5 1.5M2 12h2m16 0h2M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"></path></svg></span><span>Chế độ: <strong class="theme-mode-name">Tối</strong></span><button aria-checked="false" aria-label="Bật chế độ sáng hoặc tối" class="theme-toggle" role="switch" type="button"><span class="theme-knob"></span></button></div>
+<button class="menu-logout" type="button"><span aria-hidden="true" class="menu-logout-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"></path><path d="M14 8l4 4-4 4m4-4H9"></path></svg></span><span class="menu-logout-label">Đăng xuất</span></button>
+</div>
+</div>
+</div>
+</header>
+<!-- =========================================================
+     PAGE
+========================================================= -->
+<main class="page">
+<!-- =====================================================
+         TITLE
+    ====================================================== -->
+<div class="page-heading v15-about-heading v27-about-hero v28-pastel-refined v30-about-hero">
+<span class="page-label">
+            PROJECT INFORMATION
+        </span>
+<h1>Giới Thiệu <span class="v27-about-accent">Đồ Án 1</span></h1>
+<p>
+            Thông tin nhóm thực hiện, tổng quan đề tài và các công nghệ hỗ trợ Transense AI.
+        </p>
+</div>
+<!-- =====================================================
+         PROJECT INFORMATION
+    ====================================================== -->
+<section class="project-card">
+<div class="project-top">
+<div class="project-icon">
+<svg viewbox="0 0 24 24">
+<rect height="18" rx="2" width="16" x="4" y="3"></rect>
+<path d="M8 8H16"></path>
+<path d="M8 12H16"></path>
+<path d="M8 16H13"></path>
+</svg>
+</div>
+<div>
+<div class="small-title">
+                    ĐỀ TÀI ĐỒ ÁN 1 · NGÀNH KHOA HỌC MÁY TÍNH
+                </div>
+<h2 class="project-title">
+
+                    Xây dựng website dịch Anh–Việt
+                    theo ngữ cảnh tích hợp AI
+
+                </h2>
+<div class="project-meta">
+
+                    Trường Đại học Kỹ thuật – Công nghệ Cần Thơ (CTUT)
+
+                    · Khoa Công nghệ Thông tin
+
+                    · Năm 2026
+
+                </div>
+</div>
+</div>
+<!-- PEOPLE -->
+<div class="people-grid">
+<!-- TEACHER -->
+<article class="person-card teacher-card">
+<div class="person-header">
+<div class="person-icon">
+<svg viewbox="0 0 24 24">
+<path d="M2 10L12 5L22 10L12 15L2 10Z"></path>
+<path d="M6 12.5V16.5C8.8 19 15.2 19 18 16.5V12.5"></path>
+</svg>
+</div>
+<div>
+<div class="person-label">
+                            GIẢNG VIÊN HƯỚNG DẪN
+                        </div>
+<h3>
+                            Thông Tin Giảng Viên
+                        </h3>
+</div>
+</div>
+<div class="teacher-name">
+                    TS. Lý Hồng Hải
+                </div>
+<div class="school">
+
+                    Khoa Công nghệ Thông tin
+
+                    <br/>
+
+                    Trường Đại học Kỹ thuật – Công nghệ Cần Thơ
+
+                </div>
+<div class="teacher-tag">
+                    ● Giảng viên hướng dẫn Đồ án 1
+                </div>
+</article>
+<!-- STUDENTS -->
+<article class="person-card team-card">
+<div class="person-header">
+<div class="person-icon">
+<svg viewbox="0 0 24 24">
+<circle cx="9" cy="8" r="3"></circle>
+<circle cx="17" cy="9" r="2.5"></circle>
+<path d="M3 20C3 16.7 5.7 14 9 14C12.3 14 15 16.7 15 20"></path>
+<path d="M15 15C18 15 21 17 21 20"></path>
+</svg>
+</div>
+<div>
+<div class="person-label">
+                            SINH VIÊN THỰC HIỆN
+                        </div>
+<h3>
+                            Thành Viên Nhóm
+                        </h3>
+</div>
+</div>
+<div class="student-list">
+<div class="student-row">
+<div class="student-info">
+<div class="student-number">
+                                01
+                            </div>
+<div>
+<div class="student-name">
+                                    Nguyễn Minh Huy
+                                </div>
+<div class="student-role">
+                                    Sinh viên thực hiện
+                                </div>
+</div>
+</div>
+<div class="student-id">
+                            MSSV: KHMT2411062
+                        </div>
+</div>
+<div class="student-row">
+<div class="student-info">
+<div class="student-number">
+                                02
+                            </div>
+<div>
+<div class="student-name">
+                                    Nguyễn Quốc Trí
+                                </div>
+<div class="student-role">
+                                    Sinh viên thực hiện
+                                </div>
+</div>
+</div>
+<div class="student-id">
+                            MSSV: KHMT2411010
+                        </div>
+</div>
+</div>
+</article>
+</div>
+</section><div class="overview-panel" id="tong-quan-de-tai"><div class="overview-intro"><span class="overview-eyebrow">PROJECT OVERVIEW</span><h2>Tổng Quan Về Đề Tài</h2><p>Bốn nội dung trọng tâm của Đồ án 1, từ ý tưởng đến phạm vi triển khai.</p></div><section class="overview-item item-summary" id="tom-luoc"><span class="overview-index">01</span>
+<div class="info-header">
+<div class="info-icon">
+<svg viewbox="0 0 24 24">
+<path d="M5 4H19V20H5Z"></path>
+<path d="M8 8H16"></path>
+<path d="M8 12H16"></path>
+<path d="M8 16H13"></path>
+</svg>
+</div>
+<div>
+<div class="section-small">
+                    PROJECT SUMMARY
+                </div>
+<h2>
+                    Tóm Lược Đề Tài
+                </h2>
+</div>
+</div>
+<div class="overview-content-box">
+<p class="summary-text">
+
+            Đề tài “Xây dựng website dịch Anh–Việt theo ngữ cảnh
+            tích hợp AI” hướng đến việc xây dựng một website hỗ trợ
+            người dùng dịch văn bản từ tiếng Anh sang tiếng Việt
+            dựa trên ngữ cảnh.
+
+            Hệ thống định hướng ứng dụng trí tuệ nhân tạo
+            để tạo bản dịch tự nhiên và phù hợp hơn,
+            đồng thời hỗ trợ các chức năng như đăng ký,
+            đăng nhập, quản lý tài khoản, lưu lịch sử dịch
+            và giải thích từ hoặc cụm từ theo ngữ cảnh.
+
+        </p>
+<div class="keyword-area">
+<div class="keyword-title">
+                TỪ KHÓA
+            </div>
+<div class="keyword-list">
+<span class="keyword-pill">
+                    Dịch Anh–Việt
+                </span>
+<span class="keyword-pill">
+                    Trí tuệ nhân tạo
+                </span>
+<span class="keyword-pill">
+                    Dịch theo ngữ cảnh
+                </span>
+<span class="keyword-pill">
+                    NLP
+                </span>
+<span class="keyword-pill">
+                    Website dịch thuật
+                </span>
+<span class="keyword-pill">
+                    LLM
+                </span>
+</div>
+</div>
+</div>
+</section><section class="overview-item item-reason" id="ly-do"><span class="overview-index">02</span>
+<div class="info-header">
+<div class="info-icon">
+<svg viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M3 12H21"></path>
+<path d="M12 3C15 6 16 9 16 12C16 15 15 18 12 21"></path>
+<path d="M12 3C9 6 8 9 8 12C8 15 9 18 12 21"></path>
+</svg>
+</div>
+<div>
+<div class="section-small">
+                    1.1 · PRACTICAL CONTEXT
+                </div>
+<h2>
+                    Lý Do Chọn Đề Tài
+                </h2>
+</div>
+</div>
+<div class="overview-content-box">
+<p>
+
+            Trong bối cảnh hội nhập và phát triển công nghệ hiện nay,
+            tiếng Anh ngày càng đóng vai trò quan trọng trong học tập,
+            nghiên cứu và công việc.
+
+            Tuy nhiên, nhiều người dùng vẫn gặp khó khăn khi dịch
+            các câu hoặc đoạn văn có từ đa nghĩa, thành ngữ,
+            cụm từ hoặc nội dung phụ thuộc nhiều vào ngữ cảnh.
+
+            Các công cụ dịch thông thường đôi khi chưa thể hiện
+            chính xác ý nghĩa mà người viết muốn truyền đạt.
+
+            Sự phát triển của trí tuệ nhân tạo,
+            xử lý ngôn ngữ tự nhiên và các mô hình ngôn ngữ lớn
+            mở ra khả năng phân tích ngữ cảnh tốt hơn.
+
+            Từ nhu cầu thực tế đó, Transense AI được xây dựng
+            nhằm hỗ trợ dịch Anh–Việt có xét đến ngữ cảnh,
+            hướng đến bản dịch tự nhiên và phù hợp hơn.
+
+        </p>
+</div>
+</section><section class="overview-item item-objective" id="muc-tieu"><span class="overview-index">03</span>
+<div class="info-header">
+<div class="info-icon">
+<svg viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<circle cx="12" cy="12" r="4"></circle>
+<path d="M12 3V6"></path>
+</svg>
+</div>
+<div>
+<div class="section-small">
+                    1.2 · PROJECT OBJECTIVES
+                </div>
+<h2>
+                    Mục Tiêu Đề Tài
+                </h2>
+</div>
+</div>
+<p>
+
+            Mục tiêu tổng quát của đề tài là xây dựng
+            một website hỗ trợ dịch văn bản từ tiếng Anh
+            sang tiếng Việt có tích hợp trí tuệ nhân tạo,
+            có khả năng phân tích ngữ cảnh nhằm tạo ra
+            bản dịch tự nhiên và phù hợp hơn.
+
+        </p>
+<div class="info-grid-2">
+<div class="info-item">
+<strong>
+                    Giao diện trực quan
+                </strong>
+<p>
+                    Thiết kế website thân thiện,
+                    rõ ràng và dễ sử dụng.
+                </p>
+</div>
+<div class="info-item">
+<strong>
+                    Quản lý tài khoản
+                </strong>
+<p>
+                    Hỗ trợ đăng ký, đăng nhập
+                    và quản lý thông tin người dùng.
+                </p>
+</div>
+<div class="info-item">
+<strong>
+                    Dịch Anh–Việt theo ngữ cảnh
+                </strong>
+<p>
+                    Định hướng tích hợp AI thông qua API
+                    để phân tích nội dung và lựa chọn nghĩa phù hợp.
+                </p>
+</div>
+<div class="info-item">
+<strong>
+                    Lịch sử bản dịch
+                </strong>
+<p>
+                    Cho phép người dùng lưu,
+                    xem lại và quản lý nội dung đã dịch.
+                </p>
+</div>
+<div class="info-item">
+<strong>
+                    Phân tích ngữ cảnh
+                </strong>
+<p>
+                    Hỗ trợ làm rõ từ đa nghĩa,
+                    thành ngữ và nội dung phụ thuộc ngữ cảnh.
+                </p>
+</div>
+<div class="info-item">
+<strong>
+                    Kiểm thử và đánh giá
+                </strong>
+<p>
+                    Đánh giá tính chính xác,
+                    tự nhiên và phù hợp của bản dịch.
+                </p>
+</div>
+</div>
+</section><section class="overview-item item-scope" id="pham-vi"><span class="overview-index">04</span>
+<div class="info-header">
+<div class="info-icon">
+<svg viewbox="0 0 24 24">
+<rect height="16" rx="2" width="18" x="3" y="4"></rect>
+<path d="M7 8H17"></path>
+<path d="M7 12H14"></path>
+</svg>
+</div>
+<div>
+<div class="section-small">
+                    1.3 · PROJECT SCOPE
+                </div>
+<h2>
+                    Phạm Vi Đề Tài
+                </h2>
+</div>
+</div>
+<div class="info-grid-3">
+<div class="info-item">
+<span class="info-label">
+                    Ngôn ngữ
+                </span>
+<strong>
+                    Tiếng Anh → Tiếng Việt
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    Dữ liệu
+                </span>
+<strong>
+                    Từ, câu và đoạn văn độ dài vừa phải
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    Mục đích
+                </span>
+<strong>
+                    Học tập · Tra cứu · Giao tiếp
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    Trọng tâm
+                </span>
+<strong>
+                    Nội dung phụ thuộc ngữ cảnh
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    Trường hợp
+                </span>
+<strong>
+                    Từ đa nghĩa · Thành ngữ · Cụm từ
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    AI
+                </span>
+<strong>
+                    Dự kiến sử dụng mô hình có sẵn qua API
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    Huấn luyện mô hình
+                </span>
+<strong>
+                    Không tự huấn luyện mô hình riêng
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    Quy mô
+                </span>
+<strong>
+                    Prototype phục vụ Đồ án 1
+                </strong>
+</div>
+<div class="info-item">
+<span class="info-label">
+                    Trạng thái hiện tại
+                </span>
+<strong class="phase-current">
+                    Giao diện + dữ liệu mô phỏng
+                </strong>
+</div>
+</div>
+</section></div>
+<!-- Phần công nghệ hỗ trợ và công dụng -->
+<section class="technology-showcase" id="cong-nghe-ho-tro">
+<div class="technology-heading v22-technology-heading v26-flat-tech-heading v27-compact-tech-heading">
+<span class="technology-label">
+                TECHNOLOGY &amp; FEATURES
+            </span>
+<h2>
+                Công Nghệ Hỗ Trợ <span class="v27-tech-accent">Transense AI</span>
+            </h2>
+<p>
+
+                Các công nghệ web,
+                công cụ phát triển và tính năng
+                đang được sử dụng hoặc định hướng tích hợp
+                trong prototype Đồ án 1.
+
+            </p>
+</div>
+<!-- ROW 1 -->
+<div class="logo-marquee">
+<div class="logo-track logo-track-left">
+<div class="logo-group">
+<div class="technology-logo">
+<div class="technology-icon icon-html"><img class="v22-symbol" src="images/v22-icon-html5.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            HTML5
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-css"><img class="v22-symbol" src="images/v22-icon-css3.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            CSS3
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-js"><img class="v22-symbol" src="images/v22-icon-javascript.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            JavaScript
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-vscode"><img class="v22-symbol" src="images/v22-icon-vs-code.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            VS Code
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-github"><img class="v22-symbol" src="images/v22-icon-github.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            GitHub
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-api"><img class="v22-symbol" src="images/v22-icon-rest-api.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            REST API
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-ai"><img class="v22-symbol" src="images/v22-icon-ai-nlp.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            AI / NLP
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-gemini"><img class="v22-symbol v28-brand-symbol" src="images/v31-gemini-approved.png" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            Gemini
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-google-translate"><img class="v22-symbol v28-brand-symbol" src="images/v31-google-translate-approved.png" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>Google Translate</span>
+</div>
+</div>
+<!-- DUPLICATE -->
+<div class="logo-group">
+<div class="technology-logo">
+<div class="technology-icon icon-html"><img class="v22-symbol" src="images/v22-icon-html5.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>HTML5</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-css"><img class="v22-symbol" src="images/v22-icon-css3.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>CSS3</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-js"><img class="v22-symbol" src="images/v22-icon-javascript.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>JavaScript</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-vscode"><img class="v22-symbol" src="images/v22-icon-vs-code.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>VS Code</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-github"><img class="v22-symbol" src="images/v22-icon-github.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>GitHub</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-api"><img class="v22-symbol" src="images/v22-icon-rest-api.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>REST API</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-ai"><img class="v22-symbol" src="images/v22-icon-ai-nlp.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>AI / NLP</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-gemini"><img class="v22-symbol v28-brand-symbol" src="images/v31-gemini-approved.png" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>Gemini</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-google-translate"><img class="v22-symbol v28-brand-symbol" src="images/v31-google-translate-approved.png" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>Google Translate</span>
+</div>
+</div>
+</div>
+</div>
+<!-- ROW 2 -->
+<div class="logo-marquee second-marquee">
+<div class="logo-track logo-track-right">
+<div class="logo-group">
+<div class="technology-logo">
+<div class="technology-icon icon-context"><img class="v22-symbol" src="images/v22-icon-context-analysis.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            Context Analysis
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-mic"><img class="v22-symbol" src="images/v22-icon-speech-input.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            Speech Input
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-speaker"><img class="v22-symbol" src="images/v22-icon-text-to-speech.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            Text To Speech
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-history"><img class="v22-symbol" src="images/v22-icon-history.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            History
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-storage"><img class="v22-symbol" src="images/v22-icon-localstorage.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            LocalStorage
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-responsive"><img class="v22-symbol" src="images/v22-icon-responsive.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            Responsive
+                        </span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-language"><img class="v22-symbol" src="images/v22-icon-13-languages.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>
+                            13 Languages
+                        </span>
+</div>
+</div>
+<!-- DUPLICATE -->
+<div class="logo-group">
+<div class="technology-logo">
+<div class="technology-icon icon-context"><img class="v22-symbol" src="images/v22-icon-context-analysis.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>Context Analysis</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-mic"><img class="v22-symbol" src="images/v22-icon-speech-input.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>Speech Input</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-speaker"><img class="v22-symbol" src="images/v22-icon-text-to-speech.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>Text To Speech</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-history"><img class="v22-symbol" src="images/v22-icon-history.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>History</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-storage"><img class="v22-symbol" src="images/v22-icon-localstorage.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>LocalStorage</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-responsive"><img class="v22-symbol" src="images/v22-icon-responsive.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>Responsive</span>
+</div>
+<div class="technology-logo">
+<div class="technology-icon icon-language"><img class="v22-symbol" src="images/v22-icon-13-languages.svg" alt="" aria-hidden="true" loading="lazy"/></div>
+<span>13 Languages</span>
+</div>
+</div>
+</div>
+</div>
+<div class="technology-usage v22-technology-usage"><div class="usage-header"><span class="overview-eyebrow">TECHNOLOGY ECOSYSTEM</span><h3>Vai Trò Của Từng Công Nghệ</h3><p>16 công nghệ, công cụ và tính năng được tổ chức theo bốn nhóm, từ giao diện đến hỗ trợ AI.</p></div><div class="v22-tech-group-grid"><section class="v22-tech-group v22-tech-group--code" aria-label="Phát triển giao diện"><header class="v22-tech-group-header"><div class="v22-tech-group-kicker">Giao diện website</div><h4>Phát triển giao diện</h4><p>Cấu trúc, tương tác và bố cục trên mọi thiết bị.</p></header><div class="v22-tech-group-items"><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-html5.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>HTML5</h4><p>Tạo cấu trúc trang, biểu mẫu và các khu vực chức năng.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-css3.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>CSS3</h4><p>Thiết kế giao diện nền tối, hiệu ứng chuyển động và bố cục responsive.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-javascript.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>JavaScript</h4><p>Xử lý tương tác, chuyển đổi ngôn ngữ và các chức năng phía trình duyệt.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-responsive.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>Responsive</h4><p>Giúp giao diện hiển thị tốt trên điện thoại, máy tính bảng và máy tính.</p></div></article></div></section><section class="v22-tech-group v22-tech-group--tools" aria-label="Công cụ phát triển & quản lý"><header class="v22-tech-group-header"><div class="v22-tech-group-kicker">Công cụ & dữ liệu</div><h4>Công cụ phát triển & quản lý</h4><p>Viết mã, quản lý phiên bản và kết nối dịch vụ.</p></header><div class="v22-tech-group-items"><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-vs-code.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>VS Code</h4><p>Môi trường viết, quản lý và chỉnh sửa mã nguồn.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-github.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>GitHub</h4><p>Quản lý phiên bản và phối hợp phát triển dự án.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-rest-api.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>REST API</h4><p>Định hướng kết nối frontend với dịch vụ dịch thuật và AI.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-localstorage.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>LocalStorage</h4><p>Lưu dữ liệu cục bộ trên trình duyệt cho prototype.</p></div></article></div></section><section class="v22-tech-group v22-tech-group--ai" aria-label="AI & xử lý ngôn ngữ"><header class="v22-tech-group-header"><div class="v22-tech-group-kicker">Ngôn ngữ thông minh</div><h4>AI & xử lý ngôn ngữ</h4><p>Hỗ trợ dịch thuật và hiểu ý nghĩa theo ngữ cảnh.</p></header><div class="v22-tech-group-items"><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-ai-nlp.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>AI / NLP</h4><p>Định hướng phân tích ngữ cảnh để hỗ trợ bản dịch phù hợp hơn.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol v28-brand-symbol" src="images/v31-gemini-approved.png" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>Gemini</h4><p>Định hướng dùng mô hình Gemini qua API để tăng khả năng hiểu ngữ cảnh và hỗ trợ sinh bản dịch thông minh hơn.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol v28-brand-symbol" src="images/v31-google-translate-approved.png" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>Google Translate</h4><p>Tích hợp Google Cloud Translation API để dịch máy thông thường, phục vụ đối chiếu với Gemini.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-context-analysis.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>Context Analysis</h4><p>Định hướng phân tích ý nghĩa từ và câu theo ngữ cảnh.</p></div></article></div></section><section class="v22-tech-group v22-tech-group--features" aria-label="Các tính năng hỗ trợ"><header class="v22-tech-group-header"><div class="v22-tech-group-kicker">Trải nghiệm tiện ích</div><h4>Các tính năng hỗ trợ</h4><p>Tăng khả năng tương tác và quản lý bản dịch.</p></header><div class="v22-tech-group-items"><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-speech-input.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>Speech Input</h4><p>Hỗ trợ nhập giọng nói khi trình duyệt có khả năng tương thích.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-text-to-speech.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>Text To Speech</h4><p>Đọc nội dung văn bản qua tính năng giọng nói của trình duyệt.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-13-languages.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>13 Languages</h4><p>Giao diện đa ngôn ngữ theo cấu hình của ứng dụng.</p></div></article><article class="usage-card"><div class="usage-icon"><img class="v22-symbol" src="images/v22-icon-history.svg" alt="" aria-hidden="true" loading="lazy"/></div><div><h4>Lịch sử</h4><p>Hiển thị và quản lý lịch sử nội dung đã dịch.</p></div></article></div></section></div></div></section></main>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+<div>
+<strong>
+            Transense AI
+        </strong>
+
+        — Context-aware English–Vietnamese Translation
+
+    </div>
+<div class="footer-right">
+
+        Đồ án 1 · Ngành Khoa học Máy tính
+
+        <br/>
+
+        Trường Đại học Kỹ thuật – Công nghệ Cần Thơ
+
+    </div>
+</footer>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+
+
+    const isLoggedIn =
+        localStorage.getItem(
+            "isLoggedIn"
+        ) === "true";
+
+
+    const accountName =
+        document.getElementById(
+            "accountName"
+        );
+
+
+    const accountButton =
+        document.getElementById(
+            "accountButton"
+        );
+
+
+    if (isLoggedIn) {
+
+
+        accountName.textContent =
+            localStorage.getItem(
+                "userName"
+            ) || "Tài khoản";
+
+
+        accountButton.href =
+            "profile.html";
+
+
+    }
+
+
+</script>
+<script src="js/nav-user.js?v=20261023-spacing2"></script>
+<script src="js/i18n.js?v=menu-fix-20261023"></script>
+<script src="js/transense-v15-enhance.js?v=20261102"></script>
+<script src="js/transense-v27-tech-reveal.js?v=27.1" defer></script></body>
+</html>

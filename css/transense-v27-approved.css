@@ -1,0 +1,138 @@
+/* Transense V27 — scoped changes to approved About page only.
+   Preserves original translation behavior, markup, all 16 technologies and both moving tracks. */
+
+/* Soft pastel About hero: keep existing, correctly proofread local academic illustration. */
+html[data-theme] body .v15-about-heading.v27-about-hero {
+  isolation:isolate; position:relative!important;
+  background:linear-gradient(110deg,#ffffff 0%,#f5faff 29%,#eaf5ff 71%,#e2f1ff 100%)!important;
+  border:1px solid #d8e9ff!important; box-shadow:0 9px 25px rgba(29,83,154,.055)!important;
+  border-radius:24px!important; min-height:256px!important; padding:27px 46% 27px 38px!important;
+}
+html[data-theme] body .v15-about-heading.v27-about-hero::before{
+  content:"";position:absolute;inset:auto -6% -40% -3%;height:60%;z-index:-1;pointer-events:none;
+  border-radius:55% 65% 0 0 / 65% 75% 0 0;
+  background:linear-gradient(90deg,rgba(192,224,255,.35),rgba(132,194,252,.14),rgba(102,182,251,.09));
+  transform:rotate(-2deg);
+}
+html[data-theme] body .v15-about-heading.v27-about-hero::after{
+  content:"";position:absolute;top:-36%;right:-12%;width:55%;height:120%;z-index:-1;pointer-events:none;
+  border-radius:50%;background:radial-gradient(ellipse at center,rgba(139,198,253,.16),rgba(139,198,253,0) 70%);
+}
+html[data-theme] body .v15-about-heading.v27-about-hero .page-label{font-size:11px!important;letter-spacing:.105em!important;color:#2176e0!important;position:relative;z-index:2}
+html[data-theme] body .v15-about-heading.v27-about-hero h1{
+  font-size:clamp(32px,3.2vw,49px)!important;line-height:1.2!important;letter-spacing:-.8px!important;
+  position:relative;z-index:2;color:#132f66!important;
+}
+html[data-theme] body .v15-about-heading.v27-about-hero h1 .v27-about-accent{
+  display:inline-block;white-space:nowrap;color:#2879ef;position:relative;
+}
+html[data-theme] body .v15-about-heading.v27-about-hero h1 .v27-about-accent:after{
+  content:"";position:absolute;height:3px;left:10%;right:8%;bottom:-4px;background:#99d0fc;border-radius:40%;transform:rotate(-1deg);
+}
+html[data-theme] body .v15-about-heading.v27-about-hero > p{
+  color:#597397!important;font-size:14px!important;line-height:1.65!important;max-width:560px!important;
+  position:relative;z-index:2;
+}
+html[data-theme] body .v27-about-hero .v22-about-illustration{z-index:1}
+html[data-theme] body .v27-about-hero .v22-about-illustration img{
+  filter:none!important;mix-blend-mode:multiply!important;
+  -webkit-mask-image:radial-gradient(ellipse 88% 95% at 50% 53%,#000 58%,transparent 100%)!important;
+  mask-image:radial-gradient(ellipse 88% 95% at 50% 53%,#000 58%,transparent 100%)!important;
+}
+
+/* TECHNOLOGY & FEATURES: 100% browser zoom, natural single-line desktop title & description. */
+html[data-theme] body .technology-showcase .v26-flat-tech-heading.v27-compact-tech-heading{
+  max-width:none!important;width:100%!important;box-sizing:border-box!important;
+  min-height:110px!important;padding:17px 17px 15px!important;margin:0 auto 11px!important;
+  background:linear-gradient(115deg,#ffffff 0%,#f8fbff 45%,#eef6ff 100%)!important;
+  border-radius:17px!important;border-color:#dfeaff!important;
+}
+html[data-theme] body .technology-showcase .v27-compact-tech-heading .technology-label{margin-bottom:5px!important;font-size:10px!important;letter-spacing:1.2px!important;}
+html[data-theme] body .technology-showcase .v27-compact-tech-heading h2{
+  font-size:23px!important;font-weight:700!important;letter-spacing:-.55px!important;
+  line-height:1.34!important;white-space:nowrap!important;
+}
+html[data-theme] body .technology-showcase .v27-compact-tech-heading h2 .v27-tech-accent{
+  color:#2778f0;white-space:nowrap;
+}
+html[data-theme] body .technology-showcase .v27-compact-tech-heading p{
+  font-size:12.5px!important;line-height:1.65!important;font-weight:400!important;
+  width:auto!important;max-width:1250px!important;margin:6px auto 0!important;
+  overflow-wrap:normal!important;word-break:normal!important;text-wrap:pretty;
+}
+html[data-theme] body .technology-showcase .logo-marquee{padding:9px 0!important}
+html[data-theme] body .technology-showcase .second-marquee{margin-top:10px!important}
+html[data-theme] body .technology-showcase .technology-icon{
+  height:46px!important;width:46px!important;min-height:46px!important;min-width:46px!important;
+  border-radius:13px!important;box-shadow:0 4px 10px rgba(30,80,140,.05)!important;
+}
+html[data-theme] body .technology-showcase .technology-icon img.v22-symbol{
+  width:24px!important;height:24px!important;max-width:24px!important;max-height:24px!important;
+}
+html[data-theme] body .technology-showcase .technology-logo{gap:6px!important;min-width:108px!important}
+html[data-theme] body .technology-showcase .technology-logo > span{
+  font-size:12px!important;line-height:1.4!important;font-weight:600!important;white-space:nowrap!important;
+}
+html[data-theme] body .technology-showcase .logo-track .logo-group{gap:41px!important;padding-right:41px!important}
+html[data-theme] body .technology-showcase .logo-track .technology-logo{flex:0 0 112px!important;min-width:112px!important}
+
+/* Approved muted yellow last group, with readable DARK text. */
+html[data-theme] body .v22-tech-group--features .v22-tech-group-header{
+  background:linear-gradient(127deg,#ffe3a3 0%,#fff0cb 100%)!important;color:#59421c!important;
+}
+html[data-theme] body .v22-tech-group--features .v22-tech-group-header .v22-tech-group-kicker,
+html[data-theme] body .v22-tech-group--features .v22-tech-group-header h4,
+html[data-theme] body .v22-tech-group--features .v22-tech-group-header p{
+  color:#59421c!important;
+}
+html[data-theme] body .v22-tech-group--features .v22-tech-group-header:after{
+  border-color:rgba(168,125,36,.16)!important;box-shadow:0 0 0 20px rgba(255,255,255,.13)!important;
+}
+
+/* Four columns reveal once on scroll. CSS is inert unless JS installs ready state. */
+html[data-theme] body .v22-technology-usage.v27-reveal-ready .v22-tech-group{
+  opacity:0!important;transform:translateY(16px)!important;
+  transition:opacity .8s ease,transform .8s cubic-bezier(.17,.72,.26,1),box-shadow .25s ease!important;
+  transition-delay:var(--v27-delay,0ms)!important;
+}
+html[data-theme] body .v22-technology-usage.v27-reveal-ready.v27-reveal-visible .v22-tech-group{
+  opacity:1!important;transform:translateY(0)!important;
+}
+@media(hover:hover) and (pointer:fine){
+  html[data-theme] body .v22-technology-usage.v27-reveal-visible .v22-tech-group .usage-card:hover{
+    transform:translateY(-3px)!important;box-shadow:0 8px 17px rgba(48,91,156,.11)!important;
+  }
+  html[data-theme] body .v22-technology-usage.v27-reveal-visible .v22-tech-group:hover{
+    transform:translateY(-2px)!important;transition-delay:0ms!important;
+  }
+}
+
+@media(max-width:1100px){
+  html[data-theme] body .technology-showcase .v27-compact-tech-heading p{max-width:870px!important;}
+  html[data-theme] body .v15-about-heading.v27-about-hero{padding-right:44%!important;}
+  html[data-theme] body .v15-about-heading.v27-about-hero h1{font-size:clamp(30px,3.2vw,44px)!important;}
+}
+@media(max-width:740px){
+  html[data-theme] body .v15-about-heading.v27-about-hero{padding:23px 18px 16px!important;min-height:0!important;}
+  html[data-theme] body .v15-about-heading.v27-about-hero h1{font-size:clamp(28px,5vw,37px)!important;letter-spacing:-.6px!important;margin:12px 0 12px!important;}
+  html[data-theme] body .v15-about-heading.v27-about-hero > p{font-size:12.5px!important;line-height:1.65!important;}
+  html[data-theme] body .v27-about-hero .v22-about-illustration{width:100%!important;margin:12px auto 0!important;}
+  html[data-theme] body .technology-showcase .v27-compact-tech-heading{min-height:0!important;padding:14px 12px!important;}
+  html[data-theme] body .technology-showcase .v27-compact-tech-heading h2{white-space:normal!important;font-size:20px!important;}
+  html[data-theme] body .technology-showcase .v27-compact-tech-heading p{font-size:11.5px!important;}
+  html[data-theme] body .technology-showcase .logo-track .logo-group{gap:25px!important;padding-right:25px!important}
+  html[data-theme] body .technology-showcase .logo-track .technology-logo{flex:0 0 105px!important;min-width:105px!important}
+}
+@media(max-width:420px){
+  html[data-theme] body .v15-about-heading.v27-about-hero h1{font-size:27px!important}
+  html[data-theme] body .technology-showcase .technology-logo>span{font-size:11px!important}
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-theme] body .v22-technology-usage.v27-reveal-ready .v22-tech-group{
+    opacity:1!important;transform:none!important;transition:none!important;
+  }
+}
+html[data-theme="dark"] body .v15-about-heading.v27-about-hero{background:linear-gradient(108deg,#1b2b44,#213e5e)!important;border-color:#395574!important}
+html[data-theme="dark"] body .v15-about-heading.v27-about-hero h1{color:#f4f7ff!important}
+html[data-theme="dark"] body .v15-about-heading.v27-about-hero > p{color:#c5d8ef!important}
+html[data-theme="dark"] body .technology-showcase .v27-compact-tech-heading{background:#1d3555!important;border-color:#456080!important}

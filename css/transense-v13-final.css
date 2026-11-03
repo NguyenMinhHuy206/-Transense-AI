@@ -1,0 +1,280 @@
+/*
+ * TRANSENSE AI V13 — Landing page matched to the approved desktop visual.
+ * CSS deliberately scoped to ts13-* to avoid collisions with earlier demo hero styles.
+ * Existing workspace, account pages and translation logic are preserved.
+ */
+:root {
+  --ts13-ink: #0d2351;
+  --ts13-navy: #152c5c;
+  --ts13-blue: #1478f7;
+  --ts13-pale: #eaf3ff;
+  --ts13-line: #d9e7fa;
+  --ts13-muted: #506992;
+  --ts13-soft-shadow: 0 12px 30px rgba(41, 95, 170, .09);
+}
+
+html {scroll-behavior:smooth}
+html[data-theme="light"] body {background:#f8fbff!important;color:var(--ts13-ink)}
+html body {max-width:none!important;width:100%!important;overflow-x:clip!important}
+html body .ts13-top-landing,
+html body .ts13-top-landing * {box-sizing:border-box}
+html body .ts13-top-landing,
+html body .ts13-navbar {
+  font-family:Inter,"Segoe UI",Arial,sans-serif!important;
+}
+
+/* Full-width, correctly scaled navigation — replaces the 780px-looking V12 layout. */
+html[data-theme] body header.navbar.ts13-navbar {
+  width:calc(100% - 54px)!important;
+  max-width:1570px!important;
+  min-height:76px!important;
+  margin:10px auto 0!important;
+  padding:9px 22px!important;
+  display:grid!important;
+  grid-template-columns: minmax(198px,auto) minmax(0,1fr) auto!important;
+  align-items:center!important;
+  gap:18px!important;
+  background:rgba(255,255,255,.98)!important;
+  border:1px solid #e1ebfa!important;
+  border-radius:20px!important;
+  box-shadow:0 10px 28px rgba(59,101,169,.08)!important;
+  position:relative!important;
+  z-index:22!important;
+}
+html body .ts13-navbar .ts13-brand {display:flex!important;align-items:center!important;justify-content:flex-start!important;gap:12px!important;min-width:0!important;text-decoration:none!important}
+html body .ts13-navbar .ts13-brand img {
+  display:block!important;width:46px!important;height:46px!important;min-width:46px!important;max-width:46px!important;object-fit:contain!important;
+}
+html body .ts13-navbar .ts13-brand .brand-name {
+  display:inline!important;font-size:25px!important;line-height:1.1!important;white-space:nowrap!important;
+  letter-spacing:-.7px!important;font-weight:800!important;color:#10234b!important;
+}
+html body .ts13-navbar .ts13-brand .brand-ai {font-size:inherit!important;color:#1781ff!important}
+html body .ts13-navbar .ts13-links {
+  display:flex!important;align-items:center!important;justify-content:center!important;
+  gap:8px!important;min-width:0!important;flex-wrap:nowrap!important;
+  width:auto!important;margin:0!important;padding:0!important;
+}
+html body .ts13-navbar .ts13-links a {
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  font-size:15px!important;line-height:1.2!important;font-weight:700!important;
+  color:#162b57!important;border-radius:13px!important;text-decoration:none!important;
+  padding:12px 16px!important;min-height:44px!important;width:auto!important;
+  background:transparent!important;border:0!important;white-space:nowrap!important;
+  transition:background .2s ease,color .2s ease!important;
+}
+html body .ts13-navbar .ts13-links a:hover,
+html body .ts13-navbar .ts13-links a.active {background:#eaf3ff!important;color:#1372f1!important}
+html body .ts13-navbar .ts13-actions {
+  display:flex!important;align-items:center!important;justify-content:flex-end!important;gap:12px!important;
+  padding:0!important;min-width:0!important;
+}
+html body .ts13-navbar .ts13-theme {
+  display:grid!important;place-items:center!important;width:44px!important;height:44px!important;
+  min-width:44px!important;min-height:44px!important;padding:0!important;
+  border-radius:50%!important;border:1px solid #e5eefc!important;
+  background:#fff!important;color:#17396f!important;cursor:pointer!important;
+}
+html body .ts13-navbar .ts13-theme svg {display:block!important;width:22px!important;height:22px!important}
+html body .ts13-navbar .ts13-guest-auth{display:flex;align-items:center;gap:12px;min-width:0!important}
+html body .ts13-navbar .ts13-guest-auth .header-auth-btn{
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;
+  height:44px!important;min-height:44px!important;min-width:108px!important;
+  padding:0 20px!important;font-size:15px!important;font-weight:750!important;line-height:1!important;
+  border-radius:12px!important;white-space:nowrap!important;text-decoration:none!important;
+  box-shadow:none!important;transition:transform .18s ease, box-shadow .18s ease!important;
+}
+html body .ts13-navbar .ts13-guest-auth .header-auth-btn.outline{border:1.5px solid #177dff!important;color:#163069!important;background:#fff!important}
+html body .ts13-navbar .ts13-guest-auth .header-auth-btn.solid{border:1.5px solid #1876f5!important;color:#fff!important;background:linear-gradient(110deg,#2f89ff,#146ce9)!important}
+html body .ts13-navbar .ts13-guest-auth .header-auth-btn:hover{transform:translateY(-2px)!important;box-shadow:0 9px 18px rgba(29,116,245,.13)!important}
+html body.guest-mode .ts13-navbar .guest-only{display:flex!important}
+html body.guest-mode .ts13-navbar .auth-only{display:none!important}
+html body:not(.guest-mode) .ts13-navbar .guest-only{display:none!important}
+html body:not(.guest-mode) .ts13-navbar .auth-only{display:flex!important}
+html body .ts13-navbar .ts13-account {position:relative!important;align-items:center!important;width:auto!important;min-width:0!important}
+html body .ts13-navbar .ts13-account .nav-user-trigger{
+  display:flex!important;align-items:center!important;justify-content:center!important;gap:9px!important;
+  width:auto!important;max-width:220px!important;min-width:0!important;min-height:44px!important;height:44px!important;
+  border-radius:14px!important;border:1px solid #cfe0f6!important;background:#fff!important;
+  color:#173161!important;padding:0 14px!important;box-shadow:none!important;text-decoration:none!important;
+  white-space:nowrap!important;font-size:14px!important;font-weight:700!important;
+}
+html body .ts13-navbar .ts13-account .nav-user-trigger svg,
+html body .ts13-navbar .ts13-account .nav-user-trigger svg *{
+  width:20px!important;height:20px!important;max-width:20px!important;max-height:20px!important;
+}
+html body .ts13-navbar .ts13-account .nav-user-trigger svg {flex:none!important;fill:none!important;stroke:currentColor!important;stroke-width:1.8!important}
+html body .ts13-navbar .ts13-account .nav-user-trigger span {display:block!important;max-width:160px!important;overflow:hidden!important;text-overflow:ellipsis!important}
+html body .ts13-navbar .ts13-account .user-dropdown {z-index:1000!important;max-width:min(340px,calc(100vw - 28px))!important}
+html[data-theme] body .index-main {width:calc(100% - 54px)!important;max-width:1570px!important;margin:0 auto!important;padding:0 0 42px!important}
+
+/* Approved open hero: two columns, large product view, no bordered panel. */
+html body .ts13-top-landing {
+  position:relative!important;width:100%!important;max-width:none!important;margin:0 auto!important;
+  overflow:hidden!important;isolation:isolate!important;
+  background:linear-gradient(150deg,#f9fcff 0%,#f4f9ff 38%,#f3f9ff 76%,#f9fcff 100%)!important;
+  border-radius:0 0 26px 26px!important;
+}
+html body .ts13-top-landing::before {
+  content:"";position:absolute;pointer-events:none;inset:-100px -110px 22%;z-index:-1;
+  background:radial-gradient(ellipse at 83% 35%,rgba(192,218,252,.5),transparent 43%),
+             radial-gradient(ellipse at 8% 72%,rgba(204,225,253,.36),transparent 38%);
+}
+html body .ts13-top-landing::after {
+  content:"";position:absolute;pointer-events:none;left:-10%;bottom:18%;width:135%;height:150px;z-index:-1;
+  background:linear-gradient(90deg,rgba(180,216,255,.58),rgba(232,244,255,.43) 54%,rgba(176,211,251,.56));
+  clip-path:polygon(0 35%,10% 62%,23% 97%,35% 100%,51% 72%,62% 50%,78% 48%,100% 82%,100% 100%,0 100%);
+  opacity:.7;
+}
+html body .ts13-hero {
+  display:grid!important;grid-template-columns:minmax(0,.98fr) minmax(0,1.02fr)!important;
+  align-items:center!important;gap:16px!important;
+  width:100%!important;max-width:none!important;
+  margin:0!important;padding:48px 34px 16px!important;
+  background:transparent!important;border:none!important;border-radius:0!important;box-shadow:none!important;
+  text-align:left!important;min-height:510px!important;
+}
+html body .ts13-hero-copy {position:relative;z-index:3;min-width:0;max-width:720px;padding:0 0 15px 4px!important}
+html body .ts13-eyebrow {
+  display:inline-flex!important;align-items:center!important;
+  background:#e1efff!important;border:1px solid #d3e4fc!important;
+  border-radius:999px!important;padding:8px 14px!important;color:#1369d4!important;
+  font-size:12px!important;font-weight:800!important;line-height:1.25!important;letter-spacing:.035em!important;
+  margin:0 0 18px!important;
+}
+html body .ts13-hero h1 {
+  font-size:clamp(40px,3.65vw,58px)!important;line-height:1.11!important;letter-spacing:-1.65px!important;
+  color:#0c2555!important;font-weight:800!important;
+  margin:0!important;padding:0!important;text-align:left!important;max-width:100%!important;
+}
+html body .ts13-hero h1 span {display:block!important;font-size:inherit!important;line-height:inherit!important;color:#1c7af7!important;margin:3px 0 0!important}
+html body .ts13-hero-copy > p {
+  font-size:16px!important;line-height:1.65!important;letter-spacing:0!important;
+  color:#425b83!important;max-width:610px!important;margin:18px 0 0!important;text-align:left!important;
+}
+html body .ts13-hero-buttons {display:flex!important;align-items:center!important;gap:14px!important;margin:24px 0 0!important;flex-wrap:wrap!important}
+html body .ts13-hero .ts13-button {
+  display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:8px!important;
+  min-height:52px!important;min-width:0!important;max-width:100%!important;padding:0 21px!important;
+  border-radius:13px!important;font-size:15px!important;font-weight:750!important;line-height:1.25!important;
+  text-decoration:none!important;white-space:normal!important;transition:transform .2s ease,box-shadow .2s ease!important;
+}
+html body .ts13-hero .ts13-button svg {width:19px!important;height:19px!important;flex:none!important}
+html body .ts13-hero .ts13-button-main {
+  color:#fff!important;background:linear-gradient(105deg,#2e88ff,#0c69ea)!important;
+  border:1px solid #1875f5!important;box-shadow:0 13px 25px rgba(37,116,239,.20)!important;
+}
+html body .ts13-hero .ts13-button-alt {color:#102c5c!important;background:#fff!important;border:1px solid #d7e5f8!important;box-shadow:0 10px 22px rgba(71,112,173,.08)!important}
+html body .ts13-hero .ts13-button:hover {transform:translateY(-2px)!important}
+html body .ts13-highlights {display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:12px!important;margin:28px 0 0!important;max-width:670px!important;align-items:start!important}
+html body .ts13-highlight {display:flex!important;align-items:flex-start!important;gap:9px!important;min-width:0!important}
+html body .ts13-highlight .ts13-hi-icon {display:grid!important;place-items:center!important;color:#167ef9!important;width:32px!important;height:32px!important;flex:none!important}
+html body .ts13-highlight svg {width:27px!important;height:27px!important}
+html body .ts13-highlight strong {display:block!important;margin:0 0 3px!important;font-size:15px!important;line-height:1.3!important;color:#102753!important;font-weight:800!important}
+html body .ts13-highlight small {display:block!important;font-size:11px!important;line-height:1.4!important;color:#627ba1!important}
+html body .ts13-hero-art {min-height:410px!important;height:100%!important;position:relative!important;display:flex!important;align-items:center!important;justify-content:center!important;isolation:isolate!important;overflow:visible!important;min-width:0!important}
+html body .ts13-art-backdrop {position:absolute!important;z-index:-1!important;right:-5%;top:1%;width:100%;height:96%;border-radius:50% 45% 52% 48%;background:radial-gradient(ellipse at 44% 45%,rgba(192,217,252,.58),rgba(224,237,254,.54) 65%,transparent 80%)}
+html body .ts13-laptop-wrap {width:min(100%,820px)!important;position:relative!important;z-index:2!important;transform:scale(1.13)!important;transform-origin:center center!important}
+html body .ts13-laptop-wrap img {display:block!important;width:100%!important;max-width:none!important;height:auto!important;object-fit:contain!important;filter:drop-shadow(0 22px 17px rgba(48,89,152,.10))!important}
+html body .ts13-plant {position:absolute;right:0;bottom:7%;width:88px;height:140px;z-index:1!important}
+html body .ts13-plant i{position:absolute;background:linear-gradient(130deg,#9cdf8d,#3ba56b);width:31px;height:77px;bottom:34px;left:35px;border-radius:100% 0 100% 0;transform-origin:bottom center}
+html body .ts13-plant i:nth-child(1){transform:rotate(-42deg);left:20px;bottom:41px}
+html body .ts13-plant i:nth-child(2){transform:rotate(43deg);left:42px;bottom:44px}
+html body .ts13-plant i:nth-child(3){transform:rotate(-17deg);left:31px;bottom:56px}
+html body .ts13-plant i:nth-child(4){transform:rotate(14deg);left:40px;bottom:66px}
+html body .ts13-plant i:nth-child(5){transform:rotate(75deg);left:48px;bottom:46px}
+html body .ts13-plant span{position:absolute;left:19px;bottom:0;width:65px;height:54px;border-radius:4px 4px 21px 21px;background:linear-gradient(135deg,#fff,#e3ebf4);box-shadow:0 11px 17px rgba(66,98,139,.11)}
+
+/* Why choose — immediately below hero (no surprise translation panel between). */
+html body .ts13-why {margin:0 auto!important;padding:12px 34px 48px!important;background:transparent!important;max-width:none!important}
+html body .ts13-why-heading {text-align:center!important;max-width:940px!important;margin:0 auto 26px!important}
+html body .ts13-why-heading h2 {font-size:clamp(31px,3.2vw,43px)!important;line-height:1.16!important;color:#0b214d!important;font-weight:800!important;margin:0!important;letter-spacing:-.9px!important}
+html body .ts13-why-heading p {font-size:15px!important;line-height:1.55!important;color:#526b94!important;margin:11px 0 0!important}
+html body .ts13-why-grid {display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:17px!important}
+html body .ts13-why-grid article {display:flex!important;align-items:flex-start!important;gap:14px!important;min-width:0!important;min-height:128px!important;
+  background:rgba(255,255,255,.96)!important;border:1px solid #dce7f7!important;border-radius:20px!important;padding:22px 17px!important;
+  box-shadow:var(--ts13-soft-shadow)!important;transition:transform .2s ease,box-shadow .2s ease!important;
+}
+html body .ts13-why-grid article:hover {transform:translateY(-3px)!important;box-shadow:0 18px 33px rgba(52,99,171,.12)!important}
+html body .ts13-feature-icon {width:48px!important;height:48px!important;min-width:48px!important;border-radius:16px!important;background:#eaf3ff!important;color:#1880ff!important;display:grid!important;place-items:center!important}
+html body .ts13-feature-icon svg {width:26px!important;height:26px!important}
+html body .ts13-why-grid h3 {margin:0 0 8px!important;font-size:16px!important;line-height:1.3!important;font-weight:800!important;color:#10234d!important}
+html body .ts13-why-grid p {margin:0!important;font-size:13px!important;line-height:1.55!important;color:#536a93!important}
+
+/* Existing workspace remains below landing, and still uses Gemini / Google Translate. */
+html body .v8-workspace-intro {margin:30px auto 12px!important}
+html body .translation-app {margin-bottom:32px!important}
+
+/* Dark mode uses clear contrast without changing layout. */
+html[data-theme="dark"] body {background:#142031!important;color:#ecf3ff!important}
+html[data-theme="dark"] body .ts13-navbar,
+html[data-theme="dark"] body .ts13-top-landing {background:#17263d!important;border-color:#32496d!important}
+html[data-theme="dark"] body .ts13-hero h1,
+html[data-theme="dark"] body .ts13-why-heading h2,
+html[data-theme="dark"] body .ts13-highlight strong,
+html[data-theme="dark"] body .ts13-why-grid h3,
+html[data-theme="dark"] body .ts13-brand .brand-name {color:#f1f6ff!important}
+html[data-theme="dark"] body .ts13-hero-copy>p,
+html[data-theme="dark"] body .ts13-why-heading p,
+html[data-theme="dark"] body .ts13-why-grid p,
+html[data-theme="dark"] body .ts13-highlight small {color:#c3d2eb!important}
+html[data-theme="dark"] body .ts13-why-grid article {background:#1d314c!important;border-color:#334d70!important}
+html[data-theme="dark"] body .ts13-links a {color:#e3edfc!important}
+html[data-theme="dark"] body .ts13-navbar .ts13-guest-auth .outline {background:#1e3351!important;color:#e3edfc!important}
+html[data-theme="dark"] body .ts13-navbar .ts13-theme {background:#203657!important;color:#e5efff!important;border-color:#395679!important}
+
+/* Responsive: maintain readable scale and avoid horizontal overflow. */
+@media (max-width:1120px) {
+  html[data-theme] body header.navbar.ts13-navbar {width:calc(100% - 30px)!important;padding:12px 16px!important;grid-template-columns:auto 1fr!important;gap:12px!important}
+  html body .ts13-navbar .ts13-actions {grid-column:1 / -1!important;justify-content:center!important}
+  html body .ts13-navbar .ts13-links {justify-content:flex-end!important}
+  html[data-theme] body .index-main {width:calc(100% - 30px)!important}
+  html body .ts13-hero {padding:40px 23px 20px!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;gap:12px!important}
+  html body .ts13-hero h1 {font-size:clamp(37px,4.5vw,52px)!important}
+  html body .ts13-hero-art {min-height:345px!important}
+  html body .ts13-laptop-wrap {transform:scale(1.07)!important}
+  html body .ts13-why {padding:16px 23px 35px!important}
+  html body .ts13-why-grid {grid-template-columns:repeat(2,minmax(0,1fr))!important}
+}
+@media (max-width:740px) {
+  html[data-theme] body header.navbar.ts13-navbar {grid-template-columns:1fr!important;justify-items:center!important;border-radius:17px!important;margin-top:8px!important}
+  html body .ts13-navbar .ts13-brand .brand-name {font-size:22px!important}
+  html body .ts13-navbar .ts13-links {justify-content:center!important;flex-wrap:wrap!important;gap:3px!important}
+  html body .ts13-navbar .ts13-links a {font-size:13px!important;min-height:39px!important;padding:8px 9px!important}
+  html body .ts13-navbar .ts13-actions {justify-content:center!important;grid-column:auto!important;gap:9px!important}
+  html body .ts13-navbar .ts13-guest-auth {gap:9px!important}
+  html body .ts13-navbar .ts13-guest-auth .header-auth-btn {min-width:0!important;padding:0 12px!important;height:42px!important;min-height:42px!important;font-size:13px!important}
+  html body .ts13-navbar .ts13-theme {width:42px!important;height:42px!important;min-width:42px!important;min-height:42px!important}
+  html[data-theme] body .index-main {width:calc(100% - 18px)!important}
+  html body .ts13-hero {grid-template-columns:1fr!important;text-align:left!important;padding:33px 17px 8px!important;min-height:0!important}
+  html body .ts13-hero-copy {padding:0!important}
+  html body .ts13-eyebrow {font-size:10px!important;margin-bottom:16px!important}
+  html body .ts13-hero h1 {font-size:clamp(32px,8.7vw,48px)!important;letter-spacing:-1px!important}
+  html body .ts13-hero-copy>p {font-size:14px!important;margin-top:13px!important;line-height:1.6!important}
+  html body .ts13-hero-buttons {margin-top:22px!important;gap:9px!important}
+  html body .ts13-hero .ts13-button {font-size:13px!important;min-height:46px!important;padding:0 12px!important}
+  html body .ts13-highlights {grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:5px!important;margin-top:23px!important}
+  html body .ts13-highlight {gap:5px!important;flex-direction:column!important}
+  html body .ts13-highlight .ts13-hi-icon {width:29px!important;height:29px!important}
+  html body .ts13-highlight svg {width:24px!important;height:24px!important}
+  html body .ts13-highlight strong {font-size:12px!important}
+  html body .ts13-highlight small {font-size:10px!important}
+  html body .ts13-hero-art {min-height:240px!important;margin:6px 0 0!important}
+  html body .ts13-laptop-wrap {transform:scale(1.04)!important}
+  html body .ts13-plant {transform:scale(.65)!important;transform-origin:right bottom!important;right:-7px;bottom:0}
+  html body .ts13-why {padding:12px 16px 30px!important}
+  html body .ts13-why-heading {margin-bottom:17px!important}
+  html body .ts13-why-heading h2 {font-size:clamp(25px,7vw,34px)!important}
+  html body .ts13-why-heading p {font-size:12px!important}
+  html body .ts13-why-grid {grid-template-columns:1fr!important;gap:11px!important}
+  html body .ts13-why-grid article {min-height:94px!important;padding:15px!important}
+  html body .ts13-why-grid h3 {font-size:15px!important;margin-bottom:5px!important}
+  html body .ts13-why-grid p {font-size:12px!important}
+}
+@media (prefers-reduced-motion: reduce) {html {scroll-behavior:auto!important}html body .ts13-why-grid article,html body .ts13-hero .ts13-button{transition:none!important}}
+/* Offline inline icon support for sections inherited from V10 */
+.v10-step-row .step-icon svg,.v10-example-grid .example-head svg,.v10-cta .v10-cta-icon svg{width:27px;height:27px;display:block;stroke:currentColor}
+.v10-step-row .step-arrow svg,.v10-example-grid strong svg{width:18px;height:18px;display:inline-block;vertical-align:middle;stroke:currentColor;color:#187af9;flex:none}
+.v10-footer-social span{display:grid;place-items:center;width:36px;height:36px;border-radius:50%;background:#fff;border:1px solid #e0eafa;color:#123368}
+.v10-footer-social span svg{width:18px;height:18px;display:block}
+.v10-cta .v7-btn svg{width:16px;height:16px;vertical-align:middle}

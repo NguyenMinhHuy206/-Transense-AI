@@ -1,0 +1,3720 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Thông tin tài khoản - Transense AI</title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+
+        /* =========================================================
+           TRANSENSE AI - PROFILE DASHBOARD
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        :root {
+            --profile-bg: #0a0f1d;
+            --profile-bg-2: #0e1628;
+
+            --profile-card: #111a2d;
+            --profile-card-2: #15213a;
+            --profile-card-3: #192842;
+
+            --profile-border: #253655;
+            --profile-border-light: #31466b;
+
+            --profile-text: #f1f5ff;
+            --profile-muted: #93a4c3;
+            --profile-muted-2: #667896;
+
+            --profile-blue: #4f8cff;
+            --profile-blue-2: #2f6fed;
+            --profile-blue-soft: rgba(79, 140, 255, 0.11);
+
+            --profile-cyan: #38bdf8;
+
+            --profile-green: #2dd4a8;
+            --profile-green-soft: rgba(45, 212, 168, 0.10);
+
+            --profile-red: #fb7185;
+            --profile-red-soft: rgba(251, 113, 133, 0.08);
+
+            --profile-purple: #a78bfa;
+
+            --profile-shadow:
+                0 20px 60px
+                rgba(0, 0, 0, 0.25);
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            min-height: 100vh;
+
+            margin: 0;
+
+            background:
+
+                radial-gradient(
+                    circle at 50% -120px,
+                    rgba(59, 130, 246, 0.16),
+                    transparent 38%
+                ),
+
+                radial-gradient(
+                    circle at 100% 40%,
+                    rgba(56, 189, 248, 0.05),
+                    transparent 28%
+                ),
+
+                var(--profile-bg);
+
+            color:
+                var(--profile-text);
+        }
+
+
+        button,
+        input {
+            font-family: inherit;
+        }
+
+
+        /* =========================================================
+           NAVBAR OVERRIDE
+        ========================================================= */
+
+        .navbar {
+            border:
+                1px solid
+                var(--profile-border) !important;
+
+            background:
+                rgba(12, 18, 32, 0.92) !important;
+
+            box-shadow:
+                0 10px 35px
+                rgba(0, 0, 0, 0.20);
+
+            backdrop-filter:
+                blur(18px);
+        }
+
+
+        .brand-name {
+            color:
+                var(--profile-text) !important;
+        }
+
+
+        .demo-badge {
+            border-color:
+                rgba(79, 140, 255, 0.35) !important;
+
+            background:
+                rgba(79, 140, 255, 0.08) !important;
+
+            color:
+                #9bbcff !important;
+        }
+
+
+        .nav-links a {
+            color:
+                var(--profile-muted) !important;
+        }
+
+
+        .nav-links a:hover {
+            color:
+                var(--profile-text) !important;
+
+            background:
+                rgba(255, 255, 255, 0.04) !important;
+        }
+
+
+        .nav-links a.active {
+            color:
+                #8db5ff !important;
+
+            background:
+                rgba(79, 140, 255, 0.12) !important;
+        }
+
+
+        .nav-links svg,
+        .account-button svg {
+            stroke:
+                currentColor !important;
+        }
+
+
+        .account-button {
+            border:
+                1px solid
+                var(--profile-border-light) !important;
+
+            background:
+                rgba(79, 140, 255, 0.04) !important;
+
+            color:
+                #a8c5ff !important;
+        }
+
+
+        /* =========================================================
+           PAGE
+        ========================================================= */
+
+        .profile-page {
+            width:
+                min(
+                    1240px,
+                    calc(100% - 36px)
+                );
+
+            margin:
+                0 auto;
+
+            padding:
+                58px 0
+                70px;
+        }
+
+
+        /* =========================================================
+           HEADING
+        ========================================================= */
+
+        .profile-heading {
+            display: flex;
+
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 28px;
+        }
+
+
+        .profile-heading-left {
+            max-width: 720px;
+        }
+
+
+        .profile-heading-label {
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin-bottom: 10px;
+
+            color:
+                #70a2ff;
+
+            font-size: 10px;
+            font-weight: 750;
+
+            letter-spacing: 1.8px;
+        }
+
+
+        .profile-heading-label::before {
+            content: "";
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--profile-blue);
+
+            box-shadow:
+                0 0 12px
+                rgba(79, 140, 255, 0.8);
+        }
+
+
+        .profile-heading h1 {
+            margin: 0;
+
+            color:
+                var(--profile-text);
+
+            font-size:
+                clamp(
+                    38px,
+                    5vw,
+                    54px
+                );
+
+            line-height: 1.05;
+
+            letter-spacing: -1.8px;
+        }
+
+
+        .profile-heading p {
+            max-width: 700px;
+
+            margin:
+                13px 0
+                0;
+
+            color:
+                var(--profile-muted);
+
+            font-size: 13px;
+
+            line-height: 1.75;
+        }
+
+
+        .profile-heading-badge {
+            min-height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                0 13px;
+
+            border:
+                1px solid
+                rgba(45, 212, 168, 0.23);
+
+            border-radius: 999px;
+
+            background:
+                rgba(45, 212, 168, 0.07);
+
+            color:
+                var(--profile-green);
+
+            font-size: 9px;
+            font-weight: 650;
+
+            white-space: nowrap;
+        }
+
+
+        .profile-heading-badge span {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--profile-green);
+
+            box-shadow:
+                0 0 9px
+                rgba(45, 212, 168, 0.65);
+        }
+
+
+        /* =========================================================
+           DASHBOARD
+        ========================================================= */
+
+        .profile-dashboard {
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 24px;
+
+            background:
+                linear-gradient(
+                    180deg,
+                    #10192a,
+                    #0e1728
+                );
+
+            box-shadow:
+                var(--profile-shadow);
+        }
+
+
+        /* =========================================================
+           HERO ACCOUNT
+        ========================================================= */
+
+        .profile-hero {
+            position: relative;
+
+            min-height: 170px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            padding:
+                30px;
+
+            overflow: hidden;
+
+            border-bottom:
+                1px solid
+                var(--profile-border);
+
+            background:
+
+                linear-gradient(
+                    100deg,
+                    rgba(79, 140, 255, 0.12),
+                    transparent 45%
+                ),
+
+                linear-gradient(
+                    180deg,
+                    #15203a,
+                    #111a2d
+                );
+        }
+
+
+        .profile-hero::before {
+            content: "";
+
+            position: absolute;
+
+            width: 340px;
+            height: 340px;
+
+            top: -210px;
+            right: -60px;
+
+            border:
+                1px solid
+                rgba(79, 140, 255, 0.12);
+
+            border-radius: 50%;
+
+            background:
+                rgba(79, 140, 255, 0.035);
+        }
+
+
+        .profile-hero::after {
+            content: "";
+
+            position: absolute;
+
+            width: 220px;
+            height: 220px;
+
+            top: -125px;
+            right: 35px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(56, 189, 248, 0.035);
+        }
+
+
+        .profile-user {
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 20px;
+
+            min-width: 0;
+        }
+
+
+        .profile-avatar {
+            position: relative;
+
+            width: 82px;
+            height: 82px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border:
+                1px solid
+                rgba(79, 140, 255, 0.35);
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(79, 140, 255, 0.23),
+                    rgba(56, 189, 248, 0.06)
+                );
+
+            color:
+                #8db5ff;
+
+            font-size: 27px;
+            font-weight: 800;
+
+            box-shadow:
+                0 15px 45px
+                rgba(0, 0, 0, 0.24);
+        }
+
+
+        .profile-avatar::after {
+            content: "";
+
+            position: absolute;
+
+            right: -3px;
+            bottom: -3px;
+
+            width: 18px;
+            height: 18px;
+
+            border:
+                4px solid
+                #142039;
+
+            border-radius: 50%;
+
+            background:
+                var(--profile-green);
+        }
+
+
+        .profile-user-name {
+            color:
+                var(--profile-text);
+
+            font-size: 23px;
+            font-weight: 780;
+
+            line-height: 1.2;
+        }
+
+
+        .profile-user-email {
+            margin-top: 6px;
+
+            color:
+                var(--profile-muted);
+
+            font-size: 11px;
+        }
+
+
+        .profile-user-meta {
+            display: flex;
+
+            align-items: center;
+
+            flex-wrap: wrap;
+
+            gap: 8px;
+
+            margin-top: 13px;
+        }
+
+
+        .profile-chip {
+            min-height: 28px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 6px;
+
+            padding:
+                0 10px;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 999px;
+
+            background:
+                rgba(255, 255, 255, 0.025);
+
+            color:
+                var(--profile-muted);
+
+            font-size: 8px;
+        }
+
+
+        .profile-chip svg {
+            width: 12px;
+            height: 12px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+        }
+
+
+        .profile-actions {
+            position: relative;
+
+            z-index: 2;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: flex-end;
+
+            gap: 11px;
+        }
+
+
+        .profile-status {
+            min-height: 35px;
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding:
+                0 12px;
+
+            border:
+                1px solid
+                rgba(45, 212, 168, 0.20);
+
+            border-radius: 999px;
+
+            background:
+                var(--profile-green-soft);
+
+            color:
+                var(--profile-green);
+
+            font-size: 9px;
+            font-weight: 650;
+        }
+
+
+        .profile-status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--profile-green);
+        }
+
+
+        .edit-button {
+            min-height: 39px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding:
+                0 14px;
+
+            border:
+                1px solid
+                var(--profile-border-light);
+
+            border-radius: 10px;
+
+            background:
+                rgba(255, 255, 255, 0.035);
+
+            color:
+                var(--profile-text);
+
+            font-size: 9px;
+            font-weight: 650;
+
+            cursor: pointer;
+
+            transition:
+                .18s ease;
+        }
+
+
+        .edit-button:hover {
+            transform:
+                translateY(-1px);
+
+            border-color:
+                var(--profile-blue);
+
+            background:
+                var(--profile-blue-soft);
+
+            color:
+                #9bbcff;
+        }
+
+
+        .edit-button svg {
+            width: 13px;
+            height: 13px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+        }
+
+
+        /* =========================================================
+           DASHBOARD CONTENT
+        ========================================================= */
+
+        .profile-body {
+            padding:
+                20px;
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .profile-stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+
+            gap: 13px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .stat-card {
+            position: relative;
+
+            min-height: 128px;
+
+            display: flex;
+
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding:
+                16px;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 15px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #15213a,
+                    #111a2d
+                );
+
+            transition:
+                transform .18s ease,
+                border-color .18s ease;
+        }
+
+
+        .stat-card:hover {
+            transform:
+                translateY(-2px);
+
+            border-color:
+                var(--profile-border-light);
+        }
+
+
+        .stat-card::after {
+            content: "";
+
+            position: absolute;
+
+            width: 90px;
+            height: 90px;
+
+            right: -45px;
+            top: -45px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(79, 140, 255, 0.055);
+        }
+
+
+        .stat-top {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 10px;
+        }
+
+
+        .stat-icon {
+            width: 38px;
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                rgba(79, 140, 255, 0.20);
+
+            border-radius: 10px;
+
+            background:
+                rgba(79, 140, 255, 0.08);
+
+            color:
+                #79a8ff;
+        }
+
+
+        .stat-icon.green {
+            border-color:
+                rgba(45, 212, 168, 0.18);
+
+            background:
+                rgba(45, 212, 168, 0.07);
+
+            color:
+                var(--profile-green);
+        }
+
+
+        .stat-icon.purple {
+            border-color:
+                rgba(167, 139, 250, 0.18);
+
+            background:
+                rgba(167, 139, 250, 0.07);
+
+            color:
+                var(--profile-purple);
+        }
+
+
+        .stat-icon.cyan {
+            border-color:
+                rgba(56, 189, 248, 0.18);
+
+            background:
+                rgba(56, 189, 248, 0.07);
+
+            color:
+                var(--profile-cyan);
+        }
+
+
+        .stat-icon svg {
+            width: 17px;
+            height: 17px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        .stat-label {
+            color:
+                var(--profile-muted-2);
+
+            font-size: 7px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+
+        .stat-value {
+            margin-top: 16px;
+
+            color:
+                var(--profile-text);
+
+            font-size: 22px;
+            font-weight: 780;
+
+            line-height: 1.1;
+        }
+
+
+        .stat-description {
+            margin-top: 5px;
+
+            color:
+                var(--profile-muted);
+
+            font-size: 8px;
+        }
+
+
+        /* =========================================================
+           MAIN GRID
+        ========================================================= */
+
+        .profile-main-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.5fr)
+                minmax(300px, .8fr);
+
+            gap: 14px;
+        }
+
+
+        .dashboard-card {
+            position: relative;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 16px;
+
+            background:
+                var(--profile-card);
+        }
+
+
+        .dashboard-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 180px;
+            height: 180px;
+
+            top: -92px;
+            right: -92px;
+
+            border-radius: 50%;
+
+            background:
+                rgba(79, 140, 255, 0.04);
+
+            pointer-events: none;
+        }
+
+
+        .dashboard-header {
+            min-height: 70px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding:
+                0 18px;
+
+            border-bottom:
+                1px solid
+                var(--profile-border);
+
+            background:
+                rgba(255, 255, 255, 0.015);
+        }
+
+
+        .dashboard-label {
+            margin-bottom: 5px;
+
+            color:
+                #7191c7;
+
+            font-size: 7px;
+            font-weight: 700;
+
+            letter-spacing: 1.3px;
+        }
+
+
+        .dashboard-title {
+            margin: 0;
+
+            color:
+                var(--profile-text);
+
+            font-size: 15px;
+            font-weight: 720;
+        }
+
+
+        .dashboard-link {
+            color:
+                #75a6ff;
+
+            font-size: 8px;
+            font-weight: 650;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           INFORMATION
+        ========================================================= */
+
+        .info-list {
+            padding:
+                5px 18px;
+        }
+
+
+        .info-row {
+            min-height: 62px;
+
+            display: grid;
+
+            grid-template-columns:
+                175px
+                minmax(0, 1fr);
+
+            align-items: center;
+
+            gap: 18px;
+
+            border-bottom:
+                1px solid
+                var(--profile-border);
+        }
+
+
+        .info-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .info-label {
+            color:
+                var(--profile-muted);
+
+            font-size: 9px;
+        }
+
+
+        .info-value {
+            color:
+                var(--profile-text);
+
+            font-size: 10px;
+            font-weight: 650;
+        }
+
+
+        .info-value.active {
+            display: flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            color:
+                var(--profile-green);
+        }
+
+
+        .info-value.active::before {
+            content: "";
+
+            width: 6px;
+            height: 6px;
+
+            border-radius: 50%;
+
+            background:
+                var(--profile-green);
+        }
+
+
+        /* =========================================================
+           RECENT ACTIVITY
+        ========================================================= */
+
+        .recent-list {
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 9px;
+
+            padding:
+                14px;
+        }
+
+
+        .recent-item {
+            display: flex;
+
+            align-items: center;
+
+            gap: 11px;
+
+            padding:
+                11px;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 11px;
+
+            background:
+                var(--profile-card-2);
+
+            transition:
+                border-color .18s ease;
+        }
+
+
+        .recent-item:hover {
+            border-color:
+                var(--profile-border-light);
+        }
+
+
+        .recent-icon {
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border:
+                1px solid
+                rgba(79, 140, 255, 0.17);
+
+            border-radius: 9px;
+
+            background:
+                rgba(79, 140, 255, 0.07);
+
+            color:
+                #79a8ff;
+        }
+
+
+        .recent-icon svg {
+            width: 15px;
+            height: 15px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+        }
+
+
+        .recent-text {
+            min-width: 0;
+
+            flex: 1;
+        }
+
+
+        .recent-title {
+            overflow: hidden;
+
+            color:
+                var(--profile-text);
+
+            font-size: 9px;
+            font-weight: 650;
+
+            white-space: nowrap;
+
+            text-overflow: ellipsis;
+        }
+
+
+        .recent-date {
+            overflow: hidden;
+
+            margin-top: 4px;
+
+            color:
+                var(--profile-muted-2);
+
+            font-size: 7px;
+
+            white-space: nowrap;
+
+            text-overflow: ellipsis;
+        }
+
+
+        .recent-empty {
+            padding:
+                35px 15px;
+
+            color:
+                var(--profile-muted);
+
+            font-size: 9px;
+
+            line-height: 1.7;
+
+            text-align: center;
+        }
+
+
+        /* =========================================================
+           BOTTOM GRID
+        ========================================================= */
+
+        .profile-bottom-grid {
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1.25fr)
+                minmax(300px, .75fr);
+
+            gap: 14px;
+
+            margin-top: 14px;
+        }
+
+
+        /* =========================================================
+           QUICK ACTIONS
+        ========================================================= */
+
+        .quick-actions {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 10px;
+
+            padding:
+                14px;
+        }
+
+
+        .quick-action {
+            min-height: 78px;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+            padding:
+                13px;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 11px;
+
+            background:
+                var(--profile-card-2);
+
+            color:
+                var(--profile-text);
+
+            text-decoration: none;
+
+            cursor: pointer;
+
+            transition:
+                transform .18s ease,
+                border-color .18s ease,
+                background .18s ease;
+        }
+
+
+        button.quick-action {
+            width: 100%;
+
+            font-family: inherit;
+
+            text-align: left;
+        }
+
+
+        .quick-action:hover {
+            transform:
+                translateY(-1px);
+
+            border-color:
+                rgba(79, 140, 255, 0.45);
+
+            background:
+                #182743;
+        }
+
+
+        .quick-action-icon {
+            width: 39px;
+            height: 39px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border:
+                1px solid
+                rgba(79, 140, 255, 0.19);
+
+            border-radius: 10px;
+
+            background:
+                rgba(79, 140, 255, 0.075);
+
+            color:
+                #80acff;
+        }
+
+
+        .quick-action-icon svg {
+            width: 16px;
+            height: 16px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+        }
+
+
+        .quick-action strong {
+            display: block;
+
+            margin-bottom: 4px;
+
+            color:
+                var(--profile-text);
+
+            font-size: 9px;
+        }
+
+
+        .quick-action span {
+            color:
+                var(--profile-muted);
+
+            font-size: 7px;
+
+            line-height: 1.5;
+        }
+
+
+        /* =========================================================
+           SYSTEM
+        ========================================================= */
+
+        .system-list {
+            padding:
+                6px 17px;
+        }
+
+
+        .system-row {
+            min-height: 51px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            border-bottom:
+                1px solid
+                var(--profile-border);
+        }
+
+
+        .system-row:last-child {
+            border-bottom: none;
+        }
+
+
+        .system-row span {
+            color:
+                var(--profile-muted);
+
+            font-size: 9px;
+        }
+
+
+        .system-row strong {
+            color:
+                var(--profile-text);
+
+            font-size: 9px;
+            font-weight: 650;
+        }
+
+
+        .system-row strong.green {
+            color:
+                var(--profile-green);
+        }
+
+
+        .system-row strong.blue {
+            color:
+                #79a8ff;
+        }
+
+
+        /* =========================================================
+           LOGOUT
+        ========================================================= */
+
+        .danger-zone {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-top: 14px;
+
+            padding:
+                16px 18px;
+
+            border:
+                1px solid
+                rgba(251, 113, 133, 0.17);
+
+            border-radius: 14px;
+
+            background:
+                rgba(251, 113, 133, 0.035);
+        }
+
+
+        .danger-title {
+            margin-bottom: 4px;
+
+            color:
+                var(--profile-text);
+
+            font-size: 10px;
+            font-weight: 650;
+        }
+
+
+        .danger-description {
+            color:
+                var(--profile-muted);
+
+            font-size: 8px;
+        }
+
+
+        .logout-button {
+            min-height: 39px;
+
+            display: inline-flex;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 7px;
+
+            padding:
+                0 14px;
+
+            border:
+                1px solid
+                rgba(251, 113, 133, 0.28);
+
+            border-radius: 9px;
+
+            background:
+                rgba(251, 113, 133, 0.06);
+
+            color:
+                var(--profile-red);
+
+            font-size: 9px;
+            font-weight: 650;
+
+            white-space: nowrap;
+
+            cursor: pointer;
+        }
+
+
+        .logout-button:hover {
+            border-color:
+                var(--profile-red);
+
+            background:
+                rgba(251, 113, 133, 0.10);
+        }
+
+
+        .logout-button svg {
+            width: 14px;
+            height: 14px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        .footer {
+            border-top:
+                1px solid
+                var(--profile-border) !important;
+
+            color:
+                var(--profile-muted-2) !important;
+        }
+
+
+        .footer strong {
+            color:
+                var(--profile-muted) !important;
+        }
+
+
+        /* =========================================================
+           MODAL
+        ========================================================= */
+
+        .profile-modal {
+            position: fixed;
+
+            inset: 0;
+
+            z-index: 99999;
+
+            display: none;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 18px;
+
+            background:
+                rgba(2, 6, 15, 0.78);
+
+            backdrop-filter:
+                blur(9px);
+        }
+
+
+        .profile-modal.show {
+            display: flex;
+        }
+
+
+        .modal-card {
+            width:
+                min(
+                    470px,
+                    100%
+                );
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--profile-border-light);
+
+            border-radius: 18px;
+
+            background:
+                #10192b;
+
+            box-shadow:
+                0 30px 90px
+                rgba(0, 0, 0, .55);
+        }
+
+
+        .modal-header {
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding:
+                18px 20px;
+
+            border-bottom:
+                1px solid
+                var(--profile-border);
+        }
+
+
+        .modal-header h2 {
+            margin: 0;
+
+            color:
+                var(--profile-text);
+
+            font-size: 16px;
+        }
+
+
+        .modal-close {
+            width: 34px;
+            height: 34px;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 9px;
+
+            background:
+                var(--profile-card-2);
+
+            color:
+                var(--profile-muted);
+
+            font-size: 18px;
+
+            cursor: pointer;
+        }
+
+
+        .modal-body {
+            padding:
+                20px;
+        }
+
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+
+        .form-group label {
+            display: block;
+
+            margin-bottom: 7px;
+
+            color:
+                var(--profile-text);
+
+            font-size: 9px;
+            font-weight: 650;
+        }
+
+
+        .form-group input {
+            width: 100%;
+            height: 47px;
+
+            padding:
+                0 13px;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 10px;
+
+            outline: none;
+
+            background:
+                var(--profile-card-2);
+
+            color:
+                var(--profile-text);
+
+            font-size: 11px;
+        }
+
+
+        .form-group input:focus {
+            border-color:
+                var(--profile-blue);
+
+            box-shadow:
+                0 0 0 3px
+                rgba(79, 140, 255, 0.08);
+        }
+
+
+        .modal-note {
+            color:
+                var(--profile-muted-2);
+
+            font-size: 8px;
+
+            line-height: 1.6;
+        }
+
+
+        .modal-actions {
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr;
+
+            gap: 9px;
+
+            margin-top: 20px;
+        }
+
+
+        .modal-btn {
+            min-height: 43px;
+
+            border:
+                1px solid
+                var(--profile-border);
+
+            border-radius: 10px;
+
+            background:
+                var(--profile-card-2);
+
+            color:
+                var(--profile-text);
+
+            font-size: 9px;
+            font-weight: 650;
+
+            cursor: pointer;
+        }
+
+
+        .modal-btn.primary {
+            border-color:
+                var(--profile-blue-2);
+
+            background:
+                var(--profile-blue-2);
+
+            color: white;
+        }
+
+
+        /* =========================================================
+           TOAST
+        ========================================================= */
+
+        .profile-toast {
+            position: fixed;
+
+            right: 22px;
+            bottom: 22px;
+
+            z-index: 100000;
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                12px 14px;
+
+            border:
+                1px solid
+                var(--profile-border-light);
+
+            border-radius: 11px;
+
+            background:
+                #121d32;
+
+            color:
+                var(--profile-text);
+
+            font-size: 9px;
+
+            box-shadow:
+                var(--profile-shadow);
+
+            opacity: 0;
+
+            transform:
+                translateY(15px);
+
+            pointer-events: none;
+
+            transition:
+                .2s ease;
+        }
+
+
+        .profile-toast.show {
+            opacity: 1;
+
+            transform:
+                translateY(0);
+        }
+
+
+        .toast-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--profile-green);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+
+
+        /* =========================================================
+           LIGHT THEME OVERRIDES FOR PROFILE PAGE
+        ========================================================= */
+
+        html[data-theme="light"] body {
+            background:
+                radial-gradient(
+                    circle at 50% -120px,
+                    rgba(59, 130, 246, 0.10),
+                    transparent 40%
+                ),
+                radial-gradient(
+                    circle at 100% 28%,
+                    rgba(56, 189, 248, 0.06),
+                    transparent 24%
+                ),
+                #f4f7fc;
+
+            color: #172033;
+        }
+
+
+        html[data-theme="light"] .navbar {
+            border-color: rgba(148, 163, 184, 0.28) !important;
+            background: rgba(255, 255, 255, 0.92) !important;
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+        }
+
+
+        html[data-theme="light"] .brand-name {
+            color: #172033 !important;
+        }
+
+
+        html[data-theme="light"] .demo-badge {
+            border-color: rgba(59, 130, 246, 0.22) !important;
+            background: rgba(59, 130, 246, 0.08) !important;
+            color: #2563eb !important;
+        }
+
+
+        html[data-theme="light"] .nav-links a {
+            color: #516074 !important;
+        }
+
+
+        html[data-theme="light"] .nav-links a:hover {
+            color: #172033 !important;
+            background: rgba(59, 130, 246, 0.06) !important;
+        }
+
+
+        html[data-theme="light"] .account-button {
+            border-color: rgba(59, 130, 246, 0.26) !important;
+            background: rgba(255, 255, 255, 0.88) !important;
+            color: #1e3a8a !important;
+        }
+
+
+        html[data-theme="light"] .profile-heading-badge {
+            border-color: rgba(16, 185, 129, 0.18);
+            background: rgba(16, 185, 129, 0.08);
+            color: #059669;
+        }
+
+
+        html[data-theme="light"] .profile-dashboard {
+            border-color: rgba(148, 163, 184, 0.24);
+            background:
+                linear-gradient(
+                    180deg,
+                    #ffffff,
+                    #f8fbff
+                );
+            box-shadow: 0 20px 50px rgba(15, 23, 42, 0.08);
+        }
+
+
+        html[data-theme="light"] .profile-hero {
+            border-bottom-color: rgba(148, 163, 184, 0.22);
+            background:
+                linear-gradient(
+                    100deg,
+                    rgba(59, 130, 246, 0.10),
+                    transparent 45%
+                ),
+                linear-gradient(
+                    180deg,
+                    #f4f8ff,
+                    #eef4ff
+                );
+        }
+
+
+        html[data-theme="light"] .profile-hero::before {
+            border-color: rgba(59, 130, 246, 0.10);
+            background: rgba(59, 130, 246, 0.04);
+        }
+
+
+        html[data-theme="light"] .profile-hero::after {
+            background: rgba(14, 165, 233, 0.06);
+            box-shadow: 0 0 0 70px rgba(59, 130, 246, 0.035);
+        }
+
+
+        html[data-theme="light"] .profile-avatar {
+            border-color: rgba(59, 130, 246, 0.26);
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(59, 130, 246, 0.18),
+                    rgba(14, 165, 233, 0.08)
+                );
+            color: #2563eb;
+            box-shadow: 0 18px 40px rgba(59, 130, 246, 0.12);
+        }
+
+
+        html[data-theme="light"] .profile-user-name,
+        html[data-theme="light"] .stat-value,
+        html[data-theme="light"] .dashboard-title,
+        html[data-theme="light"] .info-value,
+        html[data-theme="light"] .recent-title,
+        html[data-theme="light"] .system-row strong,
+        html[data-theme="light"] .danger-title,
+        html[data-theme="light"] .modal-header h2,
+        html[data-theme="light"] .form-group label,
+        html[data-theme="light"] .modal-btn,
+        html[data-theme="light"] .edit-button {
+            color: #172033;
+        }
+
+
+        html[data-theme="light"] .profile-user-email,
+        html[data-theme="light"] .profile-heading p,
+        html[data-theme="light"] .stat-description,
+        html[data-theme="light"] .info-label,
+        html[data-theme="light"] .recent-empty,
+        html[data-theme="light"] .recent-date,
+        html[data-theme="light"] .quick-action span,
+        html[data-theme="light"] .system-row span,
+        html[data-theme="light"] .danger-description,
+        html[data-theme="light"] .modal-note {
+            color: #5c6b80;
+        }
+
+
+        html[data-theme="light"] .profile-chip {
+            border-color: rgba(148, 163, 184, 0.22);
+            background: rgba(255, 255, 255, 0.74);
+            color: #47607f;
+        }
+
+
+        html[data-theme="light"] .profile-status {
+            border-color: rgba(16, 185, 129, 0.18);
+            background: rgba(16, 185, 129, 0.08);
+            color: #059669;
+        }
+
+
+        html[data-theme="light"] .edit-button {
+            border-color: rgba(148, 163, 184, 0.24);
+            background: rgba(255, 255, 255, 0.82);
+        }
+
+
+        html[data-theme="light"] .edit-button:hover {
+            border-color: rgba(59, 130, 246, 0.38);
+            background: rgba(59, 130, 246, 0.08);
+            color: #1d4ed8;
+        }
+
+
+        html[data-theme="light"] .stat-card,
+        html[data-theme="light"] .dashboard-card,
+        html[data-theme="light"] .recent-item,
+        html[data-theme="light"] .quick-action,
+        html[data-theme="light"] .modal-card,
+        html[data-theme="light"] .profile-toast {
+            border-color: rgba(148, 163, 184, 0.22);
+            background: linear-gradient(180deg, #ffffff, #fbfdff);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+        }
+
+
+        html[data-theme="light"] .stat-card {
+            background:
+                radial-gradient(circle at top right, rgba(59,130,246,0.08), transparent 28%),
+                linear-gradient(145deg, #ffffff, #f7faff);
+        }
+
+
+        html[data-theme="light"] .stat-card::after {
+            background: rgba(59, 130, 246, 0.05);
+        }
+
+        html[data-theme="light"] .dashboard-card::before {
+            background: rgba(59, 130, 246, 0.06);
+        }
+
+        html[data-theme="light"] .dashboard-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(59,130,246,0.025), transparent 120px);
+            pointer-events: none;
+        }
+
+
+        html[data-theme="light"] .dashboard-header,
+        html[data-theme="light"] .info-row,
+        html[data-theme="light"] .system-row,
+        html[data-theme="light"] .modal-header,
+        html[data-theme="light"] .footer {
+            border-color: rgba(148, 163, 184, 0.22) !important;
+        }
+
+
+        html[data-theme="light"] .dashboard-header {
+            background: linear-gradient(180deg, rgba(59, 130, 246, 0.06), rgba(59, 130, 246, 0.03));
+        }
+
+
+        html[data-theme="light"] .dashboard-label,
+        html[data-theme="light"] .stat-label {
+            color: #5f7aa3;
+        }
+
+
+        html[data-theme="light"] .dashboard-link {
+            color: #2563eb;
+        }
+
+
+        html[data-theme="light"] .recent-item:hover,
+        html[data-theme="light"] .quick-action:hover,
+        html[data-theme="light"] .stat-card:hover {
+            border-color: rgba(59, 130, 246, 0.32);
+        }
+
+
+        html[data-theme="light"] .recent-icon,
+        html[data-theme="light"] .quick-action-icon,
+        html[data-theme="light"] .stat-icon {
+            border-color: rgba(59, 130, 246, 0.18);
+            background: rgba(59, 130, 246, 0.08);
+            color: #2563eb;
+        }
+
+
+        html[data-theme="light"] .stat-icon.green {
+            border-color: rgba(16, 185, 129, 0.18);
+            background: rgba(16, 185, 129, 0.08);
+            color: #059669;
+        }
+
+
+        html[data-theme="light"] .stat-icon.cyan {
+            border-color: rgba(14, 165, 233, 0.18);
+            background: rgba(14, 165, 233, 0.08);
+            color: #0284c7;
+        }
+
+
+        html[data-theme="light"] .stat-icon.purple {
+            border-color: rgba(139, 92, 246, 0.18);
+            background: rgba(139, 92, 246, 0.08);
+            color: #7c3aed;
+        }
+
+
+        html[data-theme="light"] .form-group input {
+            border-color: rgba(148, 163, 184, 0.26);
+            background: #ffffff;
+            color: #172033;
+        }
+
+
+        html[data-theme="light"] .modal-close {
+            border-color: rgba(148, 163, 184, 0.22);
+            background: #f8fbff;
+            color: #55657a;
+        }
+
+
+        html[data-theme="light"] .modal-btn {
+            border-color: rgba(148, 163, 184, 0.22);
+            background: #f8fbff;
+        }
+
+
+        html[data-theme="light"] .modal-btn.primary {
+            border-color: #2563eb;
+            background: #2563eb;
+            color: #ffffff;
+        }
+
+
+        html[data-theme="light"] .profile-toast {
+            background: #ffffff;
+            color: #172033;
+        }
+
+
+        html[data-theme="light"] .footer {
+            color: #657488 !important;
+        }
+
+
+        html[data-theme="light"] .footer strong {
+            color: #1b2940 !important;
+        }
+
+
+        @media
+        (max-width: 980px) {
+
+            .profile-stats {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+
+            .profile-main-grid,
+            .profile-bottom-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+
+        @media
+        (max-width: 720px) {
+
+            .profile-page {
+                width:
+                    calc(100% - 20px);
+
+                padding:
+                    34px 0
+                    50px;
+            }
+
+
+            .profile-heading {
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+                gap: 15px;
+            }
+
+
+            .profile-heading h1 {
+                font-size:
+                    34px;
+            }
+
+
+            .profile-hero {
+                align-items:
+                    flex-start;
+
+                flex-direction:
+                    column;
+
+                padding:
+                    22px;
+            }
+
+
+            .profile-actions {
+                width: 100%;
+
+                align-items:
+                    stretch;
+            }
+
+
+            .profile-status,
+            .edit-button {
+                width: 100%;
+
+                justify-content:
+                    center;
+            }
+
+
+            .profile-body {
+                padding:
+                    12px;
+            }
+
+
+            .profile-stats {
+                gap: 9px;
+            }
+
+
+            .info-row {
+                grid-template-columns:
+                    1fr;
+
+                gap: 6px;
+
+                padding:
+                    13px 0;
+            }
+
+
+            .quick-actions {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .danger-zone {
+                align-items:
+                    stretch;
+
+                flex-direction:
+                    column;
+            }
+
+
+            .logout-button {
+                width: 100%;
+            }
+
+        }
+
+
+        @media
+        (max-width: 480px) {
+
+            .profile-stats {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .profile-user {
+                align-items:
+                    flex-start;
+            }
+
+
+            .profile-avatar {
+                width: 60px;
+                height: 60px;
+
+                border-radius: 16px;
+
+                font-size: 20px;
+            }
+
+
+            .profile-user-name {
+                font-size:
+                    18px;
+            }
+
+
+            .modal-actions {
+                grid-template-columns:
+                    1fr;
+            }
+
+        }
+
+    
+        /* Profile inline styles must honor the shared tab accent. */
+        html[data-theme] .navbar .nav-links a.nav-page,
+        html[data-theme] .navbar .nav-links a.nav-page:hover,
+        html[data-theme] .navbar .nav-links a.nav-page.active {
+            color:var(--nav-accent) !important;
+            background:transparent !important;
+        }
+
+    
+/* ===== LIGHT PROFILE: STRONGER BLUE ACCENTS ===== */
+html[data-theme="light"] .profile-dashboard {
+  border-color: #c2d5f3 !important;
+  box-shadow: 0 22px 55px rgba(35, 88, 170, .10) !important;
+}
+html[data-theme="light"] .profile-hero {
+  background:
+    radial-gradient(circle at 91% 4%, rgba(44, 112, 238, .18), transparent 35%),
+    linear-gradient(110deg, rgba(42, 111, 234, .15), rgba(123, 176, 255, .12) 45%, rgba(66, 132, 239, .10)),
+    linear-gradient(180deg, #eaf2ff, #e2edff) !important;
+  border-bottom: 1px solid #c4d7f5 !important;
+}
+html[data-theme="light"] .profile-hero::before {
+  border-color: rgba(37, 99, 235, .23) !important;
+  background: rgba(37, 99, 235, .075) !important;
+}
+html[data-theme="light"] .profile-hero::after {
+  background: rgba(37, 99, 235, .085) !important;
+  box-shadow: 0 0 0 70px rgba(37, 99, 235, .045) !important;
+}
+html[data-theme="light"] .profile-avatar {
+  background: linear-gradient(145deg, #c0d8ff, #d7e9ff) !important;
+  border-color: #80adf5 !important;
+  color: #1d4ed8 !important;
+}
+html[data-theme="light"] .stat-card {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(51, 112, 228, .14), transparent 35%),
+    linear-gradient(145deg, #ffffff, #eff5ff) !important;
+  border-color: #c7d8f2 !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, .065) !important;
+}
+html[data-theme="light"] .stat-card::after {
+  background: rgba(37, 99, 235, .115) !important;
+}
+html[data-theme="light"] .stat-icon:not(.green):not(.purple):not(.cyan) {
+  background: #e0ebff !important;
+  border-color: #b7cff9 !important;
+  color: #2563eb !important;
+}
+html[data-theme="light"] .dashboard-card {
+  border-color: #c9d9f0 !important;
+  box-shadow: 0 10px 28px rgba(37, 99, 235, .055) !important;
+}
+html[data-theme="light"] .dashboard-card::before {
+  background: rgba(37, 99, 235, .11) !important;
+}
+html[data-theme="light"] .dashboard-card::after {
+  background: linear-gradient(180deg, rgba(37, 99, 235, .06), transparent 135px) !important;
+}
+html[data-theme="light"] .dashboard-header {
+  background: linear-gradient(120deg, #e8f1ff, #f2f7ff) !important;
+  border-color: #c9d9f0 !important;
+}
+html[data-theme="light"] .dashboard-label,
+html[data-theme="light"] .stat-label {
+  color: #285ab0 !important;
+}
+
+
+/* Responsive fixes */
+
+@media(max-width:760px){
+ .profile-page{width:calc(100% - 20px)!important;}
+ .profile-dashboard,.profile-body,.profile-hero{min-width:0;max-width:100%;}
+ .profile-user{min-width:0;max-width:100%;}
+ .profile-user-name,.profile-user-email{overflow-wrap:anywhere;}
+ .profile-stats{grid-template-columns:repeat(2,minmax(0,1fr))!important;}
+ .profile-main-grid{grid-template-columns:minmax(0,1fr)!important;}
+ .dashboard-card{min-width:0;}
+ .info-row{grid-template-columns:minmax(0,1fr)!important;gap:6px;}
+ .stat-card{min-width:0;padding:12px;}
+}
+@media(max-width:390px){.profile-stats{grid-template-columns:minmax(0,1fr)!important;}}
+
+
+/* PROFILE COLOR HARMONY — dark mode only.
+   Match the neutral charcoal panels on Translation / History / About. */
+html:not([data-theme="light"]) {
+    --profile-bg: #1b1f25;
+    --profile-bg-2: #20252c;
+    --profile-card: #242930;
+    --profile-card-2: #272d35;
+    --profile-card-3: #2b323b;
+    --profile-border: #3b4654;
+    --profile-border-light: #526175;
+    --profile-text: #f2f5fa;
+    --profile-muted: #b1bdcf;
+    --profile-muted-2: #8594aa;
+    --profile-blue-soft: rgba(79,140,255,.11);
+    --profile-shadow: 0 18px 48px rgba(0,0,0,.16);
+}
+html:not([data-theme="light"]) body {
+    background: radial-gradient(circle at 52% -16%,rgba(75,113,173,.11),transparent 45%), #1b1f25 !important;
+    color: var(--profile-text);
+}
+html:not([data-theme="light"]) .profile-dashboard {
+    border-color: var(--profile-border);
+    background: linear-gradient(180deg,#232830,#20252c) !important;
+    box-shadow: 0 18px 48px rgba(0,0,0,.14);
+}
+html:not([data-theme="light"]) .profile-hero {
+    background: radial-gradient(circle at 92% -8%,rgba(79,140,255,.13),transparent 35%),linear-gradient(118deg,#28354a 0%,#252c37 53%,#222831 100%) !important;
+    border-bottom-color: var(--profile-border);
+}
+html:not([data-theme="light"]) .profile-hero::before {
+    border-color:rgba(116,162,236,.16);background:rgba(79,140,255,.035);
+}
+html:not([data-theme="light"]) .profile-hero::after { background:rgba(56,189,248,.03); }
+html:not([data-theme="light"]) .profile-body { background:#21262d; }
+html:not([data-theme="light"]) .stat-card {
+    background:radial-gradient(circle at right top,rgba(79,140,255,.08),transparent 42%),linear-gradient(145deg,#292f38,#252b33) !important;
+    border-color:#414c5b;
+}
+html:not([data-theme="light"]) .stat-card::after { background:rgba(79,140,255,.055); }
+html:not([data-theme="light"]) .dashboard-card {
+    background:#272c34 !important;
+    border-color:#404b59;
+}
+html:not([data-theme="light"]) .dashboard-header {
+    background:linear-gradient(115deg,rgba(84,121,181,.08),rgba(255,255,255,.018)) !important;
+    border-bottom-color:#414c5a;
+}
+html:not([data-theme="light"]) .dashboard-card::before { background:rgba(79,140,255,.055); }
+html:not([data-theme="light"]) .navbar {
+    background:rgba(35,40,47,.97) !important;
+    border-color:#424c58 !important;
+}
+html:not([data-theme="light"]) .brand-name {color:#f2f5fa !important;}
+html:not([data-theme="light"]) .nav-links a {color:var(--nav-accent,var(--profile-muted)) !important;}
+html:not([data-theme="light"]) .nav-links a.active { background:transparent !important; }
+html:not([data-theme="light"]) .info-row,
+html:not([data-theme="light"]) .system-row { border-bottom-color:#414b59; }
+
+
+/* OCT 23 — MIDNIGHT BLUE PROFILE CENTER */
+html:not([data-theme="light"]){--profile-bg:#1E242D;--profile-bg-2:#202730;--profile-card:#252E3B;--profile-card-2:#252E3B;--profile-card-3:#252E3B;--profile-border:#3B4A5E;--profile-border-light:#4A5B71;--profile-text:#F5F8FF;--profile-muted:#A5B7CE;--profile-muted-2:#91A4BE;}
+html:not([data-theme="light"]) .profile-dashboard{background:#1E242D!important;border:1px solid #3B4A5E!important;box-shadow:0 16px 38px rgba(0,0,0,.14)!important;}
+html:not([data-theme="light"]) .profile-body{background:#1E242D!important;}
+html:not([data-theme="light"]) .profile-hero{background:linear-gradient(110deg,#172A4D,#1D2D49 65%,#202D41)!important;border-bottom:1px solid #344F75!important;}
+html:not([data-theme="light"]) .stat-card{background:#252E3B!important;border:1px solid #3B4A5E!important;box-shadow:none!important;}
+html:not([data-theme="light"]) .dashboard-card{background:#252E3B!important;border:1px solid #3B4A5E!important;box-shadow:none!important;}
+html:not([data-theme="light"]) .dashboard-card-header{background:#283345!important;}
+html:not([data-theme="light"]) .profile-avatar{background:#284875!important;border-color:#426FAC!important;}
+html[data-theme="light"] .profile-dashboard{border-color:#D8E5F5!important;box-shadow:0 16px 42px rgba(25,74,137,.10)!important;}
+html[data-theme="light"] .profile-hero{background:linear-gradient(110deg,#E5EFFF,#EDF7FF)!important;}
+html[data-theme="light"] .stat-card{background:#F9FBFE!important;border-color:#DAE6F5!important;}
+html[data-theme="light"] .dashboard-card{background:#FFF!important;border-color:#DAE6F5!important;}
+
+
+/* FINAL PROFILE THEME AND MODAL POLISH */
+.profile-page,.profile-dashboard{font-family:Arial,'Segoe UI',sans-serif!important}
+html:not([data-theme="light"]) .profile-dashboard{background:#1E242D!important;border-color:#3B4A5E!important}
+html:not([data-theme="light"]) .profile-hero{background:linear-gradient(112deg,#172A4D,#1D2D49 65%,#202D41)!important}
+html[data-theme="light"] .profile-dashboard{background:#fff!important;border-color:#d7e5f7!important}
+html[data-theme="light"] .profile-hero{background:linear-gradient(120deg,#e9f3ff,#f5faff)!important}
+.profile-modal{z-index:10050!important}
+.profile-modal .modal-card{max-width:520px!important;width:calc(100% - 32px)!important;border-radius:20px!important;overflow:hidden!important;font-family:Arial,'Segoe UI',sans-serif!important}
+.profile-modal .modal-header h2{font-size:22px!important;font-weight:700!important;letter-spacing:-.35px!important;line-height:1.3!important}
+.profile-modal .modal-close{display:grid!important;place-items:center!important;width:38px!important;height:38px!important;font-size:25px!important;line-height:1!important;cursor:pointer!important;position:relative!important;z-index:3!important;pointer-events:auto!important}
+.profile-modal .form-group label{font-size:13px!important;font-weight:600!important}
+.profile-modal .form-group input{font-size:14px!important;min-height:46px!important}
+.profile-modal .modal-btn{font-size:14px!important;font-weight:600!important;cursor:pointer!important}
+.profile-modal .modal-note{font-size:12px!important;line-height:1.6!important}
+
+</style>
+<link href="css/floating-premium.css?v=20261023-spacing2" rel="stylesheet"/>
+<link href="css/clean-floating-final.css?v=20261023-1" rel="stylesheet"/>
+<link href="css/account-actions-final.css?v=20261023-3" rel="stylesheet"/>
+<link href="css/final-static-polish.css?v=20261023-final" rel="stylesheet"/>
+<link href="css/transense-v13-final.css?v=20261102" rel="stylesheet"/><link href="css/transense-v14-refinement.css?v=20261102" rel="stylesheet"/><link href="css/transense-v15-polish.css?v=20261102" rel="stylesheet"/><link href="css/transense-v16-history.css?v=20261102" rel="stylesheet"/><script>try { document.documentElement.classList.toggle('v15-guest', localStorage.getItem('isLoggedIn') !== 'true'); } catch(e) {document.documentElement.classList.add('v15-guest');}</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="css/transense-v17-unified.css?v=20261102" rel="stylesheet"/>
+<link rel="stylesheet" href="css/transense-v21-menu.css?v=21.0"/>
+<link rel="stylesheet" href="css/transense-v28-fixes.css?v=28.0"/>
+<link rel="stylesheet" href="css/transense-v30-approved.css?v=30.2"/>
+</head>
+<body>
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+<header class="navbar ts13-navbar" id="top" role="banner">
+<a aria-label="Transense AI – Trang chủ" class="brand ts13-brand" href="index.html">
+<img alt="" class="brand-logo" height="44" src="images/transense-logo-mark.png" width="44"/>
+<span class="brand-name">Transense <span class="brand-ai">AI</span></span>
+</a>
+<nav aria-label="Điều hướng chính" class="nav-links ts13-links"><a class="nav-page" data-nav="index.html" href="index.html">Trang chủ</a><a href="index.html#whyChoose">Tính năng</a><a href="index.html#howItWorks">Hướng dẫn</a><a class="nav-page v15-history-link" data-nav="history.html" href="history.html">Lịch sử</a><a class="nav-page" data-nav="about.html" href="about.html">Giới thiệu</a></nav>
+<div class="ts13-actions">
+<button aria-label="Đổi chế độ sáng tối" class="header-theme-btn ts13-theme" type="button"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg></button>
+<div class="guest-auth-buttons guest-only ts13-guest-auth">
+<a class="header-auth-btn outline" href="login.html">Đăng nhập</a>
+<a class="header-auth-btn solid" href="register.html">Đăng ký</a>
+</div>
+<div class="auth-only nav-user-wrap ts13-account">
+<a aria-haspopup="true" aria-label="Mở menu tài khoản" class="account-button nav-user-trigger" href="profile.html" id="accountButton">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21"></path></svg>
+<span id="navAccountName">Tài khoản</span>
+<span aria-hidden="true" class="v15-user-chevron">⌄</span></a>
+<div aria-label="Menu người dùng" class="user-dropdown">
+<div class="account-dropdown-person"><div aria-hidden="true" class="account-dropdown-avatar">T</div><div><strong class="account-dropdown-name">Tài khoản</strong><small>Tài khoản Demo</small></div></div>
+<a class="account-action-stable" href="profile.html"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-2a8 8 0 0 1 16 0v2"></path></svg></span><span class="menu-action-label">Thông tin tài khoản</span><span aria-hidden="true">›</span></a>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></span><span class="menu-action-label">Thông báo</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M3 14v-3a9 9 0 0 1 18 0v3"></path><path d="M21 16a3 3 0 0 1-3 3h-1v-6h1a3 3 0 0 1 3 3Z"></path><path d="M3 16a3 3 0 0 0 3 3h1v-6H6a3 3 0 0 0-3 3Z"></path><path d="M18 19a5 5 0 0 1-5 3h-2"></path></svg></span><span class="menu-action-label">Trợ giúp &amp; hỗ trợ</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path><path d="m19.4 15 .1.1 1.4 1.4-2.4 2.4-1.4-1.4A8 8 0 0 1 14 19v2h-4v-2a8 8 0 0 1-3.1-1.5l-1.4 1.4-2.4-2.4 1.4-1.4A8 8 0 0 1 3 13h-2v-3h2a8 8 0 0 1 1.5-3.1L3.1 5.5l2.4-2.4 1.4 1.4A8 8 0 0 1 10 3V1h4v2a8 8 0 0 1 3.1 1.5l1.4-1.4 2.4 2.4-1.4 1.4A8 8 0 0 1 21 10h2v3h-2a8 8 0 0 1-1.6 2Z"></path></svg></span><span class="menu-action-label">Cài đặt</span><small>Thiết kế sau</small></button>
+<div class="menu-theme"><span aria-hidden="true" class="menu-theme-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.5 1.5m11.2 11.2 1.5 1.5M2 12h2m16 0h2M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"></path></svg></span><span>Chế độ: <strong class="theme-mode-name">Tối</strong></span><button aria-checked="false" aria-label="Bật chế độ sáng hoặc tối" class="theme-toggle" role="switch" type="button"><span class="theme-knob"></span></button></div>
+<button class="menu-logout" type="button"><span aria-hidden="true" class="menu-logout-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"></path><path d="M14 8l4 4-4 4m4-4H9"></path></svg></span><span class="menu-logout-label">Đăng xuất</span></button>
+</div>
+</div>
+</div>
+</header>
+<!-- =========================================================
+     PAGE
+========================================================= -->
+<main class="profile-page">
+<!-- =====================================================
+         HEADING
+    ====================================================== -->
+<section class="profile-heading">
+<div class="profile-heading-left">
+<div class="profile-heading-label">TÀI KHOẢN CỦA BẠN</div>
+<h1>
+                Thông Tin Tài Khoản
+            </h1>
+<p>
+                Quản lý thông tin cá nhân,
+                theo dõi hoạt động dịch
+                và trạng thái sử dụng Transense AI.
+            </p>
+</div>
+<div class="profile-heading-badge">
+<span></span>
+
+            Phiên làm việc đang hoạt động
+
+        </div>
+<div class="v17-profile-art" aria-hidden="true"><div class="v17-profile-doc"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><span></span><span></span><span></span></div><div class="v17-profile-shield"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 8 3v6c0 5-3.5 8-8 11-4.5-3-8-6-8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></div></div>
+</section>
+<!-- =====================================================
+         DASHBOARD
+    ====================================================== -->
+<section class="profile-dashboard">
+<!-- =================================================
+             ACCOUNT HERO
+        ================================================== -->
+<div class="profile-hero">
+<div class="profile-user">
+<div class="profile-avatar" id="profileAvatar">
+                    T
+                </div>
+<div>
+<div class="profile-user-name" id="profileName">
+                        Nguyễn Minh Huy
+                    </div>
+<div class="profile-user-email" id="profileEmail">
+                        example@gmail.com
+                    </div>
+<div class="profile-user-meta">
+<div class="profile-chip">
+<svg viewbox="0 0 24 24">
+<path d="M12 3L14 8L19 10L14 12L12 17L10 12L5 10L10 8L12 3Z"></path>
+</svg>
+
+                            Transense AI Demo
+
+                        </div>
+<div class="profile-chip">
+<svg viewbox="0 0 24 24">
+<circle cx="12" cy="12" r="9"></circle>
+<path d="M12 7V12L15 14"></path>
+</svg>
+
+                            Thành viên từ
+
+                            <span id="memberSinceHero">
+                                Phiên demo
+                            </span>
+</div>
+</div>
+</div>
+</div>
+<div class="profile-actions">
+<div class="profile-status">
+<span class="profile-status-dot"></span>
+
+                    Tài khoản đang hoạt động
+
+                </div>
+<button class="edit-button" id="openEditProfile" type="button">
+<svg viewbox="0 0 24 24">
+<path d="M4 20H8L18 10L14 6L4 16V20Z"></path>
+<path d="M13 7L17 11"></path>
+</svg>
+
+                    Chỉnh sửa hồ sơ
+
+                </button>
+<button class="v17-password-btn" id="v17ChangePassword" type="button"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="5" y="10" width="14" height="11" rx="2"/><path d="M8 10V7a4 4 0 1 1 8 0v3"/></svg> Đổi mật khẩu</button>
+</div>
+</div>
+<!-- =================================================
+             BODY
+        ================================================== -->
+<div class="profile-body v17-profile-body">
+  <div class="v17-main-grid">
+   <section class="v17-card v17-personal" aria-label="Thông tin cá nhân">
+      <div class="v17-card-heading"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg><h2>Thông tin cá nhân</h2></div>
+      <div class="v17-info-list"><div class="v17-info-row"><span class="v17-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21v-2a8 8 0 0 1 16 0v2"/></svg></span><span class="v17-info-label">Họ và tên</span><strong class="v17-info-value"><span id="infoName">Người dùng</span></strong></div>
+<div class="v17-info-row"><span class="v17-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><span class="v17-info-label">Email</span><strong class="v17-info-value"><span id="infoEmail">Chưa cập nhật email</span></strong></div>
+<div class="v17-info-row"><span class="v17-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 3v4M17 3v4M3 10h18"/></svg></span><span class="v17-info-label">Ngày tham gia</span><strong class="v17-info-value"><span id="memberSince">Phiên demo</span></strong></div>
+<div class="v17-info-row"><span class="v17-info-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m12 2 8 3v6c0 5-3.5 8-8 11-4.5-3-8-6-8-11V5z"/><path d="m9 12 2 2 4-4"/></svg></span><span class="v17-info-label">Loại tài khoản</span><strong class="v17-info-value"><span class="v17-profile-role">Transense AI Demo</span></strong></div></div>
+      <span id="loginProvider" class="v17-visually-hidden"></span>
+   </section>
+   <section class="v17-card v17-usage" aria-label="Tổng quan sử dụng">
+      <div class="v17-card-heading"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 20h16M6 17V9h3v8m3 0V4h3v13m3 0v-6h3v6"/></svg><h2>Tổng quan sử dụng</h2></div>
+      <div class="profile-stats v17-metric-list"><div class="stat-card">
+<div class="stat-top">
+<div class="stat-icon">
+<svg viewbox="0 0 24 24">
+<path d="M8 6H17A2 2 0 0 1 19 8V19A2 2 0 0 1 17 21H8A2 2 0 0 1 6 19V8A2 2 0 0 1 8 6Z"></path>
+<path d="M6 16H4A2 2 0 0 1 2 14V5A2 2 0 0 1 4 3H13A2 2 0 0 1 15 5V6"></path>
+<path d="M10 11H15"></path>
+<path d="M10 15H15"></path>
+</svg>
+</div>
+<div class="stat-label">Tổng bản dịch</div>
+</div>
+<div>
+<div class="stat-value" id="totalTranslations">
+                            0
+                        </div>
+<div class="stat-description">
+                            Bản dịch đã được lưu
+                        </div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-top">
+<div class="stat-icon green">
+<svg viewbox="0 0 24 24">
+<rect height="15" rx="2" width="16" x="4" y="5"></rect>
+<path d="M8 3V7"></path>
+<path d="M16 3V7"></path>
+<path d="M4 10H20"></path>
+<path d="M9 14L11 16L15 12"></path>
+</svg>
+</div>
+<div class="stat-label">Hôm nay</div>
+</div>
+<div>
+<div class="stat-value" id="todayTranslations">
+                            0
+                        </div>
+<div class="stat-description">
+                            Hoạt động dịch trong ngày
+                        </div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-top">
+<div class="stat-icon">
+<svg viewbox="0 0 24 24">
+<path d="M4 5H14"></path>
+<path d="M9 3V5"></path>
+<path d="M6 8C7.5 11 10 13 13 14"></path>
+<path d="M12 8C11 11 9 13 6 15"></path>
+<path d="M15 13H20"></path>
+<path d="M17.5 10.5L15 13L17.5 15.5"></path>
+</svg>
+</div>
+<div class="stat-label">Ngôn ngữ sử dụng</div>
+</div>
+<div>
+<div class="stat-value" id="v15LanguagesUsed">0</div>
+<div class="stat-description">Thống kê từ lịch sử bản dịch</div>
+</div>
+</div>
+<div class="stat-card">
+<div class="stat-top">
+<div class="stat-icon purple">
+<svg viewbox="0 0 24 24">
+<path d="M12 3L13.7 8.3L19 10L13.7 11.7L12 17L10.3 11.7L5 10L10.3 8.3L12 3Z"></path>
+</svg>
+</div>
+<div class="stat-label">Phiên bản</div>
+</div>
+<div>
+<div class="stat-value">
+                            Demo
+                        </div>
+<div class="stat-description">
+                            Prototype Đồ án 1
+                        </div>
+</div>
+</div></div>
+      <a class="v17-history-go" href="history.html"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg> Xem lịch sử bản dịch <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></a>
+   </section>
+  </div>
+  <section class="v17-card v17-recent-section" aria-label="Hoạt động gần đây">
+    <div class="v17-card-heading v17-recent-header"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg><h2>Hoạt động gần đây</h2><a class="v17-see-all" href="history.html">Xem tất cả →</a></div>
+    <div class="recent-list v17-recent-list" id="recentActivity"></div>
+  </section>
+<!-- =============================================
+                 BOTTOM
+            ============================================== -->
+<div class="profile-bottom-grid">
+<!-- SYSTEM -->
+<section class="dashboard-card">
+<div class="dashboard-header">
+<div>
+<div class="dashboard-label">
+                                SYSTEM STATUS
+                            </div>
+<h2 class="dashboard-title">
+                                Trạng Thái Hệ Thống
+                            </h2>
+</div>
+</div>
+<div class="system-list">
+<div class="system-row">
+<span>
+                                Tài khoản
+                            </span>
+<strong class="green">
+                                ● Hoạt động
+                            </strong>
+</div>
+<div class="system-row">
+<span>
+                                Lưu lịch sử
+                            </span>
+<strong class="green">
+                                ● Sẵn sàng
+                            </strong>
+</div>
+<div class="system-row">
+<span>
+                                AI API
+                            </span>
+<strong class="blue">
+                                Giai đoạn tiếp theo
+                            </strong>
+</div>
+<div class="system-row">
+<span>
+                                Phiên bản
+                            </span>
+<strong>
+                                Prototype 1.0
+                            </strong>
+</div>
+<div class="system-row">
+<span>
+                                Dữ liệu
+                            </span>
+<strong>
+                                LocalStorage
+                            </strong>
+</div>
+</div>
+</section>
+</div>
+<!-- =============================================
+                 LOGOUT
+            ============================================== -->
+<button aria-hidden="true" hidden="" id="logoutButton" type="button">Đăng xuất</button>
+</div>
+</section>
+</main>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+<div>
+<strong>
+            Transense AI
+        </strong>
+
+        — Quản lý tài khoản
+
+    </div>
+<div class="footer-right">
+        Prototype Đồ án 1
+    </div>
+</footer>
+<!-- =========================================================
+     EDIT PROFILE MODAL
+========================================================= -->
+<div class="profile-modal" id="profileModal">
+<div class="modal-card">
+<div class="modal-header">
+<h2>
+                Chỉnh sửa thông tin
+            </h2>
+<button class="modal-close" id="closeProfileModal" type="button">
+                ×
+            </button>
+</div>
+<form class="modal-body" id="editProfileForm">
+<div class="form-group">
+<label for="editName">
+                    Họ và tên
+                </label>
+<input id="editName" required="" type="text"/>
+</div>
+<div class="form-group">
+<label for="editEmail">
+                    Email
+                </label>
+<input id="editEmail" required="" type="email"/>
+</div>
+<div class="modal-note">
+
+                Phiên bản demo hiện lưu thông tin tài khoản
+                cục bộ trên trình duyệt bằng LocalStorage.
+
+            </div>
+<div class="modal-actions">
+<button class="modal-btn" id="cancelEditProfile" type="button">
+                    Hủy
+                </button>
+<button class="modal-btn primary" type="submit">
+                    Lưu thay đổi
+                </button>
+</div>
+</form>
+</div>
+</div>
+<!-- =========================================================
+     TOAST
+========================================================= -->
+<div class="profile-toast" id="profileToast">
+<span class="toast-dot"></span>
+<span id="toastText">
+        Đã cập nhật thông tin.
+    </span>
+</div>
+<!-- =========================================================
+     SCRIPT
+========================================================= -->
+<script>
+
+    /* =====================================================
+       LOGIN CHECK
+    ====================================================== */
+
+    const isLoggedIn =
+        localStorage.getItem(
+            "isLoggedIn"
+        ) === "true";
+
+
+    if (!isLoggedIn) {
+
+        window.location.href =
+            "login.html";
+
+    }
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const profileName =
+        document.getElementById(
+            "profileName"
+        );
+
+
+    const profileEmail =
+        document.getElementById(
+            "profileEmail"
+        );
+
+
+    const profileAvatar =
+        document.getElementById(
+            "profileAvatar"
+        );
+
+
+    const infoName =
+        document.getElementById(
+            "infoName"
+        );
+
+
+    const infoEmail =
+        document.getElementById(
+            "infoEmail"
+        );
+
+
+    const navAccountName =
+        document.getElementById(
+            "navAccountName"
+        );
+
+
+    const totalTranslations =
+        document.getElementById(
+            "totalTranslations"
+        );
+
+
+    const todayTranslations =
+        document.getElementById(
+            "todayTranslations"
+        );
+
+
+    const memberSince =
+        document.getElementById(
+            "memberSince"
+        );
+
+
+    const loginProvider =
+        document.getElementById(
+            "loginProvider"
+        );
+
+
+    const recentActivity =
+        document.getElementById(
+            "recentActivity"
+        );
+
+
+    const profileModal =
+        document.getElementById(
+            "profileModal"
+        );
+
+
+    const editProfileForm =
+        document.getElementById(
+            "editProfileForm"
+        );
+
+
+    const editName =
+        document.getElementById(
+            "editName"
+        );
+
+
+    const editEmail =
+        document.getElementById(
+            "editEmail"
+        );
+
+
+    const profileToast =
+        document.getElementById(
+            "profileToast"
+        );
+
+
+    const toastText =
+        document.getElementById(
+            "toastText"
+        );
+
+
+    /* =====================================================
+       HISTORY
+    ====================================================== */
+
+    function getHistory() {
+
+        try {
+
+            return (
+                JSON.parse(
+                    localStorage.getItem(
+                        "translationHistory"
+                    )
+                )
+                ||
+                []
+            );
+
+        }
+        catch (error) {
+
+            return [];
+
+        }
+
+    }
+
+
+    /* =====================================================
+       ACCOUNT
+    ====================================================== */
+
+    function getAccountData() {
+
+        return {
+
+            name:
+                localStorage.getItem(
+                    "userName"
+                )
+                ||
+                "Người dùng",
+
+            email:
+                localStorage.getItem(
+                    "userEmail"
+                )
+                ||
+                "Chưa cập nhật email",
+
+            createdAt:
+                localStorage.getItem(
+                    "accountCreatedAt"
+                ),
+
+            provider:
+                localStorage.getItem(
+                    "loginProvider"
+                )
+                ||
+                "local-demo"
+
+        };
+
+    }
+
+
+    /* =====================================================
+       PROVIDER
+    ====================================================== */
+
+    function getProviderText(
+        provider
+    ) {
+
+        const value =
+            String(
+                provider || ""
+            )
+            .toLowerCase();
+
+
+        if (
+            value.includes(
+                "google"
+            )
+        ) {
+
+            return "Google";
+
+        }
+
+
+        if (
+            value.includes(
+                "apple"
+            )
+        ) {
+
+            return "Apple";
+
+        }
+
+
+        if (
+            value.includes(
+                "phone"
+            )
+        ) {
+
+            return "Điện thoại";
+
+        }
+
+
+        return "Local Demo";
+
+    }
+
+
+    /* =====================================================
+       MEMBER DATE
+    ====================================================== */
+
+    function formatMemberSince(
+        value
+    ) {
+
+        if (!value) {
+
+            return "Phiên demo";
+
+        }
+
+
+        const date =
+            new Date(
+                value
+            );
+
+
+        if (
+            Number.isNaN(
+                date.getTime()
+            )
+        ) {
+
+            return "Phiên demo";
+
+        }
+
+
+        return date.toLocaleDateString(
+            "vi-VN",
+            {
+
+                day:
+                    "2-digit",
+                month:
+                    "2-digit",
+
+                year:
+                    "numeric"
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       TODAY
+    ====================================================== */
+
+    function countToday(
+        history
+    ) {
+
+        const today =
+            new Date()
+                .toLocaleDateString(
+                    "vi-VN"
+                );
+
+
+        return history.filter(
+            function (
+                item
+            ) {
+
+                return (
+                    item.date
+                    &&
+                    item.date.includes(
+                        today
+                    )
+                );
+
+            }
+        ).length;
+
+    }
+
+
+    /* =====================================================
+       ESCAPE
+    ====================================================== */
+
+    function escapeHTML(
+        value
+    ) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.textContent =
+            value || "";
+
+
+        return div.innerHTML;
+
+    }
+
+
+    /* =====================================================
+       AVATAR
+    ====================================================== */
+
+    function createAvatarText(
+        name
+    ) {
+
+        const cleanName =
+            String(
+                name || ""
+            )
+            .trim();
+
+
+        if (!cleanName) {
+
+            return "T";
+
+        }
+
+
+        const parts =
+            cleanName.split(
+                /\s+/
+            );
+
+
+        if (
+            parts.length === 1
+        ) {
+
+            return parts[0]
+                .charAt(0)
+                .toUpperCase();
+
+        }
+
+
+        return (
+            parts[0]
+                .charAt(0)
+            +
+            parts[
+                parts.length - 1
+            ]
+                .charAt(0)
+        )
+            .toUpperCase();
+
+    }
+
+
+    /* =====================================================
+       LOAD PROFILE
+    ====================================================== */
+
+    function loadProfile() {
+
+        const account =
+            getAccountData();
+
+
+        const history =
+            getHistory();
+
+
+        profileName.textContent =
+            account.name;
+
+
+        profileEmail.textContent =
+            account.email;
+
+
+        profileAvatar.textContent =
+            createAvatarText(
+                account.name
+            );
+
+
+        infoName.textContent =
+            account.name;
+
+
+        infoEmail.textContent =
+            account.email;
+
+
+        navAccountName.textContent =
+            account.name;
+
+
+        totalTranslations.textContent =
+            history.length;
+
+
+        todayTranslations.textContent =
+            countToday(
+                history
+            );
+
+
+        memberSince.textContent =
+            formatMemberSince(
+                account.createdAt
+            );
+
+        const memberSinceHero = document.getElementById('memberSinceHero');
+        if (memberSinceHero) memberSinceHero.textContent = formatMemberSince(account.createdAt);
+
+        const languagesUsed = document.getElementById('v15LanguagesUsed');
+        if (languagesUsed) {
+            const used = new Set();
+            history.forEach(item => {
+                if (item.sourceLanguage) used.add(String(item.sourceLanguage));
+                if (item.targetLanguage) used.add(String(item.targetLanguage));
+            });
+            languagesUsed.textContent = String(used.size);
+        }
+
+
+        loginProvider.textContent =
+            getProviderText(
+                account.provider
+            );
+
+
+        renderRecentActivity(
+            history
+        );
+
+    }
+
+
+    /* =====================================================
+       RECENT ACTIVITY
+    ====================================================== */
+
+    function renderRecentActivity(history) {
+        const list = Array.isArray(history) ? history.slice(0, 4) : [];
+        if (!list.length) {
+            recentActivity.innerHTML = `<div class="v17-activity-empty"><span class="v17-empty-clock" aria-hidden="true">◷</span><strong>Chưa có hoạt động dịch</strong><p>Bản dịch mới sẽ xuất hiện tại đây khi bạn sử dụng công cụ dịch.</p><a href="index.html#translationWorkspace">Bắt đầu dịch →</a></div>`;
+            return;
+        }
+        const flags = {en:'🇬🇧',vi:'🇻🇳',zh:'🇨🇳',ja:'🇯🇵',ko:'🇰🇷',fr:'🇫🇷',de:'🇩🇪',es:'🇪🇸'};
+        recentActivity.innerHTML = list.map(item=>{
+            const src=String(item.sourceLanguage||'').toLowerCase(),dst=String(item.targetLanguage||'').toLowerCase();
+            const provider=String(item.provider||'').toLowerCase();
+            const providerName=provider.includes('gemini')?'Gemini':provider.includes('google')?'Google Translate':'Chưa ghi nhận';
+            const badge=providerName==='Gemini'?'images/v31-gemini-approved.png':providerName==='Google Translate'?'images/v31-google-translate-approved.png':'';
+            const original=String(item.source||'Bản dịch');
+            return `<div class="v17-activity-row">
+              <span class="v17-activity-ico" aria-hidden="true">文</span>
+              <span class="v17-activity-text" title="${escapeHTML(original)}">${escapeHTML(original)}</span>
+              <span class="v17-activity-langs">${flags[src]||'🌐'} <span>→</span> ${flags[dst]||'🌐'}</span>
+              <span class="v17-activity-provider">${badge?`<img src="${badge}" alt=""/>`:''}${providerName}</span>
+              <time class="v17-activity-date">${escapeHTML(String(item.date||'Không rõ thời gian'))}</time>
+            </div>`;
+        }).join('');
+    }
+
+    /* =====================================================
+       MODAL
+    ====================================================== */
+
+    function openProfileModal() {
+
+        const account =
+            getAccountData();
+
+
+        editName.value =
+            account.name;
+
+
+        editEmail.value =
+            account.email ===
+            "Chưa cập nhật email"
+                ?
+                ""
+                :
+                account.email;
+
+
+        profileModal
+            .classList
+            .add(
+                "show"
+            );
+
+    }
+
+
+    function closeProfileModal() {
+
+        profileModal
+            .classList
+            .remove(
+                "show"
+            );
+
+    }
+
+
+    document
+        .getElementById(
+            "openEditProfile"
+        )
+        .addEventListener(
+            "click",
+            openProfileModal
+        );
+
+
+    document
+        .getElementById(
+            "editQuickAction"
+        )
+        ?.addEventListener(
+            "click",
+            openProfileModal
+        );
+
+
+    document
+        .getElementById(
+            "closeProfileModal"
+        )
+        .addEventListener(
+            "click",
+            closeProfileModal
+        );
+
+
+    document
+        .getElementById(
+            "cancelEditProfile"
+        )
+        .addEventListener(
+            "click",
+            closeProfileModal
+        );
+
+
+    profileModal.addEventListener(
+        "click",
+        function (
+            event
+        ) {
+
+            if (
+                event.target ===
+                profileModal
+            ) {
+
+                closeProfileModal();
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       SAVE PROFILE
+    ====================================================== */
+
+    editProfileForm.addEventListener(
+        "submit",
+        function (
+            event
+        ) {
+
+            event.preventDefault();
+
+
+            const newName =
+                editName.value.trim();
+
+
+            const newEmail =
+                editEmail
+                    .value
+                    .trim()
+                    .toLowerCase();
+
+
+            if (
+                newName.length <
+                2
+            ) {
+
+                showToast(
+                    "Vui lòng nhập họ và tên hợp lệ."
+                );
+
+                return;
+
+            }
+
+
+            if (
+                !/^[^\s@]+@[^\s@]+\.[^\s@]+$/
+                    .test(
+                        newEmail
+                    )
+            ) {
+
+                showToast(
+                    "Vui lòng nhập email hợp lệ."
+                );
+
+                return;
+
+            }
+
+
+            // Keep the registered demo account credentials consistent with profile edits.
+            try {
+                const registered = JSON.parse(localStorage.getItem('transenseRegisteredDemoAccount') || 'null');
+                const oldEmail = (localStorage.getItem('userEmail') || '').toLowerCase();
+                if (registered && registered.email === oldEmail) {
+                    registered.fullName = newName;
+                    registered.email = newEmail;
+                    localStorage.setItem('transenseRegisteredDemoAccount', JSON.stringify(registered));
+                }
+            } catch (_) {}
+
+            localStorage.setItem(
+                "userName",
+                newName
+            );
+
+
+            localStorage.setItem(
+                "userEmail",
+                newEmail
+            );
+
+
+            closeProfileModal();
+
+
+            loadProfile();
+
+
+            showToast(
+                "Thông tin tài khoản đã được cập nhật."
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       TOAST
+    ====================================================== */
+
+    let toastTimer;
+
+
+    function showToast(
+        message
+    ) {
+
+        clearTimeout(
+            toastTimer
+        );
+
+
+        toastText.textContent =
+            message;
+
+
+        profileToast
+            .classList
+            .add(
+                "show"
+            );
+
+
+        toastTimer =
+            setTimeout(
+                function () {
+
+                    profileToast
+                        .classList
+                        .remove(
+                            "show"
+                        );
+
+                },
+                2200
+            );
+
+    }
+
+
+    /* =====================================================
+       LOGOUT
+    ====================================================== */
+
+    document
+        .getElementById(
+            "logoutButton"
+        )
+        .addEventListener(
+            "click",
+            function () {
+
+                const confirmLogout =
+                    confirm(
+                        "Bạn có muốn đăng xuất khỏi Transense AI?"
+                    );
+
+
+                if (!confirmLogout) {
+
+                    return;
+
+                }
+
+
+                localStorage.setItem(
+                    "isLoggedIn",
+                    "false"
+                );
+
+
+                window.location.href =
+                    "login.html";
+
+            }
+        );
+
+
+    /* =====================================================
+       START
+    ====================================================== */
+
+    loadProfile();
+
+</script>
+<!-- =========================================================
+     LANGUAGE
+========================================================= -->
+<script src="js/i18n.js?v=menu-fix-20261023"></script>
+<script src="js/nav-user.js?v=20261023-spacing2"></script>
+<script>(function(){function hide(){var p=document.getElementById('profileModal');if(p){p.classList.remove('show');p.style.display='';}}document.addEventListener('click',function(e){if(e.target.closest('#closeProfileModal,#cancelEditProfile')){e.preventDefault();hide();}});document.addEventListener('keydown',function(e){if(e.key==='Escape')hide();});})();</script>
+<script src="js/transense-v15-enhance.js?v=20261102"></script><script>
+(() => {
+  const button=document.getElementById('v17ChangePassword');
+  if (!button) return;
+  const fingerprint=(value)=>{let h=2166136261;for(const c of value){h^=c.charCodeAt(0);h=Math.imul(h,16777619);}return (h>>>0).toString(16);};
+  button.addEventListener('click',()=>{
+    let account;try{account=JSON.parse(localStorage.getItem('transenseRegisteredDemoAccount')||'null');}catch(_){account=null;}
+    const email=(localStorage.getItem('userEmail')||'').trim().toLowerCase();
+    if(!account||account.email!==email){alert('Tài khoản demo mẫu không hỗ trợ đổi mật khẩu. Bạn có thể đăng ký tài khoản demo riêng để dùng chức năng này.');return;}
+    const old=prompt('Nhập mật khẩu hiện tại');if(old===null)return;
+    if(fingerprint(old)!==account.passwordFingerprint){alert('Mật khẩu hiện tại không đúng.');return;}
+    const next=prompt('Nhập mật khẩu mới (ít nhất 8 ký tự)');if(next===null)return;
+    if(next.length<8){alert('Mật khẩu mới phải có ít nhất 8 ký tự.');return;}
+    const confirmNext=prompt('Nhập lại mật khẩu mới');if(confirmNext===null)return;
+    if(next!==confirmNext){alert('Mật khẩu xác nhận không khớp.');return;}
+    account.passwordFingerprint=fingerprint(next);
+    localStorage.setItem('transenseRegisteredDemoAccount',JSON.stringify(account));
+    alert('Đã cập nhật mật khẩu demo trên trình duyệt này.');
+  });
+})();
+</script>
+</body>
+</html>

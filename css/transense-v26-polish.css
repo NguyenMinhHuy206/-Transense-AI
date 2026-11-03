@@ -1,0 +1,53 @@
+/* Transense AI V26 — approved fixes; scoped to user-reviewed sections. */
+:root{--v26-brand:#237cf5}
+/* Approved minimal no-translation state. UI is only a placeholder; translation result rendering is untouched. */
+html body #resultContent .v26-result-empty{width:100%;max-width:500px;min-height:265px;margin:auto!important;padding:24px 15px!important;gap:11px!important;box-sizing:border-box;text-align:center;font-family:"Be Vietnam Pro",Arial,sans-serif;}
+html body #resultContent .v26-empty-visual{display:flex;gap:15px;align-items:center;justify-content:center;margin-bottom:3px}
+html body #resultContent .v26-empty-symbol{display:grid;place-items:center;width:52px;height:52px;border:1px solid #c3dcff;border-radius:16px;background:linear-gradient(140deg,#eaf4ff,#d8eaff);color:#2374eb}
+html body #resultContent .v26-empty-target{color:#049bad;border-color:#aeebea;background:linear-gradient(140deg,#e7fbfb,#d0f4f2)}
+html body #resultContent .v26-empty-symbol svg{width:27px;height:27px}
+html body #resultContent .v26-empty-swap{width:26px;height:26px;color:#5b9fe9}
+html body #resultContent .v26-result-empty strong{font-size:17px!important;line-height:1.4!important;font-weight:700!important;color:#193463!important;margin:3px 0 0!important;}
+html body #resultContent .v26-result-empty p{font-size:12.5px!important;line-height:1.65!important;max-width:390px!important;color:#59749d!important;margin:0!important;}
+html body #resultContent .v26-result-empty p b{font-weight:700;color:#2371dc}
+html body #resultContent .v26-empty-divider{display:flex;align-items:center;justify-content:center;gap:11px;width:min(300px,90%);margin:7px auto 2px;color:#8cbefb}
+html body #resultContent .v26-empty-divider span{height:1px;background:#d5e6fa;flex:1}
+html body #resultContent .v26-empty-divider svg{height:16px;width:16px}
+html body #resultContent .v26-empty-ready{display:flex;align-items:center;gap:7px;justify-content:center;color:#6880a3;font-size:12px!important;font-weight:500}
+html body #resultContent .v26-empty-ready svg{height:19px;width:19px;color:#61a9f7}
+/* Smaller, consistent 32px success/processing CTA inside the mock screen. */
+html body .ts13-laptop-wrap .v25-demo-button{height:32px!important;border-radius:9px!important;margin-top:10px!important;font-size:12px!important;font-weight:550!important;gap:7px!important;letter-spacing:0!important}
+html body .v25-demo-button .v26-demo-icon{width:13px!important;height:13px!important;flex:none}
+html body .v25-demo-button .v25-wait-spinner{height:13px!important;width:13px!important;border-width:2px!important}
+/* Explicit replay control, especially for browsers configured to reduce motion. */
+html body .ts13-hero-art{position:relative}
+html body .v26-replay-laptop{position:absolute;bottom:4%;right:5%;display:inline-flex;align-items:center;justify-content:center;gap:6px;min-height:30px;padding:5px 10px;border:1px solid #c4dbff;background:#f8fbffed;color:#1769ce;border-radius:20px;font:600 11px/1.3 "Be Vietnam Pro",Arial,sans-serif;box-shadow:0 4px 12px #2d69bb20;cursor:pointer;z-index:12;white-space:nowrap}
+html body .v26-replay-laptop svg{height:15px;width:15px}
+html body .v26-replay-laptop:hover,html body .v26-replay-laptop:focus-visible{background:#e7f2ff;outline-color:#1b7af5}
+/* Scroll-reveal is progressive: no JS means cards remain fully visible. */
+html body .v26-examples.v26-reveal-ready .v10-example-grid > article{opacity:0;transform:translateY(14px);transition:opacity .5s ease,transform .5s cubic-bezier(.2,.7,.2,1),box-shadow .25s ease;transition-delay:var(--v26-delay,0ms)!important}
+html body .v26-examples.v26-reveal-ready.v26-reveal-visible .v10-example-grid > article{opacity:1;transform:translateY(0)}
+@media(hover:hover){html body .v26-examples.v26-reveal-visible .v10-example-grid > article:hover{transform:translateY(-4px);box-shadow:0 14px 28px rgba(29,82,156,.14)!important;transition-delay:0ms!important}}
+/* Compact two history tabs, without changing their behavior. */
+html[data-theme] body .v16-history-panel .history-tabs{min-height:53px!important}
+html[data-theme] body .v16-history-panel .history-tab{min-height:44px!important;max-height:44px!important;font-family:"Be Vietnam Pro",Arial,sans-serif!important;font-size:14px!important;font-weight:600!important;line-height:1.4!important;padding:0 14px!important;gap:8px!important;border-radius:12px!important}
+html[data-theme] body .v16-history-panel .history-tab svg{height:18px!important;width:18px!important;flex:none!important}
+html[data-theme] body .v16-history-panel .history-tab span{font-size:13px!important;font-weight:600!important}
+/* Clean and flat About technology header — no 3D/decorative images. */
+html[data-theme] body .technology-showcase .v26-flat-tech-heading{position:relative;min-height:116px!important;margin-bottom:12px!important;padding:18px 20px 14px!important;background:linear-gradient(130deg,#fff,#f5faff,#fff)!important;box-shadow:none;border:1px solid #e4effd;border-radius:18px;overflow:hidden}
+html[data-theme] body .technology-showcase .v26-flat-tech-heading:before,html[data-theme] body .technology-showcase .v26-flat-tech-heading:after{content:"";position:absolute;width:200px;height:42px;border:1px solid #e8f2ff;border-radius:50%;opacity:.6;pointer-events:none}
+html[data-theme] body .technology-showcase .v26-flat-tech-heading:before{left:-80px;bottom:-26px;transform:rotate(-12deg)}
+html[data-theme] body .technology-showcase .v26-flat-tech-heading:after{right:-80px;top:-25px;transform:rotate(-12deg)}
+html[data-theme] body .technology-showcase .v26-flat-tech-heading .technology-label{margin:0 0 7px!important;font-size:10px!important}
+html[data-theme] body .technology-showcase .v26-flat-tech-heading h2{font-family:"Be Vietnam Pro",Arial,sans-serif!important;font-size:clamp(21px,2vw,24px)!important;font-weight:700!important;line-height:1.35!important;letter-spacing:-.5px!important;margin:0!important;color:#183669!important;text-align:center!important}
+html[data-theme] body .technology-showcase .v26-flat-tech-heading p{font-size:12.5px!important;line-height:1.6!important;max-width:740px!important;color:#5d769c!important;margin:6px auto 0!important;text-align:center!important}
+html[data-theme] body .technology-showcase .technology-icon img.v22-symbol{width:29px!important;height:29px!important;max-width:29px!important;max-height:29px!important}
+html[data-theme] body .technology-showcase .technology-logo{gap:6px!important}
+html[data-theme] body .technology-showcase .technology-logo span{font:600 12px/1.4 "Be Vietnam Pro",Arial,sans-serif!important}
+/* Corrected About image is shifted slightly to right at desktop widths, never cropped by the adjustment. */
+@media(min-width:741px){html[data-theme] body .v15-about-illustration.v22-about-illustration{right:-14px!important;}
+html[data-theme] body .v15-about-illustration.v22-about-illustration img{transform:translateX(9px)!important;}}
+@media(max-width:740px){html[data-theme] body .v15-about-illustration.v22-about-illustration{right:auto!important;}html[data-theme] body .v15-about-illustration.v22-about-illustration img{transform:none!important;}html body .v26-replay-laptop{bottom:1%;right:1%;font-size:10px}}
+@media(max-width:450px){html body #resultContent .v26-result-empty{padding:18px 8px!important;min-height:235px}html body #resultContent .v26-result-empty strong{font-size:15px!important}html body #resultContent .v26-empty-symbol{height:44px;width:44px}html body #resultContent .v26-empty-symbol svg{height:23px;width:23px}html[data-theme] body .v16-history-panel .history-tab{font-size:12px!important;padding:0 8px!important;gap:5px!important}html[data-theme] body .v16-history-panel .history-tab span{font-size:12px!important}}
+html[data-theme="dark"] body #resultContent .v26-result-empty strong{color:#e7f1ff!important}html[data-theme="dark"] body #resultContent .v26-result-empty p{color:#b7cbe6!important}html[data-theme="dark"] body .technology-showcase .v26-flat-tech-heading{background:#1d3555!important;border-color:#456080!important}html[data-theme="dark"] body .technology-showcase .v26-flat-tech-heading h2{color:#eaf1ff!important}html[data-theme="dark"] body .technology-showcase .v26-flat-tech-heading p{color:#bdcfe6!important}
+@media(prefers-reduced-motion:reduce){html body .v26-examples .v10-example-grid > article{opacity:1!important;transform:none!important;transition:none!important}}

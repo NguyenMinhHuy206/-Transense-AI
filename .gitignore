@@ -1,0 +1,21 @@
+backend/.env
+**/__pycache__/
+*.pyc
+
+# Environment and API secrets
+.env
+.env.*
+!.env.example
+**/.env
+**/.env.*
+!**/.env.example
+
+# Python environments
+.venv/
+venv/
+
+# Local and temporary files
+node_modules/
+.DS_Store
+Thumbs.db
+*.log

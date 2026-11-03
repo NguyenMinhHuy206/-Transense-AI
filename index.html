@@ -1,0 +1,5116 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+        Transense AI - Dịch Theo Ngữ Cảnh
+    </title>
+<!-- CSS CHUNG -->
+<link href="css/style.css" rel="stylesheet"/>
+<!-- DEVICON -->
+<link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet"/>
+<!-- FONT AWESOME -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" rel="stylesheet"/>
+<style>
+
+        /* =========================================================
+           MAIN
+        ========================================================= */
+
+        .index-main {
+            width: min(
+                1320px,
+                calc(100% - 40px)
+            );
+
+            margin: 0 auto;
+
+            padding-bottom: 60px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .demo-hero {
+            position: relative;
+
+            width: 100%;
+            max-width: none;
+
+            margin: 0 auto;
+
+            padding:
+                55px 0
+                34px;
+
+            text-align: center;
+
+            overflow: hidden;
+
+            isolation: isolate;
+        }
+
+
+        .hero-greeting-layer {
+            position: absolute;
+            inset: 0;
+
+            width: 100%;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        .hero-greeting-layer::after {
+            content: "";
+
+            position: absolute;
+            inset: 0;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(15, 23, 42, 0) 0%,
+                    rgba(15, 23, 42, 0.14) 68%,
+                    rgba(15, 23, 42, 0.24) 100%
+                );
+        }
+
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+
+            max-width: 920px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+
+        .hero-greeting {
+            position: absolute;
+
+            font-size:
+                clamp(
+                    18px,
+                    2.1vw,
+                    34px
+                );
+
+            font-weight: 800;
+
+            letter-spacing: 0.3px;
+
+            white-space: nowrap;
+
+            opacity: 0.20;
+
+            user-select: none;
+
+            filter: blur(0.15px);
+
+            left: 100%;
+
+            transform:
+                translateX(0)
+                rotate(var(--rot, 0deg));
+
+            animation:
+                heroGreetingRun
+                var(--duration, 20s)
+                linear
+                infinite;
+
+            animation-delay:
+                var(--delay, 0s);
+        }
+
+
+        @keyframes heroGreetingRun {
+            from {
+                transform:
+                    translateX(0)
+                    rotate(var(--rot, 0deg));
+            }
+
+            to {
+                transform:
+                    translateX(calc(-100vw - 260px))
+                    rotate(var(--rot, 0deg));
+            }
+        }
+
+
+        .hero-tone-1 {
+            color: rgba(255, 255, 255, 0.30);
+        }
+
+
+        .hero-tone-2 {
+            color: rgba(210, 218, 230, 0.28);
+        }
+
+
+        .hero-tone-3 {
+            color: rgba(122, 162, 255, 0.27);
+        }
+
+
+        .hero-tone-4 {
+            color: rgba(182, 126, 255, 0.27);
+        }
+
+
+        .hero-tone-5 {
+            color: rgba(122, 192, 152, 0.27);
+        }
+
+
+        html[data-theme="light"] .hero-greeting-layer::after {
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(220, 227, 235, 0.24) 0%,
+                    rgba(220, 227, 235, 0) 16%,
+                    rgba(220, 227, 235, 0) 84%,
+                    rgba(220, 227, 235, 0.24) 100%
+                );
+        }
+
+
+        /* Light mode: slightly darker hero backdrop and readable, still subdued greetings. */
+        html[data-theme="light"] .demo-hero {
+            background: linear-gradient(180deg, #dce3eb 0%, #e1e7ee 100%);
+        }
+
+        html[data-theme="light"] .hero-greeting {
+            opacity: 0.55;
+        }
+
+        html[data-theme="light"] .hero-tone-1,
+        html[data-theme="light"] .hero-tone-2,
+        html[data-theme="light"] .hero-tone-3,
+        html[data-theme="light"] .hero-tone-4,
+        html[data-theme="light"] .hero-tone-5 {
+            color: rgba(35, 45, 62, 0.45);
+        }
+
+
+        .hero-greeting.g1 {
+            top: 8%;
+            --rot: -8deg;
+            --duration: 32s;
+            --delay: -2s;
+        }
+
+
+        .hero-greeting.g2 {
+            top: 12%;
+            --rot: 4deg;
+            --duration: 28s;
+            --delay: -12s;
+        }
+
+
+        .hero-greeting.g3 {
+            top: 9%;
+            --rot: -4deg;
+            --duration: 35s;
+            --delay: -7s;
+        }
+
+
+        .hero-greeting.g4 {
+            top: 16%;
+            --rot: 7deg;
+            --duration: 30s;
+            --delay: -15s;
+        }
+
+
+        .hero-greeting.g5 {
+            top: 28%;
+            --rot: -6deg;
+            --duration: 31s;
+            --delay: -5s;
+        }
+
+
+        .hero-greeting.g6 {
+            top: 33%;
+            --rot: 5deg;
+            --duration: 29s;
+            --delay: -14s;
+        }
+
+
+        .hero-greeting.g7 {
+            top: 39%;
+            --rot: -3deg;
+            --duration: 34s;
+            --delay: -8s;
+        }
+
+
+        .hero-greeting.g8 {
+            top: 30%;
+            --rot: 5deg;
+            --duration: 27s;
+            --delay: -1s;
+        }
+
+
+        .hero-greeting.g9 {
+            bottom: 26%;
+            --rot: 6deg;
+            --duration: 32s;
+            --delay: -10s;
+        }
+
+
+        .hero-greeting.g10 {
+            bottom: 20%;
+            --rot: -5deg;
+            --duration: 28s;
+            --delay: -4s;
+        }
+
+
+        .hero-greeting.g11 {
+            bottom: 18%;
+            --rot: 4deg;
+            --duration: 36s;
+            --delay: -17s;
+        }
+
+
+        .hero-greeting.g12 {
+            bottom: 24%;
+            --rot: -7deg;
+            --duration: 30s;
+            --delay: -6s;
+        }
+
+
+        .hero-greeting.g13 {
+            bottom: 8%;
+            --rot: 3deg;
+            --duration: 35s;
+            --delay: -11s;
+        }
+
+
+        .hero-greeting.g14 {
+            bottom: 5%;
+            --rot: -4deg;
+            --duration: 29s;
+            --delay: -9s;
+        }
+        .demo-badge-ai {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                8px 13px;
+
+            margin-bottom: 18px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 999px;
+
+            background:
+                var(--surface);
+
+            color:
+                var(--muted);
+
+            font-size: 11px;
+            font-weight: 600;
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .demo-badge-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+        }
+
+
+        .demo-hero h1 {
+            margin: 0;
+
+            color:
+                var(--text);
+
+            font-size:
+                clamp(
+                    42px,
+                    5vw,
+                    68px
+                );
+
+            line-height: 1.04;
+
+            letter-spacing:
+                -2.4px;
+        }
+
+
+        .demo-hero h1 span {
+            display: block;
+
+            margin-top: 7px;
+
+            color:
+                var(--muted);
+        }
+
+
+        .demo-hero p {
+            max-width: 790px;
+
+            margin:
+                20px auto 0;
+
+            color:
+                var(--muted);
+
+            font-size: 14px;
+
+            line-height: 1.8;
+        }
+
+
+        @media (max-width: 860px) {
+            .hero-greeting {
+                font-size:
+                    clamp(
+                        15px,
+                        3vw,
+                        24px
+                    );
+
+                opacity: 0.17;
+            }
+        }
+
+
+        @media (max-width: 640px) {
+            .hero-greeting.g2,
+            .hero-greeting.g4,
+            .hero-greeting.g7,
+            .hero-greeting.g8,
+            .hero-greeting.g10,
+            .hero-greeting.g12,
+            .hero-greeting.g14 {
+                display: none;
+            }
+
+            .hero-greeting {
+                opacity: 0.15;
+            }
+        }
+
+
+        .language-swap {cursor:pointer;transition:transform .2s ease,background .2s ease,color .2s ease;}
+        .language-swap:hover {background:var(--blue-soft);color:var(--blue);transform:rotate(180deg);}
+        .language-swap:focus-visible {outline:2px solid var(--blue);outline-offset:3px;}
+        .language-flow .language-select-wrap {width:190px;}
+        .language-flow .language-select {background:var(--surface-2);border:1px solid var(--border);color:var(--text);}
+        @media(max-width:600px){.language-flow .language-select-wrap{width:100%;}}
+
+
+        .toolbar-left {
+            display: flex;
+            align-items: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .ai-model-wrap {
+            position: relative;
+            flex-shrink: 0;
+        }
+
+        .ai-model-trigger {
+            min-width: 220px;
+            height: 44px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 0 16px;
+            border: 1px solid var(--border-hover);
+            border-radius: 999px;
+            background: var(--surface);
+            color: var(--text);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 700;
+            box-shadow: 0 6px 20px rgba(0,0,0,.08);
+            transition: border-color .2s ease, background .2s ease, transform .2s ease;
+        }
+
+        .ai-model-trigger:hover,
+        .ai-model-wrap.menu-open .ai-model-trigger,
+        .ai-model-wrap:focus-within .ai-model-trigger {
+            border-color: var(--border-hover);
+            background: var(--surface-2);
+        }
+
+        .ai-model-icon {
+            width: 18px;
+            height: 18px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--blue);
+            flex-shrink: 0;
+        }
+
+        .ai-model-icon svg {
+            width: 18px;
+            height: 18px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .ai-model-name {
+            flex: 1;
+            min-width: 0;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ai-model-arrow {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 23px;
+            font-weight: 700;
+            line-height: 1;
+            color: var(--muted);
+            transition: transform .2s ease, color .2s ease;
+        }
+
+        .ai-model-wrap.menu-open .ai-model-arrow {
+            color: var(--text);
+            font-weight: 900;
+            transform: translateY(1px) scale(1.18);
+        }
+
+        /* AI dropdown: centered, heavier chevron when expanded */
+        .ai-model-trigger { padding-right: 13px; }
+        .ai-model-arrow {
+            flex: 0 0 24px;
+            width: 24px;
+            height: 24px;
+            margin-left: auto;
+            display: inline-grid;
+            place-items: center;
+            transform: none;
+            line-height: 1;
+        }
+        .ai-model-arrow svg {
+            display:block;
+            width:18px;
+            height:18px;
+            fill:none;
+            stroke:currentColor;
+            stroke-width:2.3;
+            stroke-linecap:round;
+            stroke-linejoin:round;
+        }
+        .ai-model-wrap.menu-open .ai-model-arrow {
+            transform:none;
+            color:var(--text);
+        }
+        .ai-model-wrap.menu-open .ai-model-arrow svg {stroke-width:3.3;}
+
+        .ai-model-dropdown {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            width: 100%;
+            min-width: 260px;
+            display: none;
+            padding: 10px;
+            border: 1px solid var(--border);
+            border-radius: 18px;
+            background: var(--surface);
+            box-shadow: var(--shadow-large);
+            z-index: 30;
+        }
+
+        .ai-model-wrap.menu-open .ai-model-dropdown {
+            display: block;
+        }
+
+        .ai-model-option {
+            width: 100%;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 12px;
+            border: 0;
+            border-radius: 14px;
+            background: transparent;
+            color: var(--text);
+            text-align: left;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .ai-model-option:hover,
+        .ai-model-option.active {
+            background: var(--surface-2);
+        }
+
+        .ai-model-option .model-badge {
+            min-width: 34px;
+            height: 34px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 10px;
+            background: var(--blue-soft);
+            color: var(--blue);
+            font-size: 13px;
+            font-weight: 800;
+            flex-shrink: 0;
+        }
+
+        .ai-model-option strong {
+            display: block;
+            font-size: 13px;
+            color: var(--text);
+        }
+
+        .ai-model-option small {
+            display: block;
+            margin-top: 4px;
+            color: var(--muted);
+            font-size: 11px;
+            line-height: 1.5;
+        }
+
+        .ai-model-copy {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 6px;
+        }
+
+        .ai-model-option-head {
+            display: block;
+        }
+
+        .model-soon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 20px;
+            padding: 0 8px;
+            border-radius: 999px;
+            background: rgba(245, 158, 11, 0.12);
+            color: #f59e0b;
+            font-size: 10px;
+            font-weight: 800;
+            letter-spacing: .2px;
+        }
+
+        .ai-model-option.is-disabled {
+            opacity: .9;
+        }
+
+        .ai-model-option.is-disabled .model-badge {
+            opacity: .98;
+            filter: saturate(1.08);
+        }
+        .ai-model-option.is-disabled .ai-model-option-head strong {
+            color: var(--text);
+        }
+
+
+        .ai-model-option .model-badge {
+            width: 42px;
+            height: 42px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent;
+            box-shadow: inset 0 1px 0 rgba(255,255,255,.08), 0 6px 16px rgba(15,23,42,.05);
+        }
+        .ai-model-option .model-badge i,
+        .ai-model-option .model-badge svg {
+            font-size: 15px;
+            width: 19px;
+            height: 19px;
+            display: block;
+            flex-shrink: 0;
+        }
+        .ai-model-option .model-badge svg {overflow: visible;}
+        .ai-model-option .model-badge svg * {vector-effect: non-scaling-stroke;}
+        .model-badge.gemini {
+            background: linear-gradient(135deg, rgba(147,51,234,.18), rgba(99,102,241,.12));
+            color: #8b5cf6;
+            border-color: rgba(139,92,246,.30);
+        }
+        .model-badge.google-translate {
+            background: linear-gradient(135deg, rgba(59,130,246,.16), rgba(37,99,235,.10));
+            color: #3b82f6;
+            border-color: rgba(59,130,246,.28);
+        }
+        .model-badge.gpt {
+            background: linear-gradient(135deg, rgba(16,185,129,.16), rgba(45,212,191,.10));
+            color: #10b981;
+            border-color: rgba(16,185,129,.26);
+        }
+        .model-badge.core {
+            background: linear-gradient(135deg, rgba(59,130,246,.18), rgba(99,102,241,.12));
+            color: #2563eb;
+            border-color: rgba(59,130,246,.28);
+        }
+        .ai-model-option.active .model-badge.core {
+            color: #bfd7ff;
+        }
+        .ai-model-option .ai-model-option-head strong {
+            font-size: 13.5px;
+        }
+
+        @media(max-width:860px){
+            .app-toolbar {
+                align-items: flex-start;
+                flex-direction: column;
+            }
+            .toolbar-left {
+                width: 100%;
+            }
+            .core-chip {
+                margin-left: auto;
+            }
+        }
+
+        @media(max-width:600px){
+            .toolbar-left {
+                gap: 12px;
+            }
+            .ai-model-wrap,
+            .ai-model-trigger,
+            .ai-model-dropdown {
+                width: 100%;
+                min-width: 0;
+            }
+        }
+
+        /* =========================================================
+           TRANSLATION APP
+        ========================================================= */
+
+        .translation-app {
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 24px;
+
+            background:
+                var(--surface);
+
+            box-shadow:
+                var(--shadow-large);
+        }
+
+
+        /* =========================================================
+           TOOLBAR
+        ========================================================= */
+
+        .app-toolbar {
+            min-height: 74px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            padding:
+                13px 22px;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            background:
+                var(--surface-2);
+        }
+
+
+        .language-flow {
+            display: flex;
+            align-items: center;
+
+            gap: 9px;
+        }
+
+
+        .language-select-wrap {
+            position: relative;
+
+            width: 190px;
+        }
+
+
+        .language-select {
+            width: 100%;
+            height: 44px;
+
+            appearance: none;
+            -webkit-appearance: none;
+
+            padding:
+                0 38px
+                0 13px;
+
+            border:
+                1px solid
+                transparent;
+
+            border-radius: 11px;
+
+            outline: none;
+
+            background:
+                transparent;
+
+            color:
+                var(--text);
+
+            font-family: inherit;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        .language-select:hover,
+        .language-select:focus {
+            border-color:
+                var(--border);
+
+            background:
+                var(--surface);
+        }
+
+
+        .language-select-wrap::after {
+            content: "";
+
+            position: absolute;
+
+            top: 50%;
+            right: 14px;
+
+            width: 7px;
+            height: 7px;
+
+            border-right:
+                1.5px solid
+                var(--muted);
+
+            border-bottom:
+                1.5px solid
+                var(--muted);
+
+            transform:
+                translateY(-70%)
+                rotate(45deg);
+
+            pointer-events: none;
+        }
+
+
+        .language-arrow {
+            width: 40px;
+            height: 40px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            flex-shrink: 0;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 50%;
+
+            background:
+                var(--surface);
+
+            color:
+                var(--muted);
+        }
+
+
+        .language-arrow svg {
+            width: 16px;
+            height: 16px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+
+            stroke-linecap:
+                round;
+
+            stroke-linejoin:
+                round;
+        }
+
+
+        .target-language {
+            width: 170px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+
+            padding:
+                0 13px;
+
+            color:
+                var(--text);
+
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        .core-chip {
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            color:
+                var(--muted);
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        .core-dot {
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+        }
+
+
+        /* =========================================================
+           APP CONTENT
+        ========================================================= */
+
+        .app-content {
+            padding: 24px;
+        }
+
+
+        .workspace-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+
+            gap: 24px;
+
+            margin-bottom: 20px;
+        }
+
+
+        .eyebrow {
+            margin-bottom: 6px;
+
+            color:
+                var(--muted-2);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+        }
+
+
+        .workspace-header h2 {
+            margin: 0;
+
+            color:
+                var(--text);
+
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+
+        .workspace-desc {
+            max-width: 720px;
+
+            margin:
+                8px 0 0;
+
+            color:
+                var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+
+        .api-ready {
+            min-height: 38px;
+
+            display: inline-flex;
+            align-items: center;
+
+            gap: 8px;
+
+            padding:
+                0 13px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 999px;
+
+            background:
+                var(--surface-2);
+
+            color:
+                var(--green);
+
+            font-size: 11px;
+            font-weight: 600;
+
+            white-space: nowrap;
+        }
+
+
+        .api-ready span {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                var(--green);
+        }
+
+
+        /* =========================================================
+           TRANSLATION GRID
+        ========================================================= */
+
+        .translation-layout {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 16px;
+
+            align-items: stretch;
+        }
+
+
+        .editor-card {
+            min-height: 455px;
+            height: 455px;
+
+            display: flex;
+            flex-direction: column;
+
+            overflow: hidden;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 17px;
+
+            background:
+                var(--surface);
+        }
+
+
+        /* =========================================================
+           EDITOR HEADER
+        ========================================================= */
+
+        .editor-head {
+            min-height: 76px;
+
+            flex-shrink: 0;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 16px;
+
+            padding:
+                15px 18px;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            background:
+                var(--surface-2);
+        }
+
+
+        .editor-caption {
+            margin-bottom: 5px;
+
+            color:
+                var(--muted-2);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 1.1px;
+        }
+
+
+        .editor-language {
+            color:
+                var(--text);
+
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+
+        .editor-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 5px;
+        }
+
+
+        .icon-action {
+            width: 36px;
+            height: 36px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                transparent;
+
+            border-radius: 9px;
+
+            background:
+                transparent;
+
+            color:
+                var(--muted);
+
+            cursor: pointer;
+
+            transition:
+                0.18s ease;
+        }
+
+
+        .icon-action:hover {
+            border-color:
+                var(--border);
+
+            background:
+                var(--surface);
+
+            color:
+                var(--blue);
+        }
+
+
+        .icon-action.listening {
+            border-color:
+                #ef4444;
+
+            color:
+                #ef4444;
+        }
+
+
+        .icon-action svg {
+            width: 16px;
+            height: 16px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+
+            stroke-linecap:
+                round;
+
+            stroke-linejoin:
+                round;
+        }
+
+
+        .text-action {
+            min-height: 36px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding:
+                0 9px;
+
+            border:
+                1px solid
+                transparent;
+
+            border-radius: 8px;
+
+            background:
+                transparent;
+
+            color:
+                var(--muted);
+
+            font-family: inherit;
+
+            font-size: 11px;
+
+            cursor: pointer;
+        }
+
+
+        .text-action:hover {
+            background:
+                var(--surface);
+
+            color:
+                var(--blue);
+        }
+
+
+        /* =========================================================
+           SOURCE BODY
+           FIX BỐ CỤC PHIÊN ÂM + COUNTER
+        ========================================================= */
+
+        .source-editor-body {
+            position: relative;
+
+            flex: 1;
+
+            min-height: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            padding: 0;
+        }
+
+
+        .source-editor-body textarea {
+            width: 100%;
+
+            flex: 1;
+
+            min-height: 0;
+            height: auto;
+
+            display: block;
+
+            resize: none;
+
+            margin: 0;
+
+            padding:
+                24px 24px
+                16px;
+
+            border: none;
+            outline: none;
+
+            box-sizing:
+                border-box;
+
+            background:
+                transparent;
+
+            color:
+                var(--text);
+
+            font-family:
+                inherit;
+
+            font-size: 15px;
+
+            line-height: 1.75;
+        }
+
+
+        .source-editor-body
+        textarea::placeholder {
+            color:
+                var(--muted-2);
+        }
+
+
+        /* =========================================================
+           PHONETIC
+        ========================================================= */
+
+        .source-editor-body
+        .phonetic-box {
+            position: static;
+
+            width: auto;
+
+            flex-shrink: 0;
+
+            margin:
+                0 24px
+                8px;
+
+            padding:
+                15px 17px;
+
+            box-sizing:
+                border-box;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 13px;
+
+            background:
+                var(--surface-2);
+        }
+
+
+        .source-editor-body
+        .phonetic-box:not(.show) {
+            display: none;
+        }
+
+
+        .source-editor-body
+        .phonetic-box.show {
+            display: block;
+        }
+
+
+        .phonetic-label {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            margin-bottom: 8px;
+
+            color:
+                var(--muted-2);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.8px;
+        }
+
+
+        .phonetic-language {
+            color:
+                var(--blue);
+
+            font-weight: 600;
+
+            letter-spacing: 0;
+        }
+
+
+        .phonetic-value {
+            width: 100%;
+
+            color:
+                var(--blue);
+
+            font-size: 14px;
+
+            line-height: 1.65;
+
+            overflow-wrap:
+                anywhere;
+
+            word-break:
+                break-word;
+        }
+
+
+        /* =========================================================
+           VOICE STATUS
+        ========================================================= */
+
+        .voice-status {
+            display: none;
+        }
+
+
+        .voice-status.show {
+            display: flex;
+        }
+
+
+        .source-editor-body
+        .voice-status {
+            position: static;
+
+            flex-shrink: 0;
+
+            align-items: center;
+
+            gap: 8px;
+
+            margin:
+                0 24px
+                8px;
+
+            padding:
+                9px 12px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 10px;
+
+            background:
+                var(--surface-2);
+
+            color:
+                var(--muted);
+
+            font-size: 10px;
+        }
+
+
+        .voice-status-dot {
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background:
+                #ef4444;
+        }
+
+
+        /* =========================================================
+           CHARACTER COUNTER
+        ========================================================= */
+
+        .source-editor-body
+        .char-counter {
+            position: static;
+
+            width: 100%;
+
+            flex-shrink: 0;
+
+            display: flex;
+            justify-content: flex-end;
+
+            box-sizing:
+                border-box;
+
+            padding:
+                0 24px
+                16px;
+
+            margin: 0;
+
+            color:
+                var(--muted-2);
+
+            font-size: 10px;
+
+            text-align: right;
+        }
+
+
+        /* =========================================================
+           RESULT BODY
+           FIX KẾT QUẢ NẰM GÓC TRÊN TRÁI
+        ========================================================= */
+
+        .result-editor-body {
+            position: relative;
+
+            flex: 1;
+
+            min-height: 0;
+
+            display: block;
+
+            padding: 0;
+        }
+
+
+        .result-editor-body
+        #resultContent {
+            width: 100%;
+            height: 100%;
+
+            min-height: 0;
+
+            display: block !important;
+
+            position: relative;
+
+            margin: 0;
+            padding: 0;
+
+            box-sizing:
+                border-box;
+
+            text-align:
+                left !important;
+        }
+
+
+        /* =========================================================
+           EMPTY RESULT
+        ========================================================= */
+
+        .result-empty-pro {
+            width: 100%;
+            height: 100%;
+
+            min-height: 0;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            gap: 13px;
+
+            box-sizing:
+                border-box;
+
+            padding: 25px;
+
+            text-align: center;
+        }
+
+
+        .result-ai-icon {
+            width: 56px;
+            height: 56px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border:
+                1px solid
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.20
+                );
+
+            border-radius: 16px;
+
+            background:
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.07
+                );
+
+            color:
+                #2563EB;
+        }
+
+
+        .result-ai-icon svg {
+            width: 23px;
+            height: 23px;
+
+            fill: none;
+
+            stroke:
+                currentColor;
+
+            stroke-width: 1.8;
+        }
+
+
+        .result-empty-pro strong {
+            color:
+                var(--text);
+
+            font-size: 15px;
+        }
+
+
+        .result-empty-pro p {
+            max-width: 300px;
+
+            margin: 0;
+
+            color:
+                var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           TRANSLATED TEXT
+        ========================================================= */
+
+        .result-editor-body
+        .translated-text {
+            width: 100%;
+
+            display: block !important;
+
+            position: static !important;
+
+            box-sizing:
+                border-box;
+
+            margin:
+                0 !important;
+
+            padding:
+                24px !important;
+
+            color:
+                var(--text);
+
+            font-size: 15px;
+
+            line-height: 1.75;
+
+            text-align:
+                left !important;
+
+            white-space:
+                pre-wrap;
+
+            overflow-wrap:
+                anywhere;
+
+            word-break:
+                break-word;
+
+            transform:
+                none !important;
+        }
+
+
+        #resultContent >
+        .translated-text {
+            top:
+                auto !important;
+
+            left:
+                auto !important;
+
+            align-items:
+                initial !important;
+
+            justify-content:
+                initial !important;
+        }
+
+
+        /* =========================================================
+           ACTION BAR
+        ========================================================= */
+
+        .app-actions {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-top: 18px;
+
+            padding-top: 18px;
+
+            border-top:
+                1px solid
+                var(--border);
+        }
+
+
+        .app-note {
+            display: flex;
+            align-items: center;
+
+            gap: 8px;
+
+            max-width: 680px;
+
+            color:
+                var(--muted-2);
+
+            font-size: 10px;
+
+            line-height: 1.6;
+        }
+
+
+        .note-dot {
+            width: 5px;
+            height: 5px;
+
+            flex-shrink: 0;
+
+            border-radius: 50%;
+
+            background:
+                var(--muted-2);
+        }
+
+
+        .button-group {
+            display: flex;
+            align-items: center;
+
+            gap: 10px;
+        }
+
+
+        .secondary-btn,
+        .ai-translate-btn {
+            min-height: 44px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 8px;
+
+            padding:
+                0 18px;
+
+            border-radius: 11px;
+
+            font-family: inherit;
+
+            font-size: 12px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.18s ease;
+        }
+
+
+        .secondary-btn {
+            border:
+                1px solid
+                var(--border);
+
+            background:
+                var(--surface);
+
+            color:
+                var(--muted);
+        }
+
+
+        .ai-translate-btn {
+            min-width: 150px;
+
+            border:
+                1px solid
+                #2563EB;
+
+            background:
+                #2563EB;
+
+            color:
+                #ffffff;
+        }
+
+
+        .secondary-btn:hover,
+        .ai-translate-btn:hover {
+            transform:
+                translateY(-1px);
+        }
+
+
+        .ai-translate-btn:disabled {
+            opacity: 0.65;
+
+            cursor: wait;
+        }
+
+
+        /* =========================================================
+           CONTEXT ANALYSIS
+        ========================================================= */
+
+        .context-pro {
+            margin-top: 24px;
+
+            padding: 24px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 22px;
+
+            background:
+                var(--surface);
+
+            box-shadow:
+                var(--shadow);
+        }
+
+
+        .context-pro-head {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 18px;
+        }
+
+
+        .context-pro-head h2 {
+            margin: 0;
+
+            color:
+                var(--text);
+
+            font-size: 22px;
+        }
+
+
+        .context-chip {
+            min-height: 36px;
+
+            display: inline-flex;
+            align-items: center;
+
+            padding:
+                0 13px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 999px;
+
+            background:
+                var(--surface-2);
+
+            color:
+                var(--muted);
+
+            font-size: 11px;
+        }
+
+
+        .analysis-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    4,
+                    minmax(0, 1fr)
+                );
+
+            gap: 12px;
+        }
+
+
+        .analysis-card {
+            min-height: 112px;
+
+            padding: 17px;
+
+            border:
+                1px solid
+                var(--border);
+
+            border-radius: 14px;
+
+            background:
+                var(--surface-2);
+        }
+
+
+        .analysis-label {
+            margin-bottom: 10px;
+
+            color:
+                var(--muted-2);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 0.9px;
+
+            text-transform:
+                uppercase;
+        }
+
+
+        .analysis-value {
+            color:
+                var(--text);
+
+            font-size: 13px;
+            font-weight: 600;
+
+            line-height: 1.6;
+        }
+
+
+        .analysis-keywords {
+            grid-column:
+                span 2;
+        }
+
+
+        .keyword-list {
+            display: flex;
+            flex-wrap: wrap;
+
+            gap: 8px;
+        }
+
+
+        .keyword-chip {
+            display: inline-flex;
+            align-items: center;
+
+            padding:
+                7px 10px;
+
+            border:
+                1px solid
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.18
+                );
+
+            border-radius: 999px;
+
+            background:
+                rgba(
+                    37,
+                    99,
+                    235,
+                    0.07
+                );
+
+            color:
+                #2563EB;
+
+            font-size: 11px;
+            font-weight: 600;
+        }
+
+
+        .analysis-explanation {
+            grid-column:
+                span 2;
+
+            min-height: auto;
+        }
+
+
+        .analysis-explanation
+        .analysis-value {
+            color:
+                var(--muted);
+
+            font-weight: 400;
+        }
+
+
+        /* =========================================================
+           TABLET
+        ========================================================= */
+
+        @media
+        (max-width: 950px) {
+
+            .translation-layout {
+                grid-template-columns:
+                    1fr;
+            }
+
+
+            .editor-card {
+                height: 420px;
+            }
+
+
+            .analysis-grid {
+                grid-template-columns:
+                    repeat(
+                        2,
+                        minmax(0, 1fr)
+                    );
+            }
+
+
+            .analysis-keywords,
+            .analysis-explanation {
+                grid-column:
+                    span 2;
+            }
+
+        }
+
+
+        /* =========================================================
+           MOBILE
+        ========================================================= */
+
+        @media
+        (max-width: 768px) {
+
+            html,
+            body {
+                width: 100%;
+
+                max-width: 100%;
+
+                overflow-x: hidden;
+            }
+
+
+            .navbar {
+                width:
+                    calc(
+                        100% - 16px
+                    );
+
+                margin: 8px;
+
+                padding:
+                    10px 12px;
+
+                flex-wrap: wrap;
+
+                gap: 10px;
+
+                border-radius: 16px;
+            }
+
+
+            .brand {
+                flex: 1;
+
+                min-width: 0;
+            }
+
+
+            .brand-logo {
+                width: 38px;
+                height: 38px;
+            }
+
+
+            .brand-name {
+                font-size: 15px;
+            }
+
+
+            .nav-links {
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content:
+                    flex-start;
+
+                gap: 3px;
+
+                scrollbar-width:
+                    none;
+            }
+
+
+            .nav-links::-webkit-scrollbar {
+                display: none;
+            }
+
+
+            .nav-links a {
+                flex-shrink: 0;
+
+                padding:
+                    8px 9px;
+
+                font-size: 10px;
+            }
+
+
+            .index-main {
+                width:
+                    calc(
+                        100% - 20px
+                    );
+            }
+
+
+            .demo-hero {
+                padding:
+                    32px 7px
+                    25px;
+            }
+
+
+            .demo-hero h1 {
+                font-size:
+                    clamp(
+                        34px,
+                        10vw,
+                        45px
+                    );
+
+                letter-spacing:
+                    -1.3px;
+            }
+
+
+            .demo-hero p {
+                font-size: 12px;
+            }
+
+
+            /* TECHNOLOGY */
+
+            .technology-showcase {
+                margin-bottom: 26px;
+
+                padding:
+                    28px 0
+                    31px;
+            }
+
+
+            .technology-heading {
+                margin-bottom: 27px;
+
+                padding:
+                    0 14px;
+            }
+
+
+            .technology-heading h2 {
+                font-size: 21px;
+            }
+
+
+            .technology-heading p {
+                font-size: 10px;
+            }
+
+
+            .logo-group {
+                gap: 40px;
+
+                padding-right: 40px;
+            }
+
+
+            .technology-logo {
+                min-width: 90px;
+            }
+
+
+            .technology-icon {
+                width: 48px;
+                height: 48px;
+
+                border-radius: 14px;
+            }
+
+
+            .technology-icon i {
+                font-size: 26px;
+            }
+
+
+            .technology-logo > span {
+                font-size: 8px;
+            }
+
+
+            .logo-track-left {
+                animation-duration:
+                    26s;
+            }
+
+
+            .logo-track-right {
+                animation-duration:
+                    29s;
+            }
+
+
+            /* TOOLBAR */
+
+            .app-toolbar {
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                gap: 10px;
+
+                padding: 12px;
+            }
+
+
+            .language-flow {
+                display: grid;
+
+                grid-template-columns:
+                    minmax(0, 1fr)
+                    36px
+                    minmax(0, 1fr);
+
+                gap: 6px;
+            }
+
+
+            .language-select-wrap {
+                width: 100%;
+            }
+
+
+            .language-select {
+                font-size: 10px;
+
+                border:
+                    1px solid
+                    var(--border);
+
+                background:
+                    var(--surface);
+            }
+
+
+            .language-arrow {
+                width: 36px;
+                height: 36px;
+            }
+
+
+            .target-language {
+                width: 100%;
+
+                justify-content:
+                    center;
+
+                border:
+                    1px solid
+                    var(--border);
+
+                border-radius: 11px;
+
+                background:
+                    var(--surface);
+
+                font-size: 10px;
+            }
+
+
+            .core-chip {
+                align-self:
+                    flex-end;
+
+                font-size: 9px;
+            }
+
+
+            /* WORKSPACE */
+
+            .app-content {
+                padding: 14px;
+            }
+
+
+            .workspace-header {
+                flex-direction:
+                    column;
+
+                gap: 12px;
+            }
+
+
+            .workspace-header h2 {
+                font-size: 20px;
+            }
+
+
+            .workspace-desc {
+                font-size: 11px;
+            }
+
+
+            .api-ready {
+                align-self:
+                    flex-start;
+
+                min-height: 32px;
+
+                font-size: 9px;
+            }
+
+
+            /* CARDS */
+
+            .translation-layout {
+                grid-template-columns:
+                    1fr;
+
+                gap: 12px;
+            }
+
+
+            .editor-card {
+                height: auto;
+
+                min-height: 360px;
+            }
+
+
+            .editor-head {
+                min-height: 64px;
+
+                padding:
+                    12px 13px;
+            }
+
+
+            .editor-language {
+                font-size: 14px;
+            }
+
+
+            .icon-action {
+                width: 32px;
+                height: 32px;
+            }
+
+
+            /* SOURCE MOBILE */
+
+            .source-editor-body {
+                min-height: 290px;
+            }
+
+
+            .source-editor-body
+            textarea {
+                min-height: 200px;
+
+                padding:
+                    18px 16px
+                    14px;
+
+                font-size: 14px;
+            }
+
+
+            .source-editor-body
+            .phonetic-box {
+                margin:
+                    0 16px
+                    8px;
+
+                padding:
+                    13px 14px;
+            }
+
+
+            .source-editor-body
+            .voice-status {
+                margin:
+                    0 16px
+                    8px;
+            }
+
+
+            .source-editor-body
+            .char-counter {
+                padding:
+                    0 16px
+                    13px;
+            }
+
+
+            /* RESULT MOBILE */
+
+            .result-editor-body {
+                min-height: 290px;
+            }
+
+
+            .result-editor-body
+            #resultContent {
+                min-height: 290px;
+            }
+
+
+            .result-editor-body
+            .translated-text {
+                padding:
+                    18px 16px
+                    !important;
+
+                font-size: 14px;
+            }
+
+
+            .result-editor-body
+            .result-empty-pro {
+                min-height: 290px;
+            }
+
+
+            /* ACTION */
+
+            .app-actions {
+                flex-direction:
+                    column;
+
+                align-items:
+                    stretch;
+
+                gap: 13px;
+            }
+
+
+            .button-group {
+                display: grid;
+
+                grid-template-columns:
+                    0.8fr
+                    1.2fr;
+
+                width: 100%;
+            }
+
+
+            .secondary-btn,
+            .ai-translate-btn {
+                width: 100%;
+
+                min-width: 0;
+
+                padding:
+                    0 9px;
+
+                font-size: 11px;
+            }
+
+
+            /* CONTEXT */
+
+            .context-pro {
+                margin-top: 16px;
+
+                padding: 16px;
+            }
+
+
+            .context-pro-head {
+                flex-direction:
+                    column;
+
+                align-items:
+                    flex-start;
+
+                gap: 10px;
+            }
+
+
+            .analysis-grid {
+                grid-template-columns:
+                    1fr;
+
+                gap: 9px;
+            }
+
+
+            .analysis-keywords,
+            .analysis-explanation {
+                grid-column: 1;
+            }
+
+
+            .analysis-card {
+                min-height: auto;
+
+                padding: 14px;
+            }
+
+
+            .footer {
+                flex-direction:
+                    column;
+
+                gap: 10px;
+
+                text-align: center;
+            }
+
+
+            .footer-right {
+                text-align: center;
+            }
+
+        }
+
+
+        /* =========================================================
+           SMALL PHONE
+        ========================================================= */
+
+        @media
+        (max-width: 480px) {
+
+            .index-main {
+                width:
+                    calc(
+                        100% - 12px
+                    );
+            }
+
+
+            .demo-hero h1 {
+                font-size: 35px;
+            }
+
+
+            .technology-heading h2 {
+                font-size: 19px;
+            }
+
+
+            .logo-group {
+                gap: 34px;
+
+                padding-right: 34px;
+            }
+
+
+            .technology-logo {
+                min-width: 82px;
+            }
+
+        }
+
+    
+/* CONTEXT MODE TABS */
+.context-mode-tabs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin-bottom:24px;padding:5px;border:1px solid var(--border);border-radius:16px;background:var(--surface-2)}
+.context-mode-tab{width:100%;min-width:0;border:1px solid transparent;border-radius:12px;background:transparent;color:var(--muted);padding:15px 10px;font:inherit;font-weight:700;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.context-mode-tab.is-active{background:var(--surface);color:var(--text);border-color:var(--border);box-shadow:0 2px 12px rgba(0,0,0,.10)}
+.context-mode-tab:focus-visible{outline:2px solid #7298ff;outline-offset:2px}
+.manual-context-panel[hidden]{display:none!important}
+.manual-context-label{display:block;margin:22px 0 10px;font-size:14px;font-weight:700;color:var(--text)}
+.manual-context-input{display:block;width:100%;box-sizing:border-box;min-height:170px;resize:vertical;padding:18px;border-radius:15px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);font:inherit;line-height:1.65;outline:none}
+.manual-context-input:focus{border-color:#7298ff;box-shadow:0 0 0 3px rgba(114,152,255,.13)}
+.manual-context-input::placeholder{color:var(--muted);opacity:.75}
+.manual-context-hint,.manual-context-notice{font-size:13px;line-height:1.8;color:var(--muted);margin:13px 0 0}
+.manual-context-notice{border:1px solid var(--border);background:var(--surface-2);border-radius:12px;padding:15px}
+@media(max-width:550px){.context-mode-tab{font-size:12px;padding:13px 5px}}
+
+/* Responsive fixes */
+
+@media(max-width:760px){
+ .demo-hero h1{font-size:clamp(32px,8vw,55px)!important;letter-spacing:-1px!important;overflow-wrap:anywhere;}
+ .translation-app{width:100%;min-width:0;}
+ .app-toolbar{flex-direction:column;align-items:stretch;gap:12px;padding:14px!important;}
+ .toolbar-left{display:flex;flex-direction:column;align-items:stretch;width:100%;min-width:0;gap:12px;}
+ .language-flow{width:100%;min-width:0;display:grid;grid-template-columns:minmax(0,1fr) 38px minmax(0,1fr);gap:7px;}
+ .language-flow .language-select-wrap{width:auto!important;min-width:0;}
+ .language-flow .language-select{width:100%;min-width:0;padding-left:9px;padding-right:22px;font-size:12px;}
+ .language-flow .language-arrow{width:38px;height:38px;}
+ .ai-model-wrap,.ai-model-trigger{max-width:100%;min-width:0;width:100%;}
+ .ai-model-dropdown{min-width:0;width:100%;}
+ .app-content{padding:16px!important;min-width:0;}
+ .translation-grid,.translation-panels,.panels-grid{grid-template-columns:minmax(0,1fr)!important;}
+ .source-panel,.result-panel,.translation-panel{min-width:0;max-width:100%;}
+ .workspace-header{flex-wrap:wrap;gap:12px;}
+ .workspace-header h2{font-size:clamp(22px,5vw,30px)!important;}
+ .action-bar{flex-wrap:wrap;}
+ .action-buttons{flex-wrap:wrap;}
+}
+@media(max-width:380px){.language-flow{grid-template-columns:minmax(0,1fr) 32px minmax(0,1fr);gap:4px}.language-flow .language-arrow{width:32px;height:32px}.language-flow .language-select{font-size:11px;padding-left:7px}}
+
+
+/* Branded AI icons, same sources used in the About technology cards */
+.ai-model-option .model-badge { width:44px; height:44px; min-width:44px; }
+.ai-model-option .model-badge .model-brand-img { display:block; width:27px; height:27px; object-fit:contain; }
+.ai-model-option .model-badge .fallback-logo {width:23px; height:23px;}
+.ai-model-option .model-badge.gemini { background:rgba(149,92,246,.13); color:#9256ed; border-color:rgba(149,92,246,.30); }
+.ai-model-option .model-badge.google-translate { background:rgba(69,112,248,.14); color:#416bfc; border-color:rgba(69,112,248,.28); }
+.ai-model-option .model-badge.gpt { background:rgba(16,163,127,.12); color:#10a37f; border-color:rgba(16,163,127,.30); }
+html[data-theme="light"] .ai-model-option .model-badge.gemini {background:rgba(149,92,246,.12);}
+html[data-theme="light"] .ai-model-option .model-badge.google-translate {background:rgba(69,112,248,.10);}
+html[data-theme="light"] .ai-model-option .model-badge.gpt {background:rgba(16,163,127,.11);}
+/* Highlight the translation workspace without reducing text contrast */
+.translation-app {position:relative; isolation:isolate; border-color:rgba(96,165,250,.31); box-shadow: 0 0 0 1px rgba(96,165,250,.06), 0 22px 54px rgba(37,99,235,.10);}
+.translation-app .app-toolbar {background:linear-gradient(100deg,rgba(59,130,246,.09),rgba(37,99,235,.025) 65%),var(--surface-2);border-bottom-color:rgba(96,165,250,.24);}
+.translation-app .source-panel,.translation-app .result-panel {border-color:rgba(96,165,250,.25);background:linear-gradient(140deg,rgba(59,130,246,.025),transparent 50%),var(--surface-2);}
+.translation-app .source-panel:focus-within {border-color:rgba(59,130,246,.52);box-shadow:0 0 0 2px rgba(59,130,246,.08);}
+html[data-theme="dark"] .translation-app {border-color:rgba(112,152,229,.40);box-shadow:0 0 0 1px rgba(96,165,250,.06),0 22px 60px rgba(23,58,139,.18);}
+html[data-theme="light"] .translation-app {border-color:rgba(77,132,219,.35);background:#fff;box-shadow:0 0 0 1px rgba(59,130,246,.055),0 24px 56px rgba(45,89,172,.13);}
+html[data-theme="light"] .translation-app .app-toolbar {background:linear-gradient(100deg,rgba(59,130,246,.095),rgba(147,197,253,.035) 75%),#f8fbff;}
+html[data-theme="light"] .translation-app .source-panel,html[data-theme="light"] .translation-app .result-panel {background:linear-gradient(145deg,rgba(219,234,254,.22),transparent 62%),#fff;border-color:rgba(110,152,215,.31);}
+
+/* ===== 2026 Transense Soft Duotone UI refresh ===== */
+.nav-links .nav-page .nav-art{width:30px!important;height:30px!important;flex:0 0 30px!important;overflow:visible}
+.ai-model-trigger{min-width:254px!important;height:56px!important;border-radius:18px!important;gap:10px!important;padding:6px 12px!important;background:linear-gradient(130deg,rgba(55,148,255,.09),rgba(21,198,218,.065))!important;border:1px solid rgba(90,177,243,.43)!important;box-shadow:none!important;text-align:left}
+.ai-model-icon{height:41px!important;width:41px!important;min-width:41px!important;border-radius:12px!important;color:#2264d7!important;background:linear-gradient(135deg,#c9dcff,#b8f4f7)!important}
+.ai-model-icon svg{height:24px!important;width:24px!important}
+.ai-model-meta{min-width:0;display:flex;flex:1;flex-direction:column;gap:2px}
+.ai-model-name{display:block!important;line-height:1.15!important;font-size:13px!important;font-weight:750!important}
+.ai-model-caption{font-size:10px!important;color:var(--muted);line-height:1.2}
+.ai-model-arrow{flex:0 0 auto}
+html[data-theme="dark"] .ai-model-trigger{background:linear-gradient(135deg,rgba(30,87,168,.28),rgba(15,116,146,.22))!important;border-color:rgba(67,167,234,.5)!important}
+html[data-theme="dark"] .ai-model-icon{background:linear-gradient(135deg,#22477e,#175e81)!important;color:#9bdcfd!important}
+.translation-flow-empty{width:100%;max-width:430px;margin:auto!important;display:flex;align-items:center;justify-content:center;flex-direction:column;text-align:center;gap:12px;padding:26px 14px}
+.translation-flow-visual{display:flex;align-items:center;justify-content:center;gap:16px;margin-bottom:6px}
+.translation-flow-tile{width:63px;height:63px;display:flex;align-items:center;justify-content:center;border-radius:17px;border:1px solid rgba(68,145,241,.24)}
+.translation-flow-tile svg{width:31px;height:31px}
+.translation-flow-source{background:linear-gradient(135deg,#e4efff,#c9dfff);color:#2262db}
+.translation-flow-target{background:linear-gradient(135deg,#e0fbfb,#b7eeef);color:#009aaf}
+.translation-flow-direction{width:27px;color:#569ddd}
+.translation-flow-direction svg{width:27px}
+.translation-flow-empty strong{font-weight:700;font-size:17px;line-height:1.4}
+.translation-flow-empty p{font-size:13px;line-height:1.6;color:var(--muted);margin:0}
+.translation-flow-step{display:flex;gap:12px;align-items:center;color:#2783cb;font-size:11px;font-weight:650;flex-wrap:wrap;justify-content:center}
+.translation-flow-step span:first-child{color:#2064c8;background:rgba(60,151,250,.09);padding:6px 12px;border-radius:999px}
+.translation-flow-step span:last-child{color:#0093a3;background:rgba(19,190,194,.09);padding:6px 12px;border-radius:999px}
+html[data-theme="dark"] .translation-flow-source{background:linear-gradient(135deg,#163f85,#255da1);color:#d9edff}
+html[data-theme="dark"] .translation-flow-target{background:linear-gradient(135deg,#07566b,#147f97);color:#dbffff}
+/* Context: active tabs, header, individual soft colored analysis cards */
+.context-mode-tabs{background:var(--surface-2);padding:5px;border-radius:17px}
+.context-mode-tab.is-active{color:#1f65d9!important;border-color:rgba(63,153,240,.28)!important;box-shadow:0 5px 16px rgba(25,98,188,.08)!important}
+html[data-theme="dark"] .context-mode-tab.is-active{color:#9bd6ff!important}
+.context-pro-head h2{letter-spacing:-.02em}
+.analysis-grid .analysis-card{border-radius:17px!important;position:relative;overflow:hidden;border:1px solid var(--border)!important}
+.analysis-grid .analysis-card:nth-child(4n+1){background:linear-gradient(135deg,rgba(70,139,247,.10),rgba(65,150,242,.035))}
+.analysis-grid .analysis-card:nth-child(4n+2){background:linear-gradient(135deg,rgba(12,191,206,.095),rgba(56,169,185,.025))}
+.analysis-grid .analysis-card:nth-child(4n+3){background:linear-gradient(135deg,rgba(127,111,233,.10),rgba(95,88,218,.022))}
+.analysis-grid .analysis-card:nth-child(4n+4){background:linear-gradient(135deg,rgba(72,167,246,.08),rgba(72,167,246,.015))}
+.analysis-grid .analysis-card::before{content:"";position:absolute;right:-22px;top:-35px;width:75px;height:75px;border-radius:50%;background:rgba(89,160,239,.045);pointer-events:none}
+.personal-context-top{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.personal-context-hero{display:grid;place-items:center;flex:0 0 50px;width:50px;height:50px;border-radius:15px;background:linear-gradient(135deg,rgba(59,130,246,.23),rgba(21,197,216,.2));color:#2684e7;font-size:27px}
+.personal-context-top strong{display:block;font-size:18px;font-weight:750;line-height:1.3}
+.personal-context-top p{margin:5px 0 0;color:var(--muted);font-size:13px;line-height:1.55}
+.personal-context-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:15px;margin-bottom:20px}
+.personal-context-fields label{display:flex;flex-direction:column;gap:8px;font-size:13px;font-weight:700}
+.personal-context-select{width:100%;min-width:0;padding:12px;border:1px solid var(--border);border-radius:12px;background:var(--surface-2);color:var(--text);font:inherit;font-weight:500;cursor:pointer}
+.personal-context-select:focus-visible{outline:2px solid #438ef1;outline-offset:2px}
+.personal-context-summary{display:flex;flex-direction:column;gap:8px;padding:15px 18px;border-radius:14px;background:rgba(46,136,230,.08);border:1px solid rgba(59,145,230,.16);margin:16px 0}
+.personal-context-summary strong{font-size:13px;color:var(--blue)}
+.personal-context-summary span{font-size:13px;color:var(--text)}
+@media(max-width:650px){.personal-context-fields{grid-template-columns:1fr}.translation-flow-visual{gap:10px}.translation-flow-tile{width:52px;height:52px}}
+
+</style>
+<link href="css/floating-premium.css?v=20261023-spacing2" rel="stylesheet"/>
+<link href="css/clean-floating-final.css?v=20261023-1" rel="stylesheet"/>
+<link href="css/account-actions-final.css?v=20261023-3" rel="stylesheet"/>
+<link href="css/final-static-polish.css?v=20261023-final" rel="stylesheet"/>
+<script>
+/* Hide the intro before first paint if this tab has already visited the site. */
+(function(){
+  try {
+    if (sessionStorage.getItem('transense_intro_seen_v1') === '1') {
+      document.documentElement.classList.add('intro-already-seen');
+    }
+  } catch (_) {}
+})();
+</script>
+<link href="css/intro-morphing.css?v=autosilent-20261023" rel="stylesheet"/>
+<script src="js/api-config.js"></script>
+<link href="css/transense-v8-polish.css?v=20261101" rel="stylesheet"/>
+<link href="css/transense-v9-light-report.css?v=20261101" rel="stylesheet"/>
+<link href="css/transense-v11-auth-hero.css?v=20261101" rel="stylesheet"/>
+<link href="css/transense-v13-final.css?v=20261102" rel="stylesheet"/>
+<link href="css/transense-v14-refinement.css?v=20261102" rel="stylesheet"/>
+<link href="css/transense-v15-polish.css?v=20261102" rel="stylesheet"/><link href="css/transense-v16-history.css?v=20261102" rel="stylesheet"/><script>try { document.documentElement.classList.toggle('v15-guest', localStorage.getItem('isLoggedIn') !== 'true'); } catch(e) {document.documentElement.classList.add('v15-guest');}</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="css/transense-v17-unified.css?v=20261102" rel="stylesheet"/>
+<link rel="stylesheet" href="css/transense-v21-menu.css?v=21.0"/>
+<link rel="stylesheet" href="css/transense-v22.css?v=22.1"/>
+<link rel="stylesheet" href="css/transense-v25-live-timeline.css?v=25.0"/>
+<link rel="stylesheet" href="css/transense-v26-polish.css?v=26.0"/>
+<link rel="stylesheet" href="css/transense-v28-fixes.css?v=28.0"/>
+<link rel="stylesheet" href="css/transense-v30-approved.css?v=30.2"/>
+<link rel="stylesheet" href="css/transense-v31-final-scope.css?v=31.0"/>
+</head>
+<body>
+<script>try { document.body.classList.toggle('guest-mode', localStorage.getItem('isLoggedIn') !== 'true'); } catch (_) { document.body.classList.add('guest-mode'); }</script>
+<div aria-label="Màn hình giới thiệu Transense AI" aria-modal="true" class="site-intro" id="siteIntro" role="dialog">
+<div class="site-intro__controls">
+<button aria-pressed="false" class="site-intro__sound" data-intro-sound="" type="button">🔇 Bật âm thanh</button>
+<button class="site-intro__skip" data-intro-skip="" type="button">Bỏ qua</button>
+</div>
+<audio id="siteIntroAudio" playsinline="" preload="auto" src="audio/intro-music-5s.mp3"></audio>
+<div aria-hidden="true" class="site-intro__ambient">
+<span class="a1">Bonjour</span>
+<span class="a2">こんにちは</span>
+<span class="a3">Hola</span>
+<span class="a4">你好</span>
+<span class="a5">안녕하세요</span>
+<span class="a6">สวัสดี</span>
+<span class="a7">مرحبا</span>
+<span class="a8">Xin chào</span>
+<span class="a9">Hello</span>
+<span class="a10">Bonjour</span>
+</div>
+<div aria-hidden="true" class="site-intro__waves">
+<div class="site-intro__wave site-intro__wave--1"></div>
+<div class="site-intro__wave site-intro__wave--2"></div>
+<div class="site-intro__wave site-intro__wave--3"></div>
+</div>
+<div aria-hidden="true" class="site-intro__particles">
+<span class="p1"></span><span class="p2"></span><span class="p3"></span><span class="p4"></span><span class="p5"></span><span class="p6"></span>
+</div>
+<div class="site-intro__stage">
+<div class="site-intro__center">
+<div aria-hidden="true" class="site-intro__halo"></div>
+<div aria-hidden="true" class="site-intro__word-layer">
+<div class="site-intro__word">Hello</div>
+<div class="site-intro__word">Bonjour</div>
+<div class="site-intro__word">こんにちは</div>
+<div class="site-intro__word word-final">Xin chào</div>
+</div>
+<div aria-hidden="true" class="site-intro__logo-block">
+<div style="position:relative; display:flex; align-items:center; justify-content:center;">
+<img alt="Transense AI" class="site-intro__logo" src="images/transense-logo-mark.png"/>
+</div>
+<div class="site-intro__brand"><span>Transense</span><span class="ai">AI</span></div>
+<div class="site-intro__tagline">Dịch văn bản theo ngữ cảnh</div>
+</div>
+</div>
+</div>
+</div>
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+<header class="navbar ts13-navbar" id="top" role="banner">
+<a aria-label="Transense AI – Trang chủ" class="brand ts13-brand" href="index.html">
+<img alt="" class="brand-logo" height="44" src="images/transense-logo-mark.png" width="44"/>
+<span class="brand-name">Transense <span class="brand-ai">AI</span></span>
+</a>
+<nav aria-label="Điều hướng chính" class="nav-links ts13-links"><a class="nav-page" data-nav="index.html" href="index.html">Trang chủ</a><a href="index.html#whyChoose">Tính năng</a><a href="index.html#howItWorks">Hướng dẫn</a><a class="nav-page v15-history-link" data-nav="history.html" href="history.html">Lịch sử</a><a class="nav-page" data-nav="about.html" href="about.html">Giới thiệu</a></nav>
+<div class="ts13-actions">
+<button aria-label="Đổi chế độ sáng tối" class="header-theme-btn ts13-theme" type="button"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg></button>
+<div class="guest-auth-buttons guest-only ts13-guest-auth">
+<a class="header-auth-btn outline" href="login.html">Đăng nhập</a>
+<a class="header-auth-btn solid" href="register.html">Đăng ký</a>
+</div>
+<div class="auth-only nav-user-wrap ts13-account">
+<a aria-haspopup="true" aria-label="Mở menu tài khoản" class="account-button nav-user-trigger" href="profile.html" id="accountButton">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21"></path></svg>
+<span id="accountName">Tài khoản</span>
+<span aria-hidden="true" class="v15-user-chevron">⌄</span></a>
+<div aria-label="Menu người dùng" class="user-dropdown">
+<div class="account-dropdown-person"><div aria-hidden="true" class="account-dropdown-avatar">T</div><div><strong class="account-dropdown-name">Tài khoản</strong><small>Tài khoản Demo</small></div></div>
+<a class="account-action-stable" href="profile.html"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-2a8 8 0 0 1 16 0v2"></path></svg></span><span class="menu-action-label">Thông tin tài khoản</span><span aria-hidden="true">›</span></a>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></span><span class="menu-action-label">Thông báo</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M3 14v-3a9 9 0 0 1 18 0v3"></path><path d="M21 16a3 3 0 0 1-3 3h-1v-6h1a3 3 0 0 1 3 3Z"></path><path d="M3 16a3 3 0 0 0 3 3h1v-6H6a3 3 0 0 0-3 3Z"></path><path d="M18 19a5 5 0 0 1-5 3h-2"></path></svg></span><span class="menu-action-label">Trợ giúp &amp; hỗ trợ</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path><path d="m19.4 15 .1.1 1.4 1.4-2.4 2.4-1.4-1.4A8 8 0 0 1 14 19v2h-4v-2a8 8 0 0 1-3.1-1.5l-1.4 1.4-2.4-2.4 1.4-1.4A8 8 0 0 1 3 13h-2v-3h2a8 8 0 0 1 1.5-3.1L3.1 5.5l2.4-2.4 1.4 1.4A8 8 0 0 1 10 3V1h4v2a8 8 0 0 1 3.1 1.5l1.4-1.4 2.4 2.4-1.4 1.4A8 8 0 0 1 21 10h2v3h-2a8 8 0 0 1-1.6 2Z"></path></svg></span><span class="menu-action-label">Cài đặt</span><small>Thiết kế sau</small></button>
+<div class="menu-theme"><span aria-hidden="true" class="menu-theme-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.5 1.5m11.2 11.2 1.5 1.5M2 12h2m16 0h2M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"></path></svg></span><span>Chế độ: <strong class="theme-mode-name">Tối</strong></span><button aria-checked="false" aria-label="Bật chế độ sáng hoặc tối" class="theme-toggle" role="switch" type="button"><span class="theme-knob"></span></button></div>
+<button class="menu-logout" type="button"><span aria-hidden="true" class="menu-logout-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"></path><path d="M14 8l4 4-4 4m4-4H9"></path></svg></span><span class="menu-logout-label">Đăng xuất</span></button>
+</div>
+</div>
+</div>
+</header>
+<!-- =========================================================
+     MAIN
+========================================================= -->
+<main class="index-main">
+<!-- =====================================================
+         HERO
+    ====================================================== -->
+<div class="ts13-top-landing">
+<section aria-labelledby="ts13HeroTitle" class="ts13-hero" id="homeHero">
+<div class="ts13-hero-copy">
+<span class="ts13-eyebrow">DỊCH ANH – VIỆT THEO NGỮ CẢNH</span>
+<h1 id="ts13HeroTitle">Dịch Anh – Việt <span>Tự nhiên và chính xác</span></h1>
+<p>Transense AI giúp bạn dịch sát ngữ cảnh, dễ hiểu và phù hợp với mục đích sử dụng trong học tập, công việc và giao tiếp.</p>
+<div class="ts13-hero-buttons">
+<a class="ts13-button ts13-button-main ts14-hero-cta" data-auth-action="translate" href="login.html"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><rect height="11" rx="2" width="14" x="5" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg><span>Đăng nhập để sử dụng</span> <span aria-hidden="true">→</span></a>
+<a class="ts13-button ts13-button-alt" href="#whyChoose">Tìm hiểu thêm</a>
+</div>
+<div class="ts13-highlights">
+<div class="ts13-highlight"><span class="ts13-hi-icon"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="m13 2-9 11h7l-1 9 10-12h-7z"></path></svg></span><div><strong>Nhanh chóng</strong><small>Thao tác dễ dàng</small></div></div>
+<div class="ts13-highlight"><span class="ts13-hi-icon"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"></path><path d="m9 12 2 2 4-4"></path></svg></span><div><strong>Chính xác</strong><small>Hướng đến bản dịch sát ngữ cảnh</small></div></div>
+<div class="ts13-highlight"><span class="ts13-hi-icon"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="m12 2 9 5-9 5-9-5 9-5Z"></path><path d="m3 12 9 5 9-5M3 17l9 5 9-5"></path></svg></span><div><strong>Linh hoạt</strong><small>Học tập, công việc, giao tiếp</small></div></div>
+</div>
+</div>
+<div aria-label="Hình minh họa giao diện Transense AI trên laptop" class="ts13-hero-art">
+<div aria-hidden="true" class="ts13-art-backdrop"></div>
+<div class="ts13-laptop-wrap v25-laptop-art v30-live-laptop" id="v25LaptopArt">
+<img alt="Laptop Transense AI hiển thị bản mô phỏng quy trình dịch Anh–Việt" decoding="async" height="820" loading="eager" src="images/hero-transense-product.png" width="1220"/>
+<div class="v25-laptop-screen-window" aria-hidden="true">
+ <div class="v25-laptop-screen-ui" id="v25LaptopScreenUI">
+  <div class="v25-screen-top">
+   <div class="v25-screen-brand"><img src="images/transense-logo-mark.png" alt=""/><span>Transense <b>AI</b></span></div>
+   <div class="v25-screen-menu"><span class="v25-screen-active">Dịch thuật</span><span>Lịch sử</span></div>
+  </div>
+  <div class="v25-screen-body">
+   <div class="v25-screen-title">Dịch văn bản</div>
+   <div class="v25-screen-subtitle">Anh → Việt&nbsp; | &nbsp;Theo ngữ cảnh</div>
+   <div class="v25-screen-translation">
+    <div class="v25-screen-panel v25-source"><div class="v25-panel-label">TIẾNG ANH</div><div class="v25-panel-content"><span id="v25-english"></span><span class="v25-caret" id="v25-caret"></span></div></div>
+    <div class="v25-translate-swap"><svg viewBox="0 0 32 32" width="31" height="31" fill="none" aria-hidden="true"><path d="M4 10.5h24m0 0-6-5.5m6 5.5-6 5.5M28 22H4m0 0 6-5.5M4 22l6 5.5" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+    <div class="v25-screen-panel v25-target"><div class="v25-panel-label">TIẾNG VIỆT</div><div class="v25-panel-content" id="v25-vietnamese">Bản dịch sẽ xuất hiện tại đây…</div></div>
+   </div>
+   <div class="v25-provider-row">
+    <div class="v25-providers"><span class="v25-provider" id="v25-gemini"><img src="images/v31-gemini-approved.png" alt=""/>Gemini AI</span><span class="v25-provider"><img src="images/v31-google-translate-approved.png" alt=""/>Google Translate</span></div>
+    <span class="v25-live-status" id="v25-status">Nhập văn bản</span>
+   </div>
+   <div class="v25-demo-button" id="v25-demo-button" aria-live="off">Dịch ngay <span aria-hidden="true">→</span></div>
+  </div>
+ </div>
+</div>
+</div>
+<div aria-hidden="true" class="ts13-plant"><i></i><i></i><i></i><i></i><i></i><span></span></div>
+</div>
+</section>
+<section aria-labelledby="ts13WhyTitle" class="ts13-why" id="whyChoose">
+<div class="ts13-why-heading">
+<h2 id="ts13WhyTitle">Vì sao chọn Transense AI?</h2>
+<p>Công cụ dịch tiếng Anh – Việt hỗ trợ học tập, công việc và cuộc sống.</p>
+</div>
+<div class="ts13-why-grid">
+<article><span class="ts13-feature-icon"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.4 9 9 0 0 1-4-.8L3 21l1.9-4.4a8.5 8.5 0 1 1 16.1-5.1Z"></path><path d="M8 11h8"></path></svg></span><div><h3>Dịch theo ngữ cảnh</h3><p>Hiểu đúng nghĩa, diễn đạt tự nhiên và phù hợp với mục đích sử dụng.</p></div></article>
+<article><span class="ts13-feature-icon"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="m12 2 9 5-9 5-9-5 9-5Z"></path><path d="m3 12 9 5 9-5M3 17l9 5 9-5"></path></svg></span><div><h3>Đa nguồn dịch thuật</h3><p>Hỗ trợ Gemini AI và Google Translate, linh hoạt lựa chọn.</p></div></article>
+<article><span class="ts13-feature-icon"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="m13 2-9 11h7l-1 9 10-12h-7z"></path></svg></span><div><h3>Thao tác thuận tiện</h3><p>Giao diện rõ ràng, hỗ trợ dịch văn bản trong cùng một không gian.</p></div></article>
+<article><span class="ts13-feature-icon"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></span><div><h3>Lưu và quản lý thuận tiện</h3><p>Xem lại lịch sử bản dịch và nội dung quan trọng.</p></div></article>
+</div>
+</section>
+</div>
+<!-- Main workspace: this is the ONLY place that sends API translation requests. -->
+<div class="v8-workspace-intro" id="v8WorkspaceIntro"><div><span class="v8-step-tag">KHÔNG GIAN DỊCH THUẬT</span><h2>Dịch Văn Bản Theo Ngữ Cảnh</h2><p>Chọn ngôn ngữ nguồn, nhập hoặc dán nội dung cần dịch. Hệ thống hiển thị kết quả dịch, phát âm và phân tích ngữ cảnh trong cùng một khu vực.</p></div><a class="v8-workspace-tip" href="#howItWorks">Hướng dẫn sử dụng <span aria-hidden="true">↘</span></a></div>
+<section class="translation-app" id="translationWorkspace">
+<!-- TOOLBAR -->
+<div class="app-toolbar">
+<div class="toolbar-left">
+<div class="language-flow">
+<div class="language-select-wrap">
+<select class="language-select" id="sourceLanguage">
+<option value="en">
+                            Tiếng Anh
+                        </option>
+<option value="zh">
+                            Tiếng Trung
+                        </option>
+<option value="ja">
+                            Tiếng Nhật
+                        </option>
+<option value="ko">
+                            Tiếng Hàn
+                        </option>
+<option value="fr">
+                            Tiếng Pháp
+                        </option>
+<option value="de">
+                            Tiếng Đức
+                        </option>
+<option value="es">
+                            Tiếng Tây Ban Nha
+                        </option>
+<option value="it">
+                            Tiếng Ý
+                        </option>
+<option value="pt">
+                            Tiếng Bồ Đào Nha
+                        </option>
+<option value="ru">
+                            Tiếng Nga
+                        </option>
+<option value="th">
+                            Tiếng Thái
+                        </option>
+<option value="id">
+                            Tiếng Indonesia
+                        </option>
+<option value="ar">
+                            Tiếng Ả Rập
+                        </option>
+</select>
+</div>
+<button aria-label="Đảo ngôn ngữ nguồn và đích" class="language-arrow language-swap" id="swapLanguages" title="Đảo hai ngôn ngữ" type="button">
+<svg aria-hidden="true" viewbox="0 0 24 24"><path d="M4 8h16m-5-4 5 4-5 4M20 16H4m5-4-5 4 5 4"></path></svg>
+</button>
+<div class="language-select-wrap">
+<select aria-label="Ngôn ngữ đích" class="language-select" id="targetLanguage">
+<option value="vi">Tiếng Việt</option>
+</select>
+</div>
+</div>
+<div class="ai-model-wrap" id="aiModelWrap">
+<button aria-expanded="false" aria-haspopup="true" aria-label="Chọn AI dịch" class="ai-model-trigger" id="aiModelTrigger" type="button">
+<span aria-hidden="true" class="ai-model-icon"><img alt="" class="ts14-current-logo" decoding="async" height="41" id="ts14CurrentLogo" src="images/v31-gemini-approved.png" width="41"/></span><span class="ai-model-meta"><span class="ai-model-name" id="aiModelName">Gemini</span><small class="ai-model-caption">Dịch qua API</small></span><span aria-hidden="true" class="ai-model-arrow"><svg viewbox="0 0 24 24"><path d="M6 9l6 6 6-6"></path></svg></span></button>
+<div aria-label="Danh sách AI dịch" class="ai-model-dropdown" id="aiModelDropdown" role="menu">
+<button aria-checked="true" class="ai-model-option active" data-model="Gemini" data-note="Dịch theo ngữ cảnh thông qua backend." role="menuitemradio" type="button">
+<span class="model-badge gemini"><img alt="" class="model-brand-img ts14-option-logo" decoding="async" height="44" loading="eager" src="images/v31-gemini-approved.png" width="44"/></span>
+<span class="ai-model-copy"><span class="ai-model-option-head"><strong>Gemini</strong></span><small>Dịch theo ngữ cảnh thông qua backend.</small></span>
+</button>
+<button aria-checked="false" class="ai-model-option" data-model="Google Translate" data-note="Dịch máy thông thường qua Google Cloud Translation API." role="menuitemradio" type="button">
+<span class="model-badge google-translate"><img alt="" class="model-brand-img ts14-option-logo" decoding="async" height="44" loading="eager" src="images/v31-google-translate-approved.png" width="44"/></span>
+<span class="ai-model-copy"><span class="ai-model-option-head"><strong>Google Translate</strong></span><small>Dịch máy thông thường qua API chính thức.</small></span>
+</button>
+</div>
+</div>
+</div>
+<div class="core-chip"><span class="core-dot"></span> Gemini / Google Translate API</div>
+</div>
+<!-- CONTENT -->
+<div class="app-content">
+<div class="workspace-header">
+<div>
+<div class="eyebrow">
+                        AI TRANSLATION WORKSPACE
+                    </div>
+<h2>
+                        Dịch Văn Bản Theo Ngữ Cảnh
+                    </h2>
+<p class="workspace-desc">
+
+                        Chọn ngôn ngữ nguồn,
+                        nhập hoặc đọc nội dung cần dịch.
+
+                        Gemini hỗ trợ dịch và giải thích ngữ cảnh;
+                        Google Translate cung cấp bản dịch thông thường.
+                        Một số dữ liệu bổ sung phụ thuộc dịch vụ được chọn.
+
+                    </p>
+</div>
+<div class="api-ready">
+<span></span>
+
+                    Cần kết nối backend để dịch
+
+                </div>
+</div>
+<!-- =================================================
+                 TWO EDITOR PANELS
+            ================================================== -->
+<div class="translation-layout">
+<!-- =================================================
+                     SOURCE
+                ================================================== -->
+<article class="editor-card">
+<div class="editor-head">
+<div>
+<div class="editor-caption">
+                                VĂN BẢN NGUỒN
+                            </div>
+<div class="editor-language" id="sourceLanguageLabel">
+                                Tiếng Anh
+                            </div>
+</div>
+<div class="editor-actions">
+<!-- MICROPHONE -->
+<button class="icon-action" id="micButton" title="Nhập bằng giọng nói" type="button">
+<svg viewbox="0 0 24 24">
+<rect height="11" rx="3" width="6" x="9" y="3"></rect>
+<path d="M5 11C5 15 8 18 12 18C16 18 19 15 19 11"></path>
+<path d="M12 18V22"></path>
+<path d="M8 22H16"></path>
+</svg>
+</button>
+<!-- SPEAKER -->
+<button class="icon-action" id="speakSourceButton" title="Nghe phát âm" type="button">
+<svg viewbox="0 0 24 24">
+<path d="M5 10V14H9L14 18V6L9 10H5Z"></path>
+<path d="M17 9C18 10 18.5 11 18.5 12C18.5 13 18 14 17 15"></path>
+<path d="M19 6C21 8 22 10 22 12C22 14 21 16 19 18"></path>
+</svg>
+</button>
+<!-- CLEAR -->
+<button class="text-action" id="clearButton" type="button">
+                                Xóa
+                            </button>
+</div>
+</div>
+<!-- BODY -->
+<div class="source-editor-body">
+<textarea id="inputText" maxlength="20000" placeholder="Nhập nội dung tiếng Anh cần dịch..."></textarea>
+<!-- PHONETIC -->
+<div class="phonetic-box" id="phoneticBox">
+<div class="phonetic-label">
+<span>
+                                    PHIÊN ÂM / CÁCH ĐỌC
+                                </span>
+<span class="phonetic-language" id="phoneticLanguage">
+                                    Tiếng Anh
+                                </span>
+</div>
+<div class="phonetic-value" id="phoneticValue">
+                                —
+                            </div>
+</div>
+<!-- VOICE STATUS -->
+<div class="voice-status" id="voiceStatus">
+<span class="voice-status-dot"></span>
+<span id="voiceStatusText">
+                                Đang nghe...
+                            </span>
+</div>
+<!-- COUNTER -->
+<div class="char-counter">
+<span id="charCount">
+                                0
+                            </span>
+
+                            / 20000 ký tự
+
+                        </div>
+</div>
+</article>
+<!-- =================================================
+                     RESULT
+                ================================================== -->
+<article class="editor-card">
+<div class="editor-head">
+<div>
+<div class="editor-caption">
+                                KẾT QUẢ AI
+                            </div>
+<div class="editor-language" id="targetLanguageLabel">
+                                Tiếng Việt
+                            </div>
+</div>
+<div class="editor-actions">
+<!-- SPEAKER -->
+<button class="icon-action" id="speakVietnameseButton" title="Nghe bản dịch" type="button">
+<svg viewbox="0 0 24 24">
+<path d="M5 10V14H9L14 18V6L9 10H5Z"></path>
+<path d="M17 9C18 10 18.5 11 18.5 12C18.5 13 18 14 17 15"></path>
+<path d="M19 6C21 8 22 10 22 12C22 14 21 16 19 18"></path>
+</svg>
+</button>
+<!-- COPY -->
+<button class="text-action" id="copyButton" type="button">
+                                Sao chép
+                            </button>
+</div>
+</div>
+<!-- RESULT BODY -->
+<div class="result-editor-body">
+<div id="resultContent"><div class="result-empty-pro v26-result-empty" role="status" aria-label="Chưa có bản dịch">
+ <div class="v26-empty-visual" aria-hidden="true">
+  <span class="v26-empty-symbol v26-empty-source"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7"/><path d="M14 3v5h5M8 13h8M8 17h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+  <svg class="v26-empty-swap" viewBox="0 0 24 24" fill="none"><path d="M4 8h16m-5-5 5 5-5 5M20 16H4m5-5-5 5 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span class="v26-empty-symbol v26-empty-target"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16m-8-3v3M7 10h10M8 10c.6 4.3 3 7 8 9m0-9c-1.2 4.2-4 7.2-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+ </div>
+ <strong>Chưa có bản dịch</strong>
+ <p>Kết quả tiếng Việt sẽ hiển thị sau khi bạn nhấn <b>Dịch bằng AI</b>.</p>
+ <div class="v26-empty-divider" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 14.5 9.5 22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z" stroke="currentColor" stroke-width="1.6"/></svg><span></span></div>
+ <div class="v26-empty-ready"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="m8 12 2.5 2.5L16 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Sẵn sàng nhận nội dung</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+<!-- =================================================
+                 ACTION BAR
+            ================================================== -->
+<div class="app-actions">
+<div class="app-note">
+<span class="note-dot"></span>
+
+                    Dịch qua backend FastAPI khi đã cấu hình API key.
+                    Gemini hỗ trợ giải thích ngữ cảnh; Google Translate chỉ trả bản dịch.
+
+                </div>
+<div class="button-group">
+<button class="secondary-btn" id="exampleButton" type="button">
+                        Câu mẫu
+                    </button>
+<button class="ai-translate-btn" id="translateButton" type="button">
+                        ✦ Dịch bằng AI
+                    </button>
+</div>
+</div>
+</div>
+</section>
+<!-- =====================================================
+         CONTEXT ANALYSIS
+    ====================================================== -->
+<section class="context-pro">
+<!-- Hai chế độ loại trừ nhau: chỉ panel đang chọn được hiển thị. -->
+<div aria-label="Chọn chế độ ngữ cảnh" class="context-mode-tabs" role="tablist">
+<button aria-controls="automaticContextPanel" aria-selected="true" class="context-mode-tab is-active" id="automaticContextTab" role="tab" type="button">Phân tích ngữ cảnh</button>
+<button aria-controls="manualContextPanel" aria-selected="false" class="context-mode-tab" id="manualContextTab" role="tab" type="button">Bối cảnh của bạn</button>
+</div>
+<div aria-labelledby="automaticContextTab" id="automaticContextPanel" role="tabpanel">
+<div class="context-pro-head">
+<div>
+<div class="eyebrow">
+                    CONTEXT ANALYSIS
+                </div>
+<h2>
+                    Trợ Lý AI: Từ Khóa &amp; Bối Cảnh
+                </h2>
+</div>
+<div class="context-chip">
+                AI Context Analysis
+            </div>
+</div>
+<div class="analysis-grid">
+<div class="analysis-card">
+<div class="analysis-label">
+                    Loại ngữ cảnh
+                </div>
+<div class="analysis-value" id="contextType">
+                    Chưa phân tích
+                </div>
+</div>
+<div class="analysis-card">
+<div class="analysis-label">
+                    Từ / cụm từ cần chú ý
+                </div>
+<div class="analysis-value" id="contextWord">
+                    —
+                </div>
+</div>
+<div class="analysis-card">
+<div class="analysis-label">
+                    Nghĩa được lựa chọn
+                </div>
+<div class="analysis-value" id="contextMeaning">
+                    —
+                </div>
+</div>
+<div class="analysis-card">
+<div class="analysis-label">
+                    Mức độ phù hợp
+                </div>
+<div class="analysis-value" id="contextLevel">
+                    —
+                </div>
+</div>
+<div class="analysis-card analysis-keywords">
+<div class="analysis-label">
+                    Từ khóa hỗ trợ xác định ngữ cảnh
+                </div>
+<div class="keyword-list" id="contextKeywords">
+<span class="keyword-chip">
+                        Chưa có dữ liệu
+                    </span>
+</div>
+</div>
+<div class="analysis-card analysis-explanation">
+<div class="analysis-label">
+                    Giải thích lựa chọn nghĩa
+                </div>
+<div class="analysis-value" id="contextExplanation">
+
+                    Sau khi thực hiện bản dịch,
+                    hệ thống sẽ giải thích
+                    cách lựa chọn nghĩa
+                    dựa trên nội dung
+                    và các từ khóa ngữ cảnh.
+
+                </div>
+</div>
+</div>
+</div>
+<div aria-labelledby="manualContextTab" class="manual-context-panel" hidden="" id="manualContextPanel" role="tabpanel">
+<div class="context-pro-head">
+<div><div class="eyebrow">USER CONTEXT</div><h2>Mô tả bối cảnh của bạn</h2></div>
+<div class="context-chip">Sử dụng AI theo bối cảnh</div>
+</div>
+<div class="personal-context-top"><span aria-hidden="true" class="personal-context-hero">✧</span><div><strong>Cá nhân hóa ngữ cảnh dịch</strong><p>Điều chỉnh cách diễn đạt theo tình huống và nhu cầu của bạn.</p></div></div>
+<div class="personal-context-fields"><label>Lĩnh vực nội dung<select class="personal-context-select" id="personalDomain"><option value="everyday">Giao tiếp hằng ngày</option><option value="academic">Học thuật / Giáo dục</option><option value="business">Công việc / Kinh doanh</option><option value="technical">Công nghệ / Kỹ thuật</option></select></label><label>Phong cách bản dịch<select class="personal-context-select" id="personalTone"><option value="natural">Tự nhiên</option><option value="formal">Trang trọng</option><option value="simple">Dễ hiểu</option></select></label></div>
+<label class="manual-context-label" for="userContextDescription">Bạn đang gặp tình huống gì?</label>
+<textarea class="manual-context-input" id="userContextDescription" maxlength="2000" placeholder="Ví dụ: Tôi đang trao đổi với nhân viên khách sạn về việc nhận phòng sớm. Câu cần dịch liên quan đến thời gian nhận phòng và hành lý..." rows="7"></textarea>
+<div class="manual-context-hint">Chỉ mô tả hoàn cảnh, đối tượng giao tiếp và chủ đề. Đây là dữ liệu tham khảo để hiểu nghĩa của câu, không phải lệnh yêu cầu AI sửa nội dung hoặc làm theo chỉ dẫn.</div>
+<div aria-live="polite" class="personal-context-summary"><strong>✦ Tóm tắt lựa chọn</strong><span id="personalContextSummary">Giao tiếp hằng ngày • Diễn đạt tự nhiên</span></div><p class="manual-context-notice">Khi dịch, bối cảnh bạn cung cấp sẽ được gửi tới mô hình AI đã chọn để hỗ trợ chọn nghĩa phù hợp.</p>
+</div>
+</section>
+<section class="v25-timeline-section v8-reveal" id="howItWorks" aria-labelledby="v25-timeline-title">
+ <div class="v25-timeline-heading"><span class="section-pill">CÁCH HOẠT ĐỘNG</span><h2 id="v25-timeline-title">3 bước để bắt đầu</h2><p>Dịch văn bản nhanh chóng chỉ với 3 bước đơn giản.</p></div>
+ <div class="v25-timeline" role="list" aria-label="Quy trình sử dụng Transense AI gồm ba bước">
+  <span class="v25-timeline-track" aria-hidden="true"><span class="v25-timeline-progress"></span></span>
+  <article class="v25-timeline-item" role="listitem">
+   <div class="v25-timeline-node"><span class="v25-node-number">01</span><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 4h12l5 5v19H8a3 3 0 0 1-3-3V7a3 3 0 0 1 3-3Z"/><path d="M20 4v6h5M11 16h11M11 21h11"/></svg></div>
+   <div class="v25-timeline-content"><h3>Nhập văn bản</h3><p>Nhập hoặc dán nội dung tiếng Anh cần dịch.</p><span class="v25-timeline-hint">Văn bản nguồn</span></div>
+  </article>
+  <article class="v25-timeline-item" role="listitem">
+   <div class="v25-timeline-node"><span class="v25-node-number">02</span><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 10h22M11 5v5c0 9 6 14 12 17M25 14c-4 7-9 10-17 13M14 5 7 23"/></svg></div>
+   <div class="v25-timeline-content"><h3>Chọn ngôn ngữ &amp; dịch vụ</h3><p>Chọn Anh → Việt, sau đó chọn Gemini hoặc Google Translate.</p><div class="v25-timeline-hints"><span class="v25-timeline-hint">Anh → Việt</span><span class="v25-timeline-hint">Gemini / Google</span></div></div>
+  </article>
+  <article class="v25-timeline-item" role="listitem">
+   <div class="v25-timeline-node"><span class="v25-node-number">03</span><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="16" cy="16" r="11"/><path d="m10 16 4.3 4.2L22 12"/></svg></div>
+   <div class="v25-timeline-content"><h3>Nhận kết quả</h3><p>Xem bản dịch và giải thích ngữ cảnh khi có hỗ trợ.</p><span class="v25-timeline-hint v25-timeline-hint-done">✓ Hoàn thành</span></div>
+  </article>
+ </div>
+ <p class="v25-timeline-footnote">Minh họa quy trình. Kết quả thực tế phụ thuộc vào dịch vụ và cấu hình API.</p>
+</section>
+<section class="v7-examples v8-reveal v26-examples" id="realTranslationExamples">
+<div class="v7-section-title"><h2>Ví dụ dịch thực tế</h2><p>Xem cách Transense AI xử lý các câu phức tạp theo ngữ cảnh thực tế.</p></div>
+<div class="v7-example-grid v10-example-grid">
+<article>
+<div class="example-head"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M21 11a8 8 0 0 1-9 8 9 9 0 0 1-4-.9L3 21l1.9-4.8A8 8 0 1 1 21 11Z"></path></svg><span>Giao tiếp hàng ngày</span></div>
+<p>“I'm looking forward to seeing you soon!”</p>
+<strong><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg> “Mình rất mong được gặp bạn sớm!”</strong>
+</article>
+<article>
+<div class="example-head"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m4 7 8 6 8-6"></path></svg><span>Công việc – Email</span></div>
+<p>“Please find the attached document for your review.”</p>
+<strong><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg> “Vui lòng xem tài liệu đính kèm để bạn xem xét.”</strong>
+</article>
+<article>
+<div class="example-head"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="m2 9 10-5 10 5-10 5L2 9Z"></path><path d="M6 12v5q6 4 12 0v-5"></path></svg><span>Học tập – Học thuật</span></div>
+<p>“The results suggest a significant correlation...”</p>
+<strong><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg> “Kết quả cho thấy có mối tương quan đáng kể...”</strong>
+</article>
+<article>
+<div class="example-head"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M9 18h6m-5 4h4m-2-20a7 7 0 0 0-4 12c1.2 1.1 1.8 2.2 1.8 3h4.4c0-1 .6-1.9 1.8-3A7 7 0 0 0 12 2Z"></path></svg><span>Thành ngữ – Ẩn dụ</span></div>
+<p>“Break a leg!”</p>
+<strong><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M5 12h14m-6-6 6 6-6 6"></path></svg> “Chúc bạn may mắn!” <em>(ý nghĩa thực tế: chúc thành công)</em></strong>
+</article>
+</div>
+</section>
+<section class="v7-cta v10-cta v8-reveal"><div class="v10-cta-copy"><div class="v10-cta-icon"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M12 14 8 10c3-5 7-7 13-8-1 6-3 10-8 13Z"></path><path d="m8 10-4 1-2 5 6-2m5 1-1 5-5 2 1-6M8 16l-1 1"></path></svg></div><div><h2>Trải nghiệm Transense AI ngay hôm nay</h2><p>Dịch tiếng Anh – Việt tự nhiên, chính xác, hỗ trợ toàn diện cho học tập, công việc và cuộc sống.</p></div></div><a class="v7-btn primary" data-auth-action="translate" href="login.html"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><rect height="11" rx="2" width="14" x="5" y="10"></rect><path d="M8 10V7a4 4 0 0 1 8 0v3"></path></svg> Đăng nhập để sử dụng <span aria-hidden="true">→</span></a></section>
+</main>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer v10-footer">
+<div class="v10-footer-brand">
+<div class="v10-footer-logo"><img alt="Logo chính thức Transense AI" height="46" src="images/transense-logo-mark.png" width="46"/></div>
+<div>
+<strong>Transense AI</strong>
+<p>Dịch Anh – Việt theo ngữ cảnh, tự nhiên và chính xác.</p>
+</div>
+</div>
+<nav aria-label="Liên kết cuối trang" class="v10-footer-nav">
+<a href="index.html">Trang chủ</a>
+<a href="history.html">Lịch sử</a>
+<a href="about.html">Giới thiệu</a>
+<a href="about.html">Thông tin dự án</a>
+</nav>
+<div aria-label="Mạng xã hội minh họa" class="v10-footer-social">
+<span aria-label="Biểu tượng Github (chưa liên kết)" role="img"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><path d="M9 19c-4.8 1.5-5-2-7-2m14 3v-2.7c0-1 .2-1.5.6-2 2-.8 3.4-3.4 3.4-6a6 6 0 0 0-1.5-4.1L18.6 2 15 4a12 12 0 0 0-6 0L5.4 2l.1 3.2A6 6 0 0 0 4 9.3c0 2.6 1.4 5.2 3.4 6 .4.5.6 1 .6 2V20"></path></svg></span>
+<span aria-label="Biểu tượng Facebook (chưa liên kết)" role="img"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><circle cx="12" cy="12" r="10"></circle><path d="M14.5 7.5H13c-1 0-1.5.5-1.5 1.5V12H15l-.6 3h-2.9v6M11.5 12H9"></path></svg></span>
+<span aria-label="Biểu tượng YouTube (chưa liên kết)" role="img"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><rect height="12" rx="4" width="20" x="2" y="6"></rect><path d="m10 9 5 3-5 3z"></path></svg></span>
+<span aria-label="Biểu tượng Email (chưa liên kết)" role="img"><svg aria-hidden="true" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><rect height="14" rx="2" width="18" x="3" y="5"></rect><path d="m4 7 8 6 8-6"></path></svg></span>
+</div>
+</footer>
+<script>
+
+    /* =====================================================
+       LANGUAGES
+    ====================================================== */
+
+    const languages = {
+        vi: {name:"Tiếng Việt", speechCode:"vi-VN", placeholder:"Nhập nội dung tiếng Việt cần dịch...", example:"Xin chào!"},
+
+        en: {
+            name:
+                "Tiếng Anh",
+
+            speechCode:
+                "en-US",
+
+            placeholder:
+                "Nhập nội dung tiếng Anh cần dịch...",
+
+            example:
+                "I went to the bank to withdraw some money."
+        },
+
+        zh: {
+            name:
+                "Tiếng Trung",
+
+            speechCode:
+                "zh-CN",
+
+            placeholder:
+                "Nhập nội dung tiếng Trung cần dịch...",
+
+            example:
+                "你好"
+        },
+
+        ja: {
+            name:
+                "Tiếng Nhật",
+
+            speechCode:
+                "ja-JP",
+
+            placeholder:
+                "Nhập nội dung tiếng Nhật cần dịch...",
+
+            example:
+                "こんにちは"
+        },
+
+        ko: {
+            name:
+                "Tiếng Hàn",
+
+            speechCode:
+                "ko-KR",
+
+            placeholder:
+                "Nhập nội dung tiếng Hàn cần dịch...",
+
+            example:
+                "안녕하세요"
+        },
+
+        fr: {
+            name:
+                "Tiếng Pháp",
+
+            speechCode:
+                "fr-FR",
+
+            placeholder:
+                "Nhập nội dung tiếng Pháp cần dịch...",
+
+            example:
+                "Bonjour !"
+        },
+
+        de: {
+            name:
+                "Tiếng Đức",
+
+            speechCode:
+                "de-DE",
+
+            placeholder:
+                "Nhập nội dung tiếng Đức cần dịch...",
+
+            example:
+                "Hallo!"
+        },
+
+        es: {
+            name:
+                "Tiếng Tây Ban Nha",
+
+            speechCode:
+                "es-ES",
+
+            placeholder:
+                "Nhập nội dung tiếng Tây Ban Nha cần dịch...",
+
+            example:
+                "¡Hola!"
+        },
+
+        it: {
+            name:
+                "Tiếng Ý",
+
+            speechCode:
+                "it-IT",
+
+            placeholder:
+                "Nhập nội dung tiếng Ý cần dịch...",
+
+            example:
+                "Ciao!"
+        },
+
+        pt: {
+            name:
+                "Tiếng Bồ Đào Nha",
+
+            speechCode:
+                "pt-BR",
+
+            placeholder:
+                "Nhập nội dung tiếng Bồ Đào Nha cần dịch...",
+
+            example:
+                "Olá!"
+        },
+
+        ru: {
+            name:
+                "Tiếng Nga",
+
+            speechCode:
+                "ru-RU",
+
+            placeholder:
+                "Nhập nội dung tiếng Nga cần dịch...",
+
+            example:
+                "Привет!"
+        },
+
+        th: {
+            name:
+                "Tiếng Thái",
+
+            speechCode:
+                "th-TH",
+
+            placeholder:
+                "Nhập nội dung tiếng Thái cần dịch...",
+
+            example:
+                "สวัสดี"
+        },
+
+        id: {
+            name:
+                "Tiếng Indonesia",
+
+            speechCode:
+                "id-ID",
+
+            placeholder:
+                "Nhập nội dung tiếng Indonesia cần dịch...",
+
+            example:
+                "Halo!"
+        },
+
+        ar: {
+            name:
+                "Tiếng Ả Rập",
+
+            speechCode:
+                "ar-SA",
+
+            placeholder:
+                "Nhập nội dung tiếng Ả Rập cần dịch...",
+
+            example:
+                "مرحبا"
+        }
+
+    };
+
+
+    /* =====================================================
+       LOGIN
+    ====================================================== */
+
+    const isLoggedIn =
+        localStorage.getItem(
+            "isLoggedIn"
+        ) === "true";
+
+
+    const accountName =
+        document.getElementById(
+            "accountName"
+        );
+
+
+    const accountButton =
+        document.getElementById(
+            "accountButton"
+        );
+
+
+    if (isLoggedIn) {
+
+        accountName.textContent =
+            localStorage.getItem(
+                "userName"
+            )
+            ||
+            "Tài khoản";
+
+
+        accountButton.href =
+            "profile.html";
+
+    }
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const sourceLanguage =
+        document.getElementById(
+            "sourceLanguage"
+        );
+
+
+    const sourceLanguageLabel =
+        document.getElementById(
+            "sourceLanguageLabel"
+        );
+
+
+    const inputText =
+        document.getElementById(
+            "inputText"
+        );
+
+
+    const charCount =
+        document.getElementById(
+            "charCount"
+        );
+
+
+    const resultContent =
+        document.getElementById(
+            "resultContent"
+        );
+
+
+    const phoneticBox =
+        document.getElementById(
+            "phoneticBox"
+        );
+
+
+    const phoneticValue =
+        document.getElementById(
+            "phoneticValue"
+        );
+
+
+    const phoneticLanguage =
+        document.getElementById(
+            "phoneticLanguage"
+        );
+
+
+    const micButton =
+        document.getElementById(
+            "micButton"
+        );
+
+
+    const voiceStatus =
+        document.getElementById(
+            "voiceStatus"
+        );
+
+
+    const voiceStatusText =
+        document.getElementById(
+            "voiceStatusText"
+        );
+
+
+    const speakSourceButton =
+        document.getElementById(
+            "speakSourceButton"
+        );
+
+
+    const speakVietnameseButton =
+        document.getElementById(
+            "speakVietnameseButton"
+        );
+
+
+    const clearButton =
+        document.getElementById(
+            "clearButton"
+        );
+
+
+    const copyButton =
+        document.getElementById(
+            "copyButton"
+        );
+
+
+    const exampleButton =
+        document.getElementById(
+            "exampleButton"
+        );
+
+
+    const translateButton =
+        document.getElementById(
+            "translateButton"
+        );
+
+
+    // Chế độ ngữ cảnh được chọn là duy nhất và không chia sẻ dữ liệu.
+    // Khi nối API: chỉ gửi userContextDescription nếu contextMode === "manual";
+    // coi nội dung đó là dữ liệu bối cảnh, KHÔNG phải chỉ thị điều khiển AI.
+    let contextMode = "automatic";
+    const automaticContextTab = document.getElementById("automaticContextTab");
+    const manualContextTab = document.getElementById("manualContextTab");
+    const automaticContextPanel = document.getElementById("automaticContextPanel");
+    const manualContextPanel = document.getElementById("manualContextPanel");
+    const userContextDescription = document.getElementById("userContextDescription");
+
+    function setContextMode(mode) {
+        contextMode = mode;
+        const automatic = mode === "automatic";
+        automaticContextPanel.hidden = !automatic;
+        manualContextPanel.hidden = automatic;
+        automaticContextTab.classList.toggle("is-active", automatic);
+        manualContextTab.classList.toggle("is-active", !automatic);
+        automaticContextTab.setAttribute("aria-selected", String(automatic));
+        manualContextTab.setAttribute("aria-selected", String(!automatic));
+        // Không cho bản dịch mô phỏng bị hiểu lầm là đã dùng bối cảnh người dùng.
+        translateButton.disabled = !automatic;
+        translateButton.textContent = automatic ? "✦ Dịch văn bản" : "Sử dụng AI theo bối cảnh";
+        resetResult();
+    }
+    automaticContextTab.addEventListener("click", () => setContextMode("automatic"));
+    manualContextTab.addEventListener("click", () => setContextMode("manual"));
+
+    const contextType =
+        document.getElementById(
+            "contextType"
+        );
+
+
+    const contextWord =
+        document.getElementById(
+            "contextWord"
+        );
+
+
+    const contextMeaning =
+        document.getElementById(
+            "contextMeaning"
+        );
+
+
+    const contextLevel =
+        document.getElementById(
+            "contextLevel"
+        );
+
+
+    const contextKeywords =
+        document.getElementById(
+            "contextKeywords"
+        );
+
+
+    const contextExplanation =
+        document.getElementById(
+            "contextExplanation"
+        );
+
+
+    let currentTranslation =
+        "";
+
+
+    /* =====================================================
+       LANGUAGE
+    ====================================================== */
+
+    function getCurrentLanguage() {
+
+        return languages[
+            sourceLanguage.value
+        ];
+
+    }
+
+
+    const targetLanguage = document.getElementById("targetLanguage");
+    const targetLanguageLabel = document.getElementById("targetLanguageLabel");
+    const swapLanguagesButton = document.getElementById("swapLanguages");
+    const defaultOptions = sourceLanguage.innerHTML;
+    targetLanguage.innerHTML = defaultOptions;
+    sourceLanguage.insertAdjacentHTML("beforeend", '<option value="vi">Tiếng Việt</option>');
+    targetLanguage.insertAdjacentHTML("beforeend", '<option value="vi">Tiếng Việt</option>');
+    sourceLanguage.value = "en";
+    targetLanguage.value = "vi";
+    targetLanguageLabel.textContent = languages[targetLanguage.value].name;
+
+    function updateLanguageSelection(changedSide) {
+        if (sourceLanguage.value === targetLanguage.value) {
+            if (changedSide === "source") targetLanguage.value = sourceLanguage.value === "vi" ? "en" : "vi";
+            else sourceLanguage.value = targetLanguage.value === "vi" ? "en" : "vi";
+        }
+        const current = languages[sourceLanguage.value];
+        sourceLanguageLabel.textContent = current.name;
+        targetLanguageLabel.textContent = languages[targetLanguage.value].name;
+        phoneticLanguage.textContent = current.name;
+        inputText.placeholder = current.placeholder;
+        inputText.value = "";
+        charCount.textContent = "0";
+        currentTranslation = "";
+        resetResult();
+    }
+    targetLanguage.addEventListener("change", function () {updateLanguageSelection("target");});
+    swapLanguagesButton.addEventListener("click", function () {
+        const oldSource = sourceLanguage.value;
+        sourceLanguage.value = targetLanguage.value;
+        targetLanguage.value = oldSource;
+        updateLanguageSelection("swap");
+    });
+
+    sourceLanguage.addEventListener(
+        "change",
+        function () {
+            updateLanguageSelection("source");
+
+            const language =
+                getCurrentLanguage();
+
+
+            sourceLanguageLabel.textContent =
+                language.name;
+
+
+            phoneticLanguage.textContent =
+                language.name;
+
+
+            inputText.placeholder =
+                language.placeholder;
+
+
+            inputText.value =
+                "";
+
+
+            charCount.textContent =
+                "0";
+
+
+            currentTranslation =
+                "";
+
+
+            phoneticBox
+                .classList
+                .remove(
+                    "show"
+                );
+
+
+            resetResult();
+
+        }
+    );
+
+
+    /* =====================================================
+       COUNT
+    ====================================================== */
+
+    inputText.addEventListener(
+        "input",
+        function () {
+
+            charCount.textContent =
+                inputText.value.length;
+
+        }
+    );
+
+
+    /* =====================================================
+       SAMPLE
+    ====================================================== */
+
+    exampleButton.addEventListener(
+        "click",
+        function () {
+
+            const language =
+                getCurrentLanguage();
+
+
+            inputText.value =
+                language.example;
+
+
+            charCount.textContent =
+                inputText.value.length;
+
+
+            phoneticBox
+                .classList
+                .remove(
+                    "show"
+                );
+
+        }
+    );
+
+
+    /* =====================================================
+       CLEAR
+    ====================================================== */
+
+    clearButton.addEventListener(
+        "click",
+        function () {
+
+            inputText.value =
+                "";
+
+
+            charCount.textContent =
+                "0";
+
+
+            currentTranslation =
+                "";
+
+
+            phoneticBox
+                .classList
+                .remove(
+                    "show"
+                );
+
+
+            resetResult();
+
+        }
+    );
+
+
+    /* =====================================================
+       TEXT TO SPEECH
+    ====================================================== */
+
+    let availableVoices =
+        [];
+
+
+    function loadVoices() {
+
+        if (
+            "speechSynthesis"
+            in window
+        ) {
+
+            availableVoices =
+                window
+                    .speechSynthesis
+                    .getVoices();
+
+        }
+
+    }
+
+
+    loadVoices();
+
+
+    if (
+        "speechSynthesis"
+        in window
+    ) {
+
+        window
+            .speechSynthesis
+            .onvoiceschanged =
+            loadVoices;
+
+    }
+
+
+    function findVoice(
+        languageCode
+    ) {
+
+        loadVoices();
+
+
+        const exact =
+            availableVoices.find(
+                function (
+                    voice
+                ) {
+
+                    return (
+                        voice.lang
+                        &&
+                        voice.lang
+                            .toLowerCase()
+                        ===
+                        languageCode
+                            .toLowerCase()
+                    );
+
+                }
+            );
+
+
+        if (exact) {
+
+            return exact;
+
+        }
+
+
+        const shortCode =
+            languageCode
+                .split("-")[0]
+                .toLowerCase();
+
+
+        return (
+            availableVoices.find(
+                function (
+                    voice
+                ) {
+
+                    return (
+                        voice.lang
+                        &&
+                        voice.lang
+                            .toLowerCase()
+                            .startsWith(
+                                shortCode
+                            )
+                    );
+
+                }
+            )
+            ||
+            null
+        );
+
+    }
+
+
+    function speakText(
+        text,
+        languageCode
+    ) {
+
+        if (
+            !(
+                "speechSynthesis"
+                in window
+            )
+        ) {
+
+            alert(
+                "Trình duyệt chưa hỗ trợ đọc văn bản."
+            );
+
+            return;
+
+        }
+
+
+        if (
+            !text
+            ||
+            !text.trim()
+        ) {
+
+            return;
+
+        }
+
+
+        window
+            .speechSynthesis
+            .cancel();
+
+
+        const speech =
+            new SpeechSynthesisUtterance(
+                text
+            );
+
+
+        speech.lang =
+            languageCode;
+
+
+        speech.rate =
+            0.9;
+
+
+        const voice =
+            findVoice(
+                languageCode
+            );
+
+
+        if (voice) {
+
+            speech.voice =
+                voice;
+
+        }
+
+
+        setTimeout(
+            function () {
+
+                window
+                    .speechSynthesis
+                    .speak(
+                        speech
+                    );
+
+            },
+            80
+        );
+
+    }
+
+
+    speakSourceButton.addEventListener(
+        "click",
+        function () {
+
+            const text =
+                inputText.value.trim();
+
+
+            if (!text) {
+
+                alert(
+                    "Vui lòng nhập nội dung trước."
+                );
+
+                return;
+
+            }
+
+
+            speakText(
+                text,
+                getCurrentLanguage()
+                    .speechCode
+            );
+
+        }
+    );
+
+
+    /* Đọc bản dịch tiếng Việt; khi chưa có kết quả đọc câu demo. */
+    const vietnameseDemoSentences = [
+        "Xin chào! Chào mừng bạn đến với Transense AI.",
+        "Hôm nay là một ngày tuyệt vời để học tập.",
+        "Trí tuệ nhân tạo hỗ trợ việc dịch ngôn ngữ thuận tiện hơn.",
+        "Cảm ơn bạn đã sử dụng Transense AI.",
+        "Chúc bạn học tập thật tốt và luôn vui vẻ."
+    ];
+    let vietnameseDemoIndex = 0;
+    speakVietnameseButton.addEventListener("click", function () {
+        if (!("speechSynthesis" in window)) {
+            alert("Trình duyệt không hỗ trợ phát âm.");
+            return;
+        }
+        if (currentTranslation && String(currentTranslation).trim()) {
+            if (targetLanguage.value !== "vi") {
+                alert("Giọng đọc demo này chỉ hỗ trợ kết quả tiếng Việt.");
+                return;
+            }
+            speakText(currentTranslation, "vi-VN");
+        } else {
+            const sentence = vietnameseDemoSentences[vietnameseDemoIndex];
+            vietnameseDemoIndex = (vietnameseDemoIndex + 1) % vietnameseDemoSentences.length;
+            speakText(sentence, "vi-VN");
+        }
+    });
+
+    /* =====================================================
+       MICROPHONE
+    ====================================================== */
+
+    micButton.addEventListener(
+        "click",
+        startVoiceInput
+    );
+
+
+    function startVoiceInput() {
+
+        const Recognition =
+            window.SpeechRecognition
+            ||
+            window.webkitSpeechRecognition;
+
+
+        if (!Recognition) {
+
+            alert(
+                "Trình duyệt hiện tại chưa hỗ trợ nhận dạng giọng nói."
+            );
+
+            return;
+
+        }
+
+
+        const language =
+            getCurrentLanguage();
+
+
+        const recognition =
+            new Recognition();
+
+
+        recognition.lang =
+            language.speechCode;
+
+
+        recognition.interimResults =
+            false;
+
+
+        recognition.continuous =
+            false;
+
+
+        recognition.onstart =
+            function () {
+
+                micButton
+                    .classList
+                    .add(
+                        "listening"
+                    );
+
+
+                voiceStatusText.textContent =
+                    "Đang nghe "
+                    +
+                    language.name
+                    +
+                    "...";
+
+
+                voiceStatus
+                    .classList
+                    .add(
+                        "show"
+                    );
+
+            };
+
+
+        recognition.onresult =
+            function (
+                event
+            ) {
+
+                const text =
+                    event
+                        .results[0][0]
+                        .transcript;
+
+
+                inputText.value =
+                    text;
+
+
+                charCount.textContent =
+                    text.length;
+
+            };
+
+
+        recognition.onend =
+            function () {
+
+                micButton
+                    .classList
+                    .remove(
+                        "listening"
+                    );
+
+
+                voiceStatus
+                    .classList
+                    .remove(
+                        "show"
+                    );
+
+            };
+
+
+        recognition.onerror =
+            function (
+                event
+            ) {
+
+                console.log(
+                    event.error
+                );
+
+            };
+
+
+        recognition.start();
+
+    }
+
+
+    /* =====================================================
+       TRANSLATE
+    ====================================================== */
+
+    translateButton.addEventListener("click", async function () {
+        if (!isLoggedIn) { window.location.href = "login.html"; return; }
+        const text = inputText.value.trim();
+        if (!text) { alert("Vui lòng nhập nội dung cần dịch."); return; }
+        const apiBase = (window.TRANSENSE_API_BASE || "").replace(/\/$/, "");
+        translateButton.disabled = true;
+        translateButton.textContent = "Đang dịch...";
+        try {
+            const response = await fetch(apiBase + "/api/translate", {
+                method: "POST",
+                headers: {"Content-Type": "application/json"},
+                body: JSON.stringify({
+                    provider: window.selectedTranslationProvider || "gemini",
+                    text,
+                    source_language: sourceLanguage.value,
+                    target_language: targetLanguage.value,
+                    context_mode: contextMode,
+                    user_context: contextMode === "manual" ? (userContextDescription.value || "") : "",
+                    domain: document.getElementById("personalDomain")?.value || "everyday",
+                    tone: document.getElementById("personalTone")?.value || "natural"
+                })
+            });
+            let data;
+            try { data = await response.json(); } catch (_) { throw new Error("Backend không phản hồi JSON hợp lệ."); }
+            if (!response.ok) throw new Error(data.detail || "Dịch thất bại (HTTP " + response.status + ")");
+            currentTranslation = data.translation;
+            resultContent.innerHTML = `<div class="translated-text">${escapeHTML(data.translation)}</div>`;
+            phoneticValue.textContent = data.pronunciation || "";
+            phoneticLanguage.textContent = getCurrentLanguage().name;
+            phoneticBox.classList.toggle("show", Boolean(data.pronunciation));
+            contextType.textContent = data.contextType || "Ngữ cảnh tổng quát";
+            contextWord.textContent = data.word || "—";
+            contextMeaning.textContent = data.meaning || "—";
+            contextLevel.textContent = data.level || "—";
+            contextExplanation.textContent = data.explanation || "Không có giải thích bổ sung.";
+            renderKeywords(Array.isArray(data.keywords) ? data.keywords : []);
+            saveHistory(text, data, sourceLanguage.value);
+        } catch (error) {
+            alert("Không thể dịch: " + error.message + "\nHãy kiểm tra backend, cấu hình URL và API key.");
+        } finally {
+            translateButton.disabled = false;
+            translateButton.textContent = "✦ Dịch văn bản";
+        }
+    });
+
+    /* =====================================================
+       KEYWORDS
+    ====================================================== */
+
+    function renderKeywords(
+        keywords
+    ) {
+
+        contextKeywords.innerHTML =
+            "";
+
+
+        keywords.forEach(
+            function (
+                keyword
+            ) {
+
+                const item =
+                    document.createElement(
+                        "span"
+                    );
+
+
+                item.className =
+                    "keyword-chip";
+
+
+                item.textContent =
+                    keyword;
+
+
+                contextKeywords
+                    .appendChild(
+                        item
+                    );
+
+            }
+        );
+
+    }
+
+
+    /* =====================================================
+       DEMO TRANSLATION
+    ====================================================== */
+
+    function demoTranslate(
+        text,
+        language
+    ) {
+
+        const value =
+            text
+                .trim()
+                .toLowerCase();
+
+
+        /* =================================================
+           HELLO
+        ================================================= */
+
+        if (
+            language ===
+            "en"
+            &&
+            (
+                value ===
+                "hello"
+                ||
+                value ===
+                "hello!"
+                ||
+                value ===
+                "hi"
+                ||
+                value ===
+                "hi!"
+            )
+        ) {
+
+            return {
+
+                translation:
+                    "Xin chào!",
+
+                pronunciation:
+                    "/həˈloʊ/",
+
+                contextType:
+                    "Giao tiếp cơ bản",
+
+                word:
+                    "hello",
+
+                meaning:
+                    "xin chào",
+
+                keywords:
+                    [
+                        "hello",
+                        "greeting"
+                    ],
+
+                level:
+                    "Cao",
+
+                explanation:
+                    "“Hello” là lời chào phổ biến trong tiếng Anh. Trong ngữ cảnh giao tiếp thông thường, nghĩa phù hợp là “Xin chào”."
+
+            };
+
+        }
+
+
+        /* =================================================
+           BANK = NGÂN HÀNG
+        ================================================= */
+
+        if (
+            language ===
+            "en"
+            &&
+            value.includes(
+                "bank"
+            )
+            &&
+            (
+                value.includes(
+                    "money"
+                )
+                ||
+                value.includes(
+                    "withdraw"
+                )
+                ||
+                value.includes(
+                    "deposit"
+                )
+            )
+        ) {
+
+            return {
+
+                translation:
+                    "Tôi đến ngân hàng để rút một ít tiền.",
+
+                pronunciation:
+                    "/aɪ wɛnt tə ðə bæŋk tə wɪðˈdrɔː sʌm ˈmʌni/",
+
+                contextType:
+                    "Tài chính",
+
+                word:
+                    "bank",
+
+                meaning:
+                    "ngân hàng",
+
+                keywords:
+                    [
+                        "bank",
+                        "withdraw",
+                        "money"
+                    ],
+
+                level:
+                    "Cao",
+
+                explanation:
+                    "Các từ “withdraw” và “money” tạo ngữ cảnh tài chính. Vì vậy “bank” được hiểu là “ngân hàng”, thay vì “bờ sông”."
+
+            };
+
+        }
+
+
+        /* =================================================
+           BANK = BỜ SÔNG
+        ================================================= */
+
+        if (
+            language ===
+            "en"
+            &&
+            value.includes(
+                "bank"
+            )
+            &&
+            (
+                value.includes(
+                    "river"
+                )
+                ||
+                value.includes(
+                    "water"
+                )
+            )
+        ) {
+
+            return {
+
+                translation:
+                    "Họ ngồi trên bờ sông.",
+
+                pronunciation:
+                    "/ðeɪ sæt ɑːn ðə bæŋk əv ðə ˈrɪvər/",
+
+                contextType:
+                    "Địa lý",
+
+                word:
+                    "bank",
+
+                meaning:
+                    "bờ sông",
+
+                keywords:
+                    [
+                        "bank",
+                        "river",
+                        "water"
+                    ],
+
+                level:
+                    "Cao",
+
+                explanation:
+                    "Từ “river” hoặc “water” tạo ngữ cảnh địa lý. Vì vậy “bank” được hiểu là “bờ sông”, không phải ngân hàng."
+
+            };
+
+        }
+
+
+        /* =================================================
+           BREAK A LEG
+        ================================================= */
+
+        if (
+            language ===
+            "en"
+            &&
+            value.includes(
+                "break a leg"
+            )
+        ) {
+
+            return {
+
+                translation:
+                    "Chúc bạn may mắn!",
+
+                pronunciation:
+                    "/breɪk ə leɡ/",
+
+                contextType:
+                    "Thành ngữ",
+
+                word:
+                    "break a leg",
+
+                meaning:
+                    "chúc may mắn",
+
+                keywords:
+                    [
+                        "idiom",
+                        "performance",
+                        "good luck"
+                    ],
+
+                level:
+                    "Cao",
+
+                explanation:
+                    "“Break a leg” là thành ngữ tiếng Anh dùng để chúc may mắn. Dịch từng từ thành “gãy chân” sẽ không phù hợp với ngữ cảnh."
+
+            };
+
+        }
+
+
+        /* =================================================
+           PIECE OF CAKE
+        ================================================= */
+
+        if (
+            language ===
+            "en"
+            &&
+            value.includes(
+                "piece of cake"
+            )
+        ) {
+
+            return {
+
+                translation:
+                    "Việc đó rất dễ.",
+
+                pronunciation:
+                    "/ə piːs əv keɪk/",
+
+                contextType:
+                    "Thành ngữ",
+
+                word:
+                    "piece of cake",
+
+                meaning:
+                    "rất dễ",
+
+                keywords:
+                    [
+                        "idiom",
+                        "easy",
+                        "task"
+                    ],
+
+                level:
+                    "Cao",
+
+                explanation:
+                    "“A piece of cake” là thành ngữ dùng để diễn tả một việc rất dễ thực hiện, không mang nghĩa một miếng bánh trong ngữ cảnh này."
+
+            };
+
+        }
+
+
+        /* =================================================
+           OTHER LANGUAGE GREETING
+        ================================================= */
+
+        const greetings = {
+
+            zh:
+                [
+                    "你好",
+                    "nǐ hǎo",
+                    "Tiếng Trung"
+                ],
+
+            ja:
+                [
+                    "こんにちは",
+                    "konnichiwa",
+                    "Tiếng Nhật"
+                ],
+
+            ko:
+                [
+                    "안녕하세요",
+                    "annyeonghaseyo",
+                    "Tiếng Hàn"
+                ],
+
+            fr:
+                [
+                    "bonjour",
+                    "/bɔ̃.ʒuʁ/",
+                    "Tiếng Pháp"
+                ],
+
+            de:
+                [
+                    "hallo",
+                    "/ˈhaːloː/",
+                    "Tiếng Đức"
+                ],
+
+            es:
+                [
+                    "hola",
+                    "/ˈola/",
+                    "Tiếng Tây Ban Nha"
+                ],
+
+            it:
+                [
+                    "ciao",
+                    "/ˈtʃaːo/",
+                    "Tiếng Ý"
+                ],
+
+            pt:
+                [
+                    "olá",
+                    "/oˈla/",
+                    "Tiếng Bồ Đào Nha"
+                ],
+
+            ru:
+                [
+                    "привет",
+                    "privet",
+                    "Tiếng Nga"
+                ],
+
+            th:
+                [
+                    "สวัสดี",
+                    "sawatdee",
+                    "Tiếng Thái"
+                ],
+
+            id:
+                [
+                    "halo",
+                    "halo",
+                    "Tiếng Indonesia"
+                ],
+
+            ar:
+                [
+                    "مرحبا",
+                    "marhaban",
+                    "Tiếng Ả Rập"
+                ]
+
+        };
+
+
+        if (
+            greetings[
+                language
+            ]
+        ) {
+
+            const greeting =
+                greetings[
+                    language
+                ];
+
+
+            if (
+                value.includes(
+                    greeting[0]
+                )
+            ) {
+
+                return {
+
+                    translation:
+                        "Xin chào!",
+
+                    pronunciation:
+                        greeting[1],
+
+                    contextType:
+                        "Giao tiếp cơ bản",
+
+                    word:
+                        greeting[0],
+
+                    meaning:
+                        "xin chào",
+
+                    keywords:
+                        [
+                            greeting[0],
+                            "greeting",
+                            greeting[2]
+                        ],
+
+                    level:
+                        "Cao",
+
+                    explanation:
+                        "Đây là một lời chào phổ biến trong "
+                        +
+                        greeting[2]
+                        +
+                        "."
+
+                };
+
+            }
+
+        }
+
+
+        /* =================================================
+           DEFAULT
+        ================================================= */
+
+        return {
+
+            translation:
+                "Nội dung này chưa có trong dữ liệu mô phỏng. Sau khi tích hợp AI API, hệ thống sẽ có thể dịch và phân tích nội dung này tự động.",
+
+            pronunciation:
+                "Cách đọc sẽ được tạo khi tích hợp AI API hoặc dữ liệu từ điển.",
+
+            contextType:
+                "Ngữ cảnh tổng quát",
+
+            word:
+                "Chưa xác định",
+
+            meaning:
+                "Chờ AI phân tích",
+
+            keywords:
+                [
+                    "Chưa xác định"
+                ],
+
+            level:
+                "Chưa đánh giá",
+
+            explanation:
+                "Prototype hiện chỉ mô phỏng một số trường hợp. AI API thật sẽ đảm nhiệm việc dịch và phân tích ngữ cảnh ở bước phát triển tiếp theo."
+
+        };
+
+    }
+
+
+    /* =====================================================
+       HISTORY
+    ====================================================== */
+
+    function saveHistory(
+        source,
+        data,
+        language
+    ) {
+
+        const history =
+            JSON.parse(
+                localStorage.getItem(
+                    "translationHistory"
+                )
+            )
+            ||
+            [];
+
+
+        history.unshift({
+
+            source:
+                source,
+
+            provider: window.selectedTranslationProvider || "gemini",
+
+            result:
+                data.translation,
+
+            explanation:
+                data.explanation,
+
+            keywords:
+                data.keywords,
+
+            phonetic:
+                data.pronunciation,
+
+            sourceLanguage:
+                language,
+
+            sourceLanguageName:
+                languages[
+                    language
+                ].name,
+
+            targetLanguage:
+                targetLanguage.value,
+
+            targetLanguageName:
+                languages[targetLanguage.value].name,
+
+            date:
+                new Date()
+                    .toLocaleString(
+                        "vi-VN"
+                    )
+
+        });
+
+
+        if (
+            history.length >
+            30
+        ) {
+
+            history.pop();
+
+        }
+
+
+        localStorage.setItem(
+
+            "translationHistory",
+
+            JSON.stringify(
+                history
+            )
+
+        );
+
+    }
+
+
+    /* =====================================================
+       AI MODEL SELECTOR
+    ====================================================== */
+
+    const aiModelWrap = document.getElementById("aiModelWrap");
+    const aiModelTrigger = document.getElementById("aiModelTrigger");
+    const aiModelName = document.getElementById("aiModelName");
+    const aiModelOptions = document.querySelectorAll(".ai-model-option");
+
+    const storedAiModel = localStorage.getItem("selectedAIModel");
+    const initialAiModel = (storedAiModel === "Google Translate") ? "Google Translate" : "Gemini";
+    const currentModelLogo = document.getElementById("ts14CurrentLogo");
+    let activeAIModel = null;
+    function setActiveAIModel(modelName) {
+        const current = modelName === "Google Translate" ? "Google Translate" : "Gemini";
+        const isChanged = activeAIModel !== null && activeAIModel !== current;
+        activeAIModel = current;
+        // This exact value is used by the existing /translate request; do not change it.
+        window.selectedTranslationProvider = current === "Google Translate" ? "google_translate" : "gemini";
+        if (aiModelName) aiModelName.textContent = current;
+        if (currentModelLogo) {
+            currentModelLogo.src = current === "Google Translate"
+                ? "images/v31-google-translate-approved.png"
+                : "images/v31-gemini-approved.png";
+        }
+        aiModelTrigger?.setAttribute("aria-label", `Chọn dịch vụ dịch, hiện tại: ${current}`);
+        aiModelOptions.forEach(option => {
+            const selected = option.dataset.model === current;
+            option.classList.toggle("active", selected);
+            option.setAttribute("aria-checked", String(selected));
+        });
+        localStorage.setItem("selectedAIModel", current);
+        // Only animate on an actual provider change, never continuously on a loop.
+        if (isChanged && aiModelTrigger) {
+            aiModelTrigger.classList.remove("ts14-model-changed");
+            void aiModelTrigger.offsetWidth;
+            aiModelTrigger.classList.add("ts14-model-changed");
+        }
+    }
+    setActiveAIModel(initialAiModel);
+
+    aiModelTrigger?.addEventListener("click", function (event) {
+        event.preventDefault();
+        const isOpen = aiModelWrap.classList.toggle("menu-open");
+        aiModelTrigger.setAttribute("aria-expanded", String(isOpen));
+    });
+
+    aiModelOptions.forEach(option => {
+        option.addEventListener("click", function () {
+            setActiveAIModel(option.dataset.model);
+            aiModelWrap.classList.remove("menu-open");
+            aiModelTrigger.setAttribute("aria-expanded", "false");
+        });
+    });
+
+    document.addEventListener("click", function (event) {
+        if (aiModelWrap && !aiModelWrap.contains(event.target)) {
+            aiModelWrap.classList.remove("menu-open");
+            aiModelTrigger?.setAttribute("aria-expanded", "false");
+        }
+    });
+
+
+    /* =====================================================
+       COPY
+    ====================================================== */
+
+    copyButton.addEventListener(
+        "click",
+        async function () {
+
+            if (
+                !currentTranslation
+            ) {
+
+                alert(
+                    "Chưa có bản dịch để sao chép."
+                );
+
+                return;
+
+            }
+
+
+            try {
+
+                await navigator
+                    .clipboard
+                    .writeText(
+                        currentTranslation
+                    );
+
+
+                copyButton.textContent =
+                    "Đã sao chép";
+
+
+                setTimeout(
+                    function () {
+
+                        copyButton.textContent =
+                            "Sao chép";
+
+                    },
+                    1200
+                );
+
+            }
+            catch (
+                error
+            ) {
+
+                console.log(
+                    error
+                );
+
+
+                alert(
+                    "Không thể sao chép tự động."
+                );
+
+            }
+
+        }
+    );
+
+
+    /* =====================================================
+       RESET
+    ====================================================== */
+
+    function resetResult() {
+
+        resultContent.innerHTML =
+            `
+<div class="result-empty-pro v26-result-empty" role="status" aria-label="Chưa có bản dịch">
+ <div class="v26-empty-visual" aria-hidden="true">
+  <span class="v26-empty-symbol v26-empty-source"><svg viewBox="0 0 24 24" fill="none"><path d="M6 3h9l4 4v14H6a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z" stroke="currentColor" stroke-width="1.7"/><path d="M14 3v5h5M8 13h8M8 17h6" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg></span>
+  <svg class="v26-empty-swap" viewBox="0 0 24 24" fill="none"><path d="M4 8h16m-5-5 5 5-5 5M20 16H4m5-5-5 5 5 5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+  <span class="v26-empty-symbol v26-empty-target"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6h16m-8-3v3M7 10h10M8 10c.6 4.3 3 7 8 9m0-9c-1.2 4.2-4 7.2-9 9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+ </div>
+ <strong>Chưa có bản dịch</strong>
+ <p>Kết quả tiếng Việt sẽ hiển thị sau khi bạn nhấn <b>Dịch bằng AI</b>.</p>
+ <div class="v26-empty-divider" aria-hidden="true"><span></span><svg viewBox="0 0 24 24" fill="none"><path d="M12 2 14.5 9.5 22 12l-7.5 2.5L12 22l-2.5-7.5L2 12l7.5-2.5L12 2Z" stroke="currentColor" stroke-width="1.6"/></svg><span></span></div>
+ <div class="v26-empty-ready"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="m8 12 2.5 2.5L16 9" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg>Sẵn sàng nhận nội dung</div>
+</div>
+`;
+
+
+        contextType.textContent =
+            "Chưa phân tích";
+
+
+        contextWord.textContent =
+            "—";
+
+
+        contextMeaning.textContent =
+            "—";
+
+
+        contextLevel.textContent =
+            "—";
+
+
+        contextKeywords.innerHTML =
+            `
+
+                <span class="keyword-chip">
+                    Chưa có dữ liệu
+                </span>
+
+            `;
+
+
+        contextExplanation.textContent =
+            "Sau khi thực hiện bản dịch, hệ thống sẽ giải thích cách lựa chọn nghĩa dựa trên nội dung và các từ khóa ngữ cảnh.";
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+    ====================================================== */
+
+    function escapeHTML(
+        value
+    ) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+
+        div.textContent =
+            value || "";
+
+
+        return div.innerHTML;
+
+    }
+
+</script>
+<script src="js/intro-morphing.js?v=autoplay-gesture-fix2"></script>
+<script src="js/nav-user.js?v=20261023-spacing2"></script>
+<script src="js/i18n.js?v=menu-fix-20261023"></script>
+<script>
+/* UI-only preferences: no impact on demo translations or API calls */
+(function(){
+ const domain=document.getElementById('personalDomain');
+ const tone=document.getElementById('personalTone');
+ const output=document.getElementById('personalContextSummary');
+ if(!domain||!tone||!output)return;
+ function render(){output.textContent=domain.options[domain.selectedIndex].text+' • '+({natural:'Diễn đạt tự nhiên',formal:'Diễn đạt trang trọng',simple:'Diễn đạt dễ hiểu'})[tone.value];}
+ domain.addEventListener('change',render);tone.addEventListener('change',render);render();
+})();
+</script>
+<script>
+/* Smooth continuous half-turn; original translation swap logic stays unchanged. */
+(function(){const b=document.getElementById('swapLanguages');if(!b)return;let angle=0;b.addEventListener('click',()=>{angle+=180;b.style.setProperty('--swap-angle',angle+'deg')});})();
+</script>
+<script defer="" src="js/transense-v11-ui.js?v=20261101"></script>
+<script src="js/transense-v15-enhance.js?v=20261102"></script>
+<script defer src="js/transense-v28-laptop-and-examples.js?v=28.0"></script></body>
+</html>

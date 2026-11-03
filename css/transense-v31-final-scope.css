@@ -1,0 +1,70 @@
+/* Transense AI V31 — final narrowly scoped corrections requested after V30.
+   Source: V30 (not rejected V29). Existing APIs, controls, login, marquee and animation are untouched. */
+
+/* About hero: delete ONLY the right-hand academic art. Keep all approved pale-blue wave colors. */
+html[data-theme] body .page-heading.v30-about-hero {
+  display:flex!important;align-items:flex-start!important;justify-content:center!important;
+  box-sizing:border-box!important;min-height:226px!important;
+  padding:29px clamp(23px,3.5vw,58px)!important;
+  background:linear-gradient(115deg,#fafcff 0%,#f7fbff 28%,#edf6ff 56%,#dceeff 100%)!important;
+}
+html[data-theme] body .page-heading.v30-about-hero > .v15-about-illustration,
+html[data-theme] body .page-heading.v30-about-hero > .v22-about-illustration {display:none!important;}
+html[data-theme] body .page-heading.v30-about-hero > .page-label,
+html[data-theme] body .page-heading.v30-about-hero > h1,
+html[data-theme] body .page-heading.v30-about-hero > p {
+  max-width:min(100%,900px)!important;width:auto!important;min-width:0!important;
+}
+html[data-theme] body .page-heading.v30-about-hero > h1 {font-size:clamp(30px,3vw,46px)!important;}
+html[data-theme] body .page-heading.v30-about-hero > p {font-size:13px!important;line-height:1.6!important;}
+@media(max-width:650px){
+ html[data-theme] body .page-heading.v30-about-hero {min-height:192px!important;padding:24px 19px 27px!important;}
+ html[data-theme] body .page-heading.v30-about-hero > h1{font-size:clamp(27px,7.6vw,35px)!important;}
+ html[data-theme] body .page-heading.v30-about-hero > p{font-size:12px!important;}
+}
+
+/* Desktop: keep the provider immediately BESIDE the language selectors, as before.
+   On narrow screens it stacks naturally instead of squeezing/cropping the controls. */
+@media(min-width:960px){
+ html body .translation-app .app-toolbar{display:flex!important;flex-direction:row!important;flex-wrap:wrap!important;gap:11px!important;align-items:center!important;}
+ html body .translation-app .app-toolbar .toolbar-left{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;align-items:center!important;justify-content:flex-start!important;gap:14px!important;min-width:0!important;max-width:100%!important;width:auto!important;flex:1 1 auto!important;}
+ html body .translation-app .app-toolbar .language-flow{display:flex!important;flex:0 0 auto!important;align-items:center!important;gap:8px!important;width:auto!important;min-width:0!important;}
+ html body .translation-app .app-toolbar .language-select-wrap{width:clamp(146px,11vw,190px)!important;flex:0 0 auto!important;}
+ html body .translation-app .app-toolbar #aiModelWrap{flex:0 0 286px!important;width:286px!important;min-width:0!important;max-width:286px!important;margin:0!important;align-self:center!important;}
+ html body .translation-app .app-toolbar #aiModelTrigger{width:100%!important;}
+ html body .translation-app .app-toolbar .core-chip{flex:0 0 auto!important;white-space:nowrap!important;margin-left:auto!important;}
+}
+@media(min-width:761px) and (max-width:959px){
+ html body .translation-app .app-toolbar{display:flex!important;flex-wrap:wrap!important;align-items:center!important;}
+ html body .translation-app .app-toolbar .toolbar-left{display:flex!important;flex-direction:row!important;flex-wrap:nowrap!important;gap:10px!important;width:100%!important;min-width:0!important;align-items:center!important;}
+ html body .translation-app .app-toolbar .language-flow{display:flex!important;flex:1 1 auto!important;min-width:0!important;}
+ html body .translation-app .app-toolbar .language-select-wrap{width:clamp(120px,18vw,165px)!important;min-width:0!important;}
+ html body .translation-app .app-toolbar #aiModelWrap{width:260px!important;flex:0 0 260px!important;max-width:260px!important;min-width:0!important;margin:0!important;}
+ html body .translation-app .app-toolbar .core-chip{margin-left:auto!important;}
+}
+@media(max-width:760px){
+ html body .translation-app .app-toolbar #aiModelWrap{min-width:0!important;width:100%!important;max-width:100%!important;flex:0 0 auto!important;margin:0!important;}
+}
+/* One logo source per provider in ALL existing locations. No icon-in-icon nested border. */
+html body #aiModelWrap .ai-model-icon,
+html body #aiModelWrap .ai-model-option .model-badge{background:#eef5ff!important;border:0!important;box-shadow:none!important;border-radius:12px!important;overflow:hidden!important;}
+html body #aiModelWrap .ai-model-icon img,
+html body #aiModelWrap .ai-model-option img.ts14-option-logo {width:31px!important;height:31px!important;min-width:31px!important;max-width:31px!important;min-height:31px!important;max-height:31px!important;object-fit:contain!important;transform:none!important;filter:none!important;opacity:1!important;}
+html body #aiModelWrap .ai-model-dropdown{z-index:1000!important;}
+html body #aiModelWrap .ai-model-option.active{background:#eaf4ff!important;}
+html body #aiModelWrap .ai-model-option:not(.active){background:transparent!important;}
+html body #aiModelWrap .ai-model-option:hover{background:#eaf4ff!important;}
+/* Exact same marks in both moving marquees and all four technology groups. */
+html body .technology-showcase .technology-icon,
+html body .technology-usage .usage-icon{width:46px!important;height:46px!important;min-width:46px!important;min-height:46px!important;display:grid!important;place-items:center!important;overflow:hidden!important;border-radius:12px!important;}
+html body .technology-showcase .technology-icon img.v28-brand-symbol,
+html body .technology-usage .usage-icon img.v28-brand-symbol{width:30px!important;height:30px!important;max-width:30px!important;max-height:30px!important;object-fit:contain!important;display:block!important;opacity:1!important;filter:none!important;transform:none!important;}
+html body #v25LaptopArt .v25-provider img{width:26px!important;height:26px!important;max-width:26px!important;max-height:26px!important;object-fit:contain!important;filter:none!important;}
+/* Keep the open menu ABOVE the workspace text, avoiding text bleeding over options. */
+html body .translation-app .app-toolbar {position:relative!important;z-index:30!important;}
+html body .translation-app .app-content {position:relative!important;z-index:1!important;}
+html body .translation-app #aiModelWrap {position:relative!important;z-index:35!important;}
+html body .translation-app #aiModelWrap.menu-open {z-index:45!important;}
+html body .translation-app #aiModelDropdown {position:absolute!important;z-index:50!important;background:#fff!important;}
+html[data-theme="dark"] body .translation-app #aiModelDropdown {background:#203451!important;}
+/* No changes to JS, screen animation cadence, laptop chassis, books, or plant. */

@@ -1,0 +1,65 @@
+/* V25: based exclusively on the approved V22 website. Only Hero laptop screen + HOW timeline. */
+/* Laptop frame/art/books/plant remain sourced from original V22 artwork. */
+html body .ts13-laptop-wrap.v25-laptop-art{position:relative!important;overflow:visible!important}
+html body .v25-laptop-screen-window{position:absolute;left:23.52459%;top:9.26829%;width:70.2459%;height:69.7561%;border-radius:2%;overflow:hidden;background:#fcfdff;z-index:3;pointer-events:none;isolation:isolate}
+html body .v25-laptop-screen-ui{position:absolute;width:857px;height:572px;left:0;top:0;transform:scale(var(--v25-screen-scale,1));transform-origin:top left;background:#fcfdff;color:#183563;overflow:hidden;font-family:"Be Vietnam Pro",Inter,Arial,sans-serif}
+html body .v25-laptop-screen-ui *{box-sizing:border-box}
+.v25-screen-top{height:80px;background:#f1f6ff;border-bottom:2px solid #d6e5fb;display:flex;align-items:center;justify-content:space-between;padding:0 42px}
+.v25-screen-brand{display:flex;align-items:center;gap:10px;font-size:27px;font-weight:800;color:#152b55;white-space:nowrap}.v25-screen-brand img{width:34px;height:34px;object-fit:contain}.v25-screen-brand b{color:#1a78ef}
+.v25-screen-menu{display:flex;align-items:center;gap:16px;font-size:15px;color:#91a1bb}.v25-screen-menu .v25-screen-active{background:#e5f0ff;color:#2374ef;border-radius:40px;padding:10px 16px;font-weight:700}
+.v25-screen-body{padding:22px 34px 26px}.v25-screen-title{font-size:33px;letter-spacing:-.7px;font-weight:800;margin:0;color:#183563;line-height:1.2}.v25-screen-subtitle{font-size:18px;margin-top:6px;color:#7890b5}
+.v25-screen-translation{position:relative;display:flex;gap:23px;margin-top:18px;height:227px}.v25-screen-panel{flex:1;border:2px solid #d1e3ff;border-radius:18px;background:#fff;padding:17px 19px;min-width:0}.v25-screen-panel.v25-target{background:#f3f8ff}
+.v25-panel-label{font-size:14px;letter-spacing:.045em;color:#6082b0;font-weight:800;border-bottom:2px solid #e2edfb;padding:0 0 13px}.v25-panel-content{font-size:19px;line-height:1.62;letter-spacing:-.15px;color:#243d64;padding-top:18px;min-height:100px}
+.v25-caret{display:inline-block;width:2px;height:21px;background:#297cf3;vertical-align:-4px;animation:v25-caret-blink .78s steps(1) infinite;margin-left:3px}
+.v25-translate-swap{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:59px;height:59px;border-radius:50%;border:2px solid #c9dfff;background:#fff;display:grid;place-items:center;box-shadow:0 6px 16px #194d881a;color:#1777f5;z-index:2}
+.v25-provider-row{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:13px}.v25-providers{display:flex;align-items:center;gap:13px;flex-wrap:wrap}.v25-provider{height:42px;border:1px solid #d5e5fb;border-radius:100px;padding:0 14px;display:flex;align-items:center;gap:8px;background:#f7faff;color:#6b82aa;font-size:15px;transition:background .35s,border-color .35s,box-shadow .35s}.v25-provider img{width:25px;height:25px;object-fit:contain}.v25-provider.v25-selected{border:2px solid #2681fb;background:#e6f1ff;color:#1768e9;font-weight:750;box-shadow:0 0 0 5px #257cf711}
+.v25-live-status{font-size:13px;color:#5d79a2;font-weight:700;min-width:165px;text-align:right}.v25-live-status.v25-success{color:#159a6c}.v25-live-status.v25-working{color:#277af0}
+.v25-demo-button{margin-top:15px;height:49px;width:100%;background:#2176ef;color:white;border-radius:13px;display:flex;align-items:center;justify-content:center;gap:12px;font-size:18px;font-weight:800;letter-spacing:.01em;transition:background .2s}.v25-demo-button.v25-processing{background:#4a90ef}.v25-demo-button.v25-finished{background:#1474e7}
+.v25-screen-ui.v25-loop-reset{opacity:.2;transition:opacity .35s ease}.v25-screen-ui:not(.v25-loop-reset){opacity:1;transition:opacity .4s ease}
+@keyframes v25-caret-blink{50%{opacity:0}}@keyframes v25-spin{to{transform:rotate(360deg)}}
+.v25-wait-spinner{width:19px;height:19px;border:3px solid #ffffff7c;border-top-color:#fff;border-radius:50%;animation:v25-spin .7s linear infinite}
+/* TRUE horizontal timeline: single continuous rail / three milestones / no simulated screenshot cards. */
+html body #howItWorks.v25-timeline-section{margin:24px auto 36px!important;padding:10px 18px 16px!important;max-width:1360px!important;position:relative;text-align:center;overflow:visible;background:transparent!important;border:0!important;box-shadow:none!important;font-family:"Be Vietnam Pro",Arial,sans-serif}
+html body .v25-timeline-heading .section-pill{font-size:11px!important;letter-spacing:.09em!important;padding:7px 15px!important}
+html body .v25-timeline-heading h2{margin:12px 0 8px!important;font-size:clamp(27px,2.6vw,34px)!important;line-height:1.25!important;font-weight:750!important;color:#17305f!important;letter-spacing:-.75px!important}
+html body .v25-timeline-heading p{margin:0!important;font-size:13px!important;color:#657ca3!important;line-height:1.6!important}
+html body .v25-timeline{position:relative;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:start;margin:28px auto 6px!important;width:100%!important;max-width:1110px!important;padding:0 26px!important}
+html body .v25-timeline-track{position:absolute;left:16.666%;right:16.666%;top:39px;height:4px;background:#bfd9fa;border-radius:10px;z-index:0;pointer-events:none}
+html body .v25-timeline-progress{display:block;height:100%;width:100%;border-radius:inherit;background:linear-gradient(90deg,#3a8af8 0%,#77a9fc 45%,#47c29f 100%);animation:v25-timeline-flow 9s ease-in-out infinite;transform-origin:left center}
+@keyframes v25-timeline-flow{0%{transform:scaleX(.03);opacity:.5}78%,94%{transform:scaleX(1);opacity:1}100%{transform:scaleX(1);opacity:.8}}
+html body .v25-timeline-item{z-index:1;position:relative;display:flex;align-items:center;flex-direction:column;text-align:center;background:transparent!important;border:0!important;box-shadow:none!important;padding:0!important;min-width:0}
+html body .v25-timeline-node{position:relative;display:grid;place-items:center;width:82px;height:82px;border-radius:50%;background:linear-gradient(150deg,#fff,#f1f7ff);border:3px solid #a8ccff;box-shadow:0 7px 18px #8db8ef2e;color:#237bf5;flex:none}
+html body .v25-timeline-item:last-child .v25-timeline-node{border-color:#8bd8c7;color:#0ca783}
+html body .v25-timeline-node svg{width:36px;height:36px;stroke-width:2.15}
+html body .v25-node-number{position:absolute;top:-8px;left:-12px;background:#176ff1;color:#fff;border-radius:100%;border:3px solid #f2f7ff;font-size:10px;font-weight:800;min-width:32px;height:32px;line-height:26px}
+html body .v25-timeline-content{padding:0 3px!important;max-width:280px}
+html body .v25-timeline-content h3{margin:15px 0 7px!important;color:#183363!important;font-weight:750!important;font-size:16px!important;line-height:1.45!important;letter-spacing:-.2px}
+html body .v25-timeline-content p{margin:0!important;font-size:12px!important;color:#61789f!important;line-height:1.65!important;min-height:40px}
+html body .v25-timeline-hints{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+html body .v25-timeline-hint{display:inline-block;font-size:10px!important;color:#2773db;background:#fff;border:1px solid #d6e5fb;border-radius:30px;padding:5px 10px;margin-top:10px;line-height:1.3!important;box-shadow:0 3px 8px #c2d9fa21}
+html body .v25-timeline-hint-done{color:#0a956d;border-color:#b7e9dc;background:#f0fdf9}
+html body .v25-timeline-footnote{margin:18px auto 0!important;text-align:center;font-size:11px!important;color:#7d8ead!important;line-height:1.55!important}
+/* Existing theme controller unchanged, dark palette only for new area. */
+html[data-theme="dark"] body #howItWorks .v25-timeline-heading h2,html[data-theme="dark"] body .v25-timeline-content h3{color:#ecf4ff!important}
+html[data-theme="dark"] body .v25-timeline-heading p,html[data-theme="dark"] body .v25-timeline-content p,html[data-theme="dark"] body .v25-timeline-footnote{color:#bacbe6!important}
+html[data-theme="dark"] body .v25-timeline-node{background:#1c3659;border-color:#5b85c2;color:#91c2ff}
+html[data-theme="dark"] body .v25-timeline-hint{background:#223b61;border-color:#43638d;color:#c0dcff}
+@media(max-width:690px){
+ html body #howItWorks.v25-timeline-section{padding:15px 12px 20px!important;margin:20px auto!important}
+ html body .v25-timeline{display:flex;flex-direction:column;gap:20px;max-width:430px!important;padding:0 10px 0 12px!important;margin:24px auto 0!important}
+ html body .v25-timeline-track{left:51px;right:auto;top:42px;bottom:60px;width:4px;height:auto}
+ html body .v25-timeline-progress{height:100%;width:4px;transform-origin:top center;animation:v25-timeline-flow-y 9s ease-in-out infinite}
+ @keyframes v25-timeline-flow-y{0%{transform:scaleY(.04)}83%,100%{transform:scaleY(1)}}
+ html body .v25-timeline-item{width:100%;flex-direction:row;text-align:left;align-items:center;gap:20px;min-height:100px}
+ html body .v25-timeline-node{width:82px;height:82px}
+ html body .v25-timeline-content{text-align:left;max-width:none;flex:1}
+ html body .v25-timeline-content h3{margin:0 0 5px!important;font-size:15px!important}
+ html body .v25-timeline-content p{font-size:12px!important;min-height:0}
+ html body .v25-timeline-hints{justify-content:flex-start}
+ html body .v25-timeline-footnote{max-width:320px}
+}
+@media(max-width:390px){html body .v25-timeline-item{gap:15px}html body .v25-timeline-track{left:47px}html body .v25-timeline-node{width:74px;height:74px}html body .v25-timeline-node svg{width:30px;height:30px}}
+@media(prefers-reduced-motion:reduce){html body .v25-timeline-progress,html body .v25-caret,.v25-wait-spinner{animation:none!important}html body .v25-laptop-screen-ui{transition:none!important}}
+/* Guard against the legacy global .ts13-laptop-wrap img !important rule spilling into the live screen. */
+html body .ts13-laptop-wrap .v25-screen-brand img{width:34px!important;height:34px!important;max-width:34px!important;object-fit:contain!important;filter:none!important;display:block!important;flex:none!important}
+html body .ts13-laptop-wrap .v25-provider img{width:25px!important;height:25px!important;max-width:25px!important;object-fit:contain!important;filter:none!important;display:block!important;flex:none!important}

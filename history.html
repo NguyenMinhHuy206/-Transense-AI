@@ -1,0 +1,1524 @@
+<!DOCTYPE html>
+
+<html lang="vi">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>
+        Lịch Sử Dịch - Transense AI
+    </title>
+<link href="css/style.css" rel="stylesheet"/>
+<style>
+
+        /* =========================================================
+           HISTORY PAGE
+        ========================================================= */
+
+        .history-page {
+            width: min(1180px, calc(100% - 40px));
+            margin: 0 auto;
+
+            padding:
+                52px 0
+                60px;
+        }
+
+
+        /* =========================================================
+           PAGE HEADING
+        ========================================================= */
+
+        .history-heading {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+
+            gap: 25px;
+
+            margin-bottom: 28px;
+        }
+
+        .history-heading-left {
+            max-width: 680px;
+        }
+
+        .history-label {
+            display: block;
+
+            margin-bottom: 10px;
+
+            color: var(--blue);
+
+            font-size: 10px;
+            font-weight: 700;
+
+            letter-spacing: 1.7px;
+        }
+
+        .history-heading h1 {
+            margin: 0;
+
+            color: var(--text);
+
+            font-size:
+                clamp(
+                    34px,
+                    4vw,
+                    48px
+                );
+
+            line-height: 1.1;
+
+            letter-spacing: -1.4px;
+        }
+
+        .history-heading p {
+            margin:
+                12px 0
+                0;
+
+            color: var(--muted);
+
+            font-size: 13px;
+
+            line-height: 1.7;
+        }
+
+        .history-total-chip {
+            min-height: 42px;
+
+            display: inline-flex;
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 0 15px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 999px;
+
+            background: var(--surface);
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            white-space: nowrap;
+        }
+
+        .history-total-chip strong {
+            color: var(--text);
+
+            font-size: 13px;
+        }
+
+
+        /* =========================================================
+           STATS
+        ========================================================= */
+
+        .history-stats {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    3,
+                    minmax(0, 1fr)
+                );
+
+            gap: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .history-stat-card {
+            min-height: 112px;
+
+            padding: 18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            background: var(--surface);
+
+            box-shadow: var(--shadow);
+        }
+
+        .history-stat-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 12px;
+
+            margin-bottom: 14px;
+        }
+
+        .history-stat-icon {
+            width: 36px;
+            height: 36px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 10px;
+
+            background: var(--surface-2);
+
+            color: var(--blue);
+        }
+
+        .history-stat-icon svg {
+            width: 17px;
+            height: 17px;
+
+            fill: none;
+            stroke: currentColor;
+
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        .history-stat-caption {
+            color: var(--muted-2);
+
+            font-size: 9px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        .history-stat-value {
+            color: var(--text);
+
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .history-stat-sub {
+            margin-top: 4px;
+
+            color: var(--muted);
+
+            font-size: 10px;
+        }
+
+
+        /* =========================================================
+           TOOLBAR
+        ========================================================= */
+
+        .history-toolbar {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 14px;
+
+            margin-bottom: 18px;
+
+            padding: 14px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            background: var(--surface);
+
+            box-shadow: var(--shadow);
+        }
+
+        .history-search {
+            position: relative;
+
+            flex: 1;
+
+            max-width: 520px;
+        }
+
+        .history-search svg {
+            position: absolute;
+
+            top: 50%;
+            left: 14px;
+
+            width: 16px;
+            height: 16px;
+
+            transform: translateY(-50%);
+
+            fill: none;
+            stroke: var(--muted-2);
+
+            stroke-width: 1.8;
+        }
+
+        .history-search input {
+            width: 100%;
+            height: 44px;
+
+            padding:
+                0 14px
+                0 42px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 11px;
+
+            outline: none;
+
+            background: var(--surface-2);
+
+            color: var(--text);
+
+            font-family: inherit;
+            font-size: 12px;
+        }
+
+        .history-search input::placeholder {
+            color: var(--muted-2);
+        }
+
+        .history-search input:focus {
+            border-color: var(--blue);
+        }
+
+        .clear-all-button {
+            min-height: 44px;
+
+            padding: 0 16px;
+
+            border: 1px solid #fecaca;
+
+            border-radius: 11px;
+
+            background: #fff5f5;
+
+            color: #dc2626;
+
+            font-family: inherit;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
+           HISTORY LIST
+        ========================================================= */
+
+        .history-list {
+            display: flex;
+            flex-direction: column;
+
+            gap: 15px;
+        }
+
+
+        /* =========================================================
+           HISTORY CARD
+        ========================================================= */
+
+        .history-card-pro {
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            border-radius: 18px;
+
+            background: var(--surface);
+
+            box-shadow: var(--shadow);
+        }
+
+        .history-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 15px;
+
+            padding:
+                14px 18px;
+
+            border-bottom:
+                1px solid
+                var(--border);
+
+            background:
+                var(--surface-2);
+        }
+
+        .history-meta {
+            display: flex;
+            align-items: center;
+
+            gap: 11px;
+        }
+
+        .history-number {
+            width: 32px;
+            height: 32px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: var(--surface);
+
+            color: var(--blue);
+
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .history-meta-title {
+            color: var(--text);
+
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .history-meta-date {
+            margin-top: 3px;
+
+            color: var(--muted-2);
+
+            font-size: 9px;
+        }
+
+        .history-card-actions {
+            display: flex;
+            align-items: center;
+
+            gap: 7px;
+        }
+
+        .history-action-btn {
+            min-height: 34px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 6px;
+
+            padding: 0 10px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 9px;
+
+            background: var(--surface);
+
+            color: var(--muted);
+
+            font-family: inherit;
+
+            font-size: 10px;
+
+            cursor: pointer;
+        }
+
+        .history-action-btn:hover {
+            color: var(--blue);
+        }
+
+        .history-action-btn.delete {
+            border-color: #fecaca;
+
+            color: #dc2626;
+        }
+
+        .history-action-btn svg {
+            width: 13px;
+            height: 13px;
+
+            fill: none;
+            stroke: currentColor;
+
+            stroke-width: 1.8;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+
+        /* =========================================================
+           TRANSLATION COLUMNS
+        ========================================================= */
+
+        .history-translation {
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(0, 1fr)
+                );
+
+            gap: 14px;
+
+            padding: 18px;
+        }
+
+        .history-language-box {
+            min-height: 145px;
+
+            overflow: hidden;
+
+            border: 1px solid var(--border);
+
+            border-radius: 13px;
+
+            background: var(--surface-2);
+        }
+
+        .history-language-head {
+            padding:
+                12px 14px;
+
+            border-bottom:
+                1px solid
+                var(--border);
+        }
+
+        .history-language-caption {
+            margin-bottom: 4px;
+
+            color: var(--muted-2);
+
+            font-size: 8px;
+            font-weight: 700;
+
+            letter-spacing: 1px;
+        }
+
+        .history-language-name {
+            color: var(--text);
+
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .history-language-text {
+            padding: 15px;
+
+            color: var(--text);
+
+            font-size: 13px;
+
+            line-height: 1.75;
+
+            white-space: pre-wrap;
+
+            word-break: break-word;
+        }
+
+
+        /* =========================================================
+           CONTEXT EXPLANATION
+        ========================================================= */
+
+        .history-context {
+            margin:
+                0 18px
+                18px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 12px;
+
+            background: var(--surface-2);
+        }
+
+        .history-context summary {
+            padding: 13px 15px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            list-style: none;
+        }
+
+        .history-context summary::-webkit-details-marker {
+            display: none;
+        }
+
+        .history-context summary::before {
+            content: "＋";
+
+            display: inline-block;
+
+            margin-right: 8px;
+
+            color: var(--blue);
+        }
+
+        .history-context[open] summary::before {
+            content: "−";
+        }
+
+        .history-context-content {
+            padding:
+                0 15px
+                15px;
+
+            color: var(--muted);
+
+            font-size: 11px;
+
+            line-height: 1.7;
+        }
+
+
+        /* =========================================================
+           EMPTY STATE
+        ========================================================= */
+
+        .history-empty {
+            min-height: 360px;
+
+            display: flex;
+            flex-direction: column;
+
+            align-items: center;
+            justify-content: center;
+
+            padding: 40px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 20px;
+
+            background: var(--surface);
+
+            text-align: center;
+
+            box-shadow: var(--shadow);
+        }
+
+        .history-empty-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            margin-bottom: 17px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            background: var(--surface-2);
+
+            color: var(--blue);
+        }
+
+        .history-empty-icon svg {
+            width: 23px;
+            height: 23px;
+
+            fill: none;
+            stroke: currentColor;
+
+            stroke-width: 1.8;
+        }
+
+        .history-empty h3 {
+            margin:
+                0 0
+                8px;
+
+            color: var(--text);
+
+            font-size: 18px;
+        }
+
+        .history-empty p {
+            max-width: 420px;
+
+            margin:
+                0 0
+                18px;
+
+            color: var(--muted);
+
+            font-size: 12px;
+
+            line-height: 1.7;
+        }
+
+        .history-start-button {
+            min-height: 42px;
+
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            padding: 0 18px;
+
+            border-radius: 10px;
+
+            background: var(--blue);
+
+            color: #ffffff;
+
+            font-size: 11px;
+            font-weight: 600;
+
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           NO SEARCH RESULT
+        ========================================================= */
+
+        .no-result {
+            padding: 45px;
+
+            border: 1px solid var(--border);
+
+            border-radius: 16px;
+
+            background: var(--surface);
+
+            color: var(--muted);
+
+            text-align: center;
+
+            font-size: 12px;
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 850px) {
+
+            .history-stats {
+                grid-template-columns: 1fr;
+            }
+
+            .history-translation {
+                grid-template-columns: 1fr;
+            }
+
+            .history-heading {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+
+        @media (max-width: 650px) {
+
+            .history-page {
+                width: calc(100% - 20px);
+
+                padding-top: 35px;
+            }
+
+            .history-toolbar {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .history-search {
+                max-width: none;
+            }
+
+            .history-card-top {
+                align-items: flex-start;
+
+                flex-direction: column;
+            }
+
+            .history-card-actions {
+                width: 100%;
+            }
+
+            .history-action-btn {
+                flex: 1;
+            }
+
+        }
+
+    
+/* ===== HISTORY TABS, FILTER & SAVED ===== */
+.history-toolbar-left{display:flex;align-items:center;gap:12px;flex:1;min-width:0}
+.history-toolbar-left .history-search{width:100%;flex:1}
+.filter-wrap{position:relative}
+.history-filter-btn{height:44px;display:flex;align-items:center;gap:13px;padding:0 17px;border:1px solid var(--border);border-radius:11px;background:var(--surface-2);color:var(--text);cursor:pointer;font-weight:700}
+.history-filter-btn svg{width:18px;height:18px;stroke:currentColor;stroke-width:1.8;fill:none}
+.history-filter-panel{position:absolute;z-index:40;top:calc(100% + 8px);right:0;width:300px;max-width:90vw;padding:18px;border-radius:14px;border:1px solid var(--border);background:var(--surface);box-shadow:var(--shadow-large)}
+.history-filter-panel[hidden]{display:none}
+.history-filter-panel label{display:block;color:var(--text);font-size:12px;margin-bottom:10px}
+.history-filter-panel select{width:100%;padding:12px;border:1px solid var(--border);background:var(--surface-2);color:var(--text);border-radius:9px}
+.history-filter-panel button{margin-top:10px;border:0;background:transparent;color:var(--blue);cursor:pointer}
+.history-tabs{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:0 0 18px;padding:6px;border:1px solid var(--border);background:var(--surface);border-radius:15px}
+.history-tab{padding:15px 12px;background:transparent;border:1px solid transparent;border-radius:10px;color:var(--muted);font:inherit;font-weight:700;cursor:pointer}
+.history-tab.is-active{background:var(--surface-2);border-color:var(--border);color:var(--text);box-shadow:inset 0 -3px var(--blue)}
+.history-tab span{margin-left:8px;color:var(--blue)}
+.history-card-actions .save-btn{color:var(--muted);white-space:nowrap}
+.history-card-actions .save-btn.is-saved{color:#eab308;border-color:#b99023}
+.history-language-text{height:auto!important;min-height:80px!important;display:block!important;text-align:left!important;padding:20px!important;overflow-wrap:anywhere}
+.history-translation{align-items:stretch}
+@media(max-width:740px){.history-toolbar{flex-wrap:wrap}.history-toolbar-left{width:100%}.history-filter-panel{right:0}.history-card-top{flex-wrap:wrap;gap:12px}.history-card-actions{flex-wrap:wrap}.history-tabs{gap:4px}}
+
+/* Responsive fixes */
+
+@media(max-width:640px){
+ .history-toolbar,.history-toolbar-left,.history-card-top,.history-card-actions{min-width:0;max-width:100%;}
+ .history-toolbar-left{flex-wrap:wrap;}
+ .history-search,.history-search input{min-width:0;width:100%;}
+ .history-filter-panel{max-width:calc(100vw - 40px);}
+ .history-tabs{grid-template-columns:repeat(2,minmax(0,1fr));}
+ .history-tab{min-width:0;padding:12px 5px;font-size:12px;overflow-wrap:anywhere;}
+ .history-translation,.history-card-body,.history-card-content{grid-template-columns:minmax(0,1fr)!important;min-width:0;}
+ .history-language-text{overflow-wrap:anywhere;}
+}
+
+
+/* Distinct statistic highlights, legible in both themes */
+.history-stat-card {position:relative;overflow:hidden;box-shadow:0 12px 26px rgba(15,23,42,.055);}
+.history-stat-card::before {content:"";position:absolute;width:140px;height:140px;right:-77px;top:-82px;border-radius:50%;background:var(--stat-glow);pointer-events:none;}
+.history-stat-card:nth-child(1){--stat-glow:rgba(59,130,246,.10);border-color:rgba(96,165,250,.30);}
+.history-stat-card:nth-child(2){--stat-glow:rgba(16,185,129,.10);border-color:rgba(52,211,153,.30);}
+.history-stat-card:nth-child(3){--stat-glow:rgba(245,158,11,.10);border-color:rgba(245,158,11,.28);}
+.history-stat-card:nth-child(1) .history-stat-icon {color:#60a5fa;border-color:rgba(96,165,250,.34);background:rgba(59,130,246,.12);}
+.history-stat-card:nth-child(2) .history-stat-icon {color:#10b981;border-color:rgba(16,185,129,.34);background:rgba(16,185,129,.11);}
+.history-stat-card:nth-child(3) .history-stat-icon {color:#f59e0b;border-color:rgba(245,158,11,.34);background:rgba(245,158,11,.11);}
+html[data-theme="light"] .history-stat-card {background:linear-gradient(145deg,#fff,#f8fbff);}
+html[data-theme="light"] .history-stat-card:nth-child(1) .history-stat-icon{color:#2563eb;}
+html[data-theme="light"] .history-stat-card:nth-child(2) .history-stat-icon{color:#059669;}
+html[data-theme="light"] .history-stat-card:nth-child(3) .history-stat-icon{color:#b45309;}
+
+/* History actions and stats: light/dark balanced */
+.clear-all-button {min-height:46px!important;padding:0 19px!important;border:1px solid rgba(239,68,68,.42)!important;border-radius:13px!important;background:rgba(239,68,68,.07)!important;color:#ef6b70!important;font-size:13px!important;font-weight:650!important;transition:background .2s,border-color .2s,transform .2s!important;}
+.clear-all-button:hover {background:rgba(239,68,68,.17)!important;border-color:#ef4444!important;transform:translateY(-1px);}
+html[data-theme="light"] .clear-all-button {color:#b91c1c!important;background:#fff7f7!important;}
+html[data-theme="light"] .clear-all-button:hover {background:#fee2e2!important;}
+.history-stat-card .history-stat-icon {box-shadow:0 0 18px color-mix(in srgb,currentColor 18%,transparent)!important;}
+.history-stat-card:nth-child(3) .history-stat-icon svg path {fill:currentColor;stroke:none;}
+</style>
+<link href="css/floating-premium.css?v=20261023-spacing2" rel="stylesheet"/>
+<link href="css/clean-floating-final.css?v=20261023-1" rel="stylesheet"/>
+<link href="css/account-actions-final.css?v=20261023-3" rel="stylesheet"/>
+<link href="css/final-static-polish.css?v=20261023-final" rel="stylesheet"/>
+<link href="css/transense-v13-final.css?v=20261102" rel="stylesheet"/><link href="css/transense-v14-refinement.css?v=20261102" rel="stylesheet"/><link href="css/transense-v15-polish.css?v=20261102" rel="stylesheet"/><link href="css/transense-v16-history.css?v=20261102" rel="stylesheet"/><script>try { document.documentElement.classList.toggle('v15-guest', localStorage.getItem('isLoggedIn') !== 'true'); } catch(e) {document.documentElement.classList.add('v15-guest');}</script><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="css/transense-v17-unified.css?v=20261102" rel="stylesheet"/>
+<link rel="stylesheet" href="css/transense-v21-menu.css?v=21.0"/>
+<link rel="stylesheet" href="css/transense-v26-polish.css?v=26.0"/>
+<link rel="stylesheet" href="css/transense-v28-fixes.css?v=28.0"/>
+<link rel="stylesheet" href="css/transense-v30-approved.css?v=30.2"/>
+</head>
+<body class="v16-history-page">
+<!-- =========================================================
+     NAVBAR
+========================================================= -->
+<header class="navbar ts13-navbar" id="top" role="banner">
+<a aria-label="Transense AI – Trang chủ" class="brand ts13-brand" href="index.html">
+<img alt="" class="brand-logo" height="44" src="images/transense-logo-mark.png" width="44"/>
+<span class="brand-name">Transense <span class="brand-ai">AI</span></span>
+</a>
+<nav aria-label="Điều hướng chính" class="nav-links ts13-links"><a class="nav-page" data-nav="index.html" href="index.html">Trang chủ</a><a href="index.html#whyChoose">Tính năng</a><a href="index.html#howItWorks">Hướng dẫn</a><a class="nav-page v15-history-link" data-nav="history.html" href="history.html">Lịch sử</a><a class="nav-page" data-nav="about.html" href="about.html">Giới thiệu</a></nav>
+<div class="ts13-actions">
+<button aria-label="Đổi chế độ sáng tối" class="header-theme-btn ts13-theme" type="button"><svg aria-hidden="true" class="" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="24"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path></svg></button>
+<div class="guest-auth-buttons guest-only ts13-guest-auth">
+<a class="header-auth-btn outline" href="login.html">Đăng nhập</a>
+<a class="header-auth-btn solid" href="register.html">Đăng ký</a>
+</div>
+<div class="auth-only nav-user-wrap ts13-account">
+<a aria-haspopup="true" aria-label="Mở menu tài khoản" class="account-button nav-user-trigger" href="profile.html" id="accountButton">
+<svg viewbox="0 0 24 24"><circle cx="12" cy="8" r="4"></circle><path d="M4 21C4 17 7 14 12 14C17 14 20 17 20 21"></path></svg>
+<span id="accountName">Tài khoản</span>
+<span aria-hidden="true" class="v15-user-chevron">⌄</span></a>
+<div aria-label="Menu người dùng" class="user-dropdown">
+<div class="account-dropdown-person"><div aria-hidden="true" class="account-dropdown-avatar">T</div><div><strong class="account-dropdown-name">Tài khoản</strong><small>Tài khoản Demo</small></div></div>
+<a class="account-action-stable" href="profile.html"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><circle cx="12" cy="8" r="4"></circle><path d="M4 21v-2a8 8 0 0 1 16 0v2"></path></svg></span><span class="menu-action-label">Thông tin tài khoản</span><span aria-hidden="true">›</span></a>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9"></path><path d="M10 21h4"></path></svg></span><span class="menu-action-label">Thông báo</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M3 14v-3a9 9 0 0 1 18 0v3"></path><path d="M21 16a3 3 0 0 1-3 3h-1v-6h1a3 3 0 0 1 3 3Z"></path><path d="M3 16a3 3 0 0 0 3 3h1v-6H6a3 3 0 0 0-3 3Z"></path><path d="M18 19a5 5 0 0 1-5 3h-2"></path></svg></span><span class="menu-action-label">Trợ giúp &amp; hỗ trợ</span><small>Sắp ra mắt</small></button>
+<button class="menu-placeholder account-action-stable" disabled="" type="button"><span aria-hidden="true" class="menu-icon"><svg aria-hidden="true" fill="none" height="20" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.9" viewbox="0 0 24 24" width="20"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Z"></path><path d="m19.4 15 .1.1 1.4 1.4-2.4 2.4-1.4-1.4A8 8 0 0 1 14 19v2h-4v-2a8 8 0 0 1-3.1-1.5l-1.4 1.4-2.4-2.4 1.4-1.4A8 8 0 0 1 3 13h-2v-3h2a8 8 0 0 1 1.5-3.1L3.1 5.5l2.4-2.4 1.4 1.4A8 8 0 0 1 10 3V1h4v2a8 8 0 0 1 3.1 1.5l1.4-1.4 2.4 2.4-1.4 1.4A8 8 0 0 1 21 10h2v3h-2a8 8 0 0 1-1.6 2Z"></path></svg></span><span class="menu-action-label">Cài đặt</span><small>Thiết kế sau</small></button>
+<div class="menu-theme"><span aria-hidden="true" class="menu-theme-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2m0 16v2M4.9 4.9l1.5 1.5m11.2 11.2 1.5 1.5M2 12h2m16 0h2M4.9 19.1l1.5-1.5M17.6 6.4l1.5-1.5"></path></svg></span><span>Chế độ: <strong class="theme-mode-name">Tối</strong></span><button aria-checked="false" aria-label="Bật chế độ sáng hoặc tối" class="theme-toggle" role="switch" type="button"><span class="theme-knob"></span></button></div>
+<button class="menu-logout" type="button"><span aria-hidden="true" class="menu-logout-icon"><svg aria-hidden="true" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M10 4H5a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h5"></path><path d="M14 8l4 4-4 4m4-4H9"></path></svg></span><span class="menu-logout-label">Đăng xuất</span></button>
+</div>
+</div>
+</div>
+</header>
+<script>
+(function(){
+ const bar=document.querySelector('header.ts13-navbar');if(!bar)return;
+ const controls=bar.querySelector('.ts13-actions');
+ if(controls&&!controls.querySelector('.v16-notification')){
+   const btn=document.createElement('button');btn.type='button';btn.className='v16-notification';btn.title='Thông báo (sắp ra mắt)';btn.setAttribute('aria-label','Thông báo (sắp ra mắt)');
+   btn.innerHTML='<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9M10 21h4"/></svg><span class="v16-alert-dot" aria-hidden="true"></span>';
+   btn.addEventListener('click',()=>alert('Tính năng thông báo đang được phát triển.'));
+   const account=controls.querySelector('.ts13-account');controls.insertBefore(btn,account);
+ }
+})();
+</script>
+<!-- =========================================================
+     MAIN
+========================================================= -->
+<main class="history-page v16-history-main">
+<!-- PAGE HEADING -->
+<div class="history-heading v16-history-heading">
+  <div class="history-heading-left">
+    <span class="history-label">TRANSLATION HISTORY <span class="v16-title-dash" aria-hidden="true"></span></span>
+    <h1>Lịch sử bản dịch</h1>
+    <p>Xem lại, tìm kiếm và quản lý các nội dung bạn đã dịch bằng Transense AI.</p>
+  </div>
+  <img class="v16-history-art" src="images/history-approved-illustration.png" alt="Minh họa hai trang tài liệu được dịch cùng chậu cây xanh"/>
+  <span class="history-total-chip" aria-label="Tổng bản dịch"><strong id="historyCountTop">0</strong> bản dịch</span>
+</div>
+<!-- =====================================================
+         STATS
+    ====================================================== -->
+<section class="history-stats">
+<!-- TOTAL -->
+<div class="history-stat-card v16-stat-card">
+<div class="history-stat-top">
+<div class="history-stat-icon">
+<svg viewbox="0 0 24 24">
+<rect height="17" rx="2" width="14" x="5" y="3.5"></rect><path d="M8 8h8M8 12h8M8 16h5"></path>
+</svg>
+</div>
+<div class="history-stat-caption">
+                    Tổng số bản dịch
+                </div>
+</div>
+<div class="history-stat-value" id="historyTotal">
+                0
+            </div>
+<div class="history-stat-sub">
+                Tổng số các câu đã dịch
+            </div>
+</div>
+<!-- TODAY -->
+<div class="history-stat-card v16-stat-card">
+<div class="history-stat-top">
+<div class="history-stat-icon">
+<svg viewbox="0 0 24 24">
+<rect height="15" rx="2" width="16" x="4" y="5"></rect>
+<path d="M8 3V7"></path>
+<path d="M16 3V7"></path>
+<path d="M4 10H20"></path><path d="M9 15l2 2 4-4"></path>
+</svg>
+</div>
+<div class="history-stat-caption">
+                    Hôm nay
+                </div>
+</div>
+<div class="history-stat-value" id="todayCount">
+                0
+            </div>
+<div class="history-stat-sub">
+                Bản dịch trong ngày
+            </div>
+</div>
+<!-- LANGUAGE -->
+<div class="history-stat-card v16-stat-card">
+<div class="history-stat-top">
+<div class="history-stat-icon">
+<svg viewbox="0 0 24 24">
+<path d="M12 3.2L14.8 8.7L20.9 9.6L16.5 13.9L17.5 20L12 17.1L6.5 20L7.5 13.9L3.1 9.6L9.2 8.7Z" fill="currentColor" stroke="none"></path>
+</svg>
+</div>
+<div class="history-stat-caption">
+                    Bản dịch đã lưu
+                </div>
+</div>
+<div class="history-stat-value" id="savedCount">0</div>
+<div class="history-stat-sub">
+                Bản dịch đã được lưu
+            </div>
+</div>
+</section>
+<!-- =====================================================
+         TOOLBAR
+    ====================================================== -->
+<section class="history-toolbar v16-toolbar" aria-label="Tìm kiếm và lọc lịch sử">
+  <label class="v16-search-field" for="historySearch">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="10.5" cy="10.5" r="6.5"/><path d="m15.5 15.5 5 5"/></svg>
+    <input id="historySearch" placeholder="Tìm kiếm nội dung đã dịch..." type="search" autocomplete="off"/>
+  </label>
+  <label class="v16-select-field">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h16l-6.2 7v6l-3.6 2v-8Z"/></svg>
+    <select id="historyLanguageFilter" aria-label="Lọc theo ngôn ngữ"><option value="">Tất cả ngôn ngữ</option></select>
+    <span class="v16-select-arrow" aria-hidden="true"></span>
+  </label>
+  <label class="v16-select-field">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="15" rx="2"/><path d="M8 3v6m8-6v6M4 11h16M8 15h8M8 18h5"/></svg>
+    <select id="v15ProviderFilter" aria-label="Lọc theo nhà cung cấp"><option value="">Tất cả nhà cung cấp</option><option value="gemini">Gemini</option><option value="google_translate">Google Translate</option><option value="legacy">Chưa ghi nhận</option></select>
+    <span class="v16-select-arrow" aria-hidden="true"></span>
+  </label>
+  <label class="v16-select-field">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 10h18M8 15h3m3 0h3"/></svg>
+    <select id="v15TimeFilter" aria-label="Lọc theo thời gian"><option value="">Tất cả thời gian</option><option value="today">Hôm nay</option><option value="last7">7 ngày gần đây</option></select>
+    <span class="v16-select-arrow" aria-hidden="true"></span>
+  </label>
+  <div class="v16-hidden-controls" hidden>
+    <button id="filterToggle" aria-controls="historyFilterPanel" aria-expanded="false" type="button">Lọc nâng cao</button>
+    <div id="historyFilterPanel" hidden></div>
+    <button id="clearFilterBtn" type="button">Xóa bộ lọc</button>
+    <button class="clear-all-button" id="clearAllButton" type="button">Xóa toàn bộ lịch sử</button>
+  </div>
+</section>
+<div class="v16-history-panel">
+  <div aria-label="Nhóm lịch sử dịch" class="history-tabs" role="tablist">
+    <button aria-selected="true" class="history-tab is-active" id="tabRecent" role="tab" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M7 9h10M7 13h7M8 17h5"/></svg>Các câu đã dịch <span id="recentTabCount">0</span></button>
+    <button aria-selected="false" class="history-tab" id="tabSaved" role="tab" type="button"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 2 3.2 6.5 7.2 1-5.2 5.1 1.2 7.2L12 18.4 5.6 21.8l1.2-7.2L1.6 9.5l7.2-1Z"/></svg>Các câu đã lưu <span id="savedTabCount">0</span></button>
+  </div>
+  <section id="historyContainer" aria-live="polite"></section>
+</div>
+<!-- Lịch sử: bảng và phân trang được tạo bằng JavaScript từ dữ liệu thật. -->
+</main>
+<!-- =========================================================
+     FOOTER
+========================================================= -->
+<footer class="footer">
+<div>
+<strong>
+            Transense AI
+        </strong>
+
+        — Translation History
+
+    </div>
+<div class="footer-right">
+        Prototype Đồ án 1
+    </div>
+</footer>
+<!-- =========================================================
+     JAVASCRIPT
+========================================================= -->
+<script>
+
+
+    /* =====================================================
+       LOGIN CHECK
+    ====================================================== */
+
+    const isLoggedIn =
+        localStorage.getItem(
+            "isLoggedIn"
+        ) === "true";
+
+
+    if (!isLoggedIn) {
+
+        window.location.href =
+            "login.html";
+
+    }
+
+
+    /* =====================================================
+       USER NAME
+    ====================================================== */
+
+    document
+        .getElementById(
+            "accountName"
+        )
+        .textContent =
+        localStorage.getItem(
+            "userName"
+        ) || "Tài khoản";
+
+
+    /* =====================================================
+       ELEMENTS
+    ====================================================== */
+
+    const historyContainer =
+        document.getElementById(
+            "historyContainer"
+        );
+
+
+    const historySearch =
+        document.getElementById(
+            "historySearch"
+        );
+
+
+    const historyTotal =
+        document.getElementById(
+            "historyTotal"
+        );
+
+
+    const historyCountTop =
+        document.getElementById(
+            "historyCountTop"
+        );
+
+
+    const todayCount =
+        document.getElementById(
+            "todayCount"
+        );
+
+
+    const clearAllButton =
+        document.getElementById(
+            "clearAllButton"
+        );
+
+
+    /* =====================================================
+       GET HISTORY
+    ====================================================== */
+
+    function getHistory() {
+
+        return (
+            JSON.parse(
+                localStorage.getItem(
+                    "translationHistory"
+                )
+            )
+            ||
+            []
+        );
+
+    }
+
+
+    /* =====================================================
+       ESCAPE HTML
+    ====================================================== */
+
+    function escapeHTML(value) {
+
+        const div =
+            document.createElement(
+                "div"
+            );
+
+        div.textContent =
+            value || "";
+
+        return div.innerHTML;
+
+    }
+
+
+    /* =====================================================
+       TODAY COUNT
+    ====================================================== */
+
+    function v16ParseHistoryDate(value) {
+      if(!value) return null;
+      const str=String(value);
+      const match=str.match(/(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+      if(match) {const d=new Date(Number(match[3]),Number(match[2])-1,Number(match[1]));return Number.isNaN(d.getTime())?null:d;}
+      const parsed=new Date(str);return Number.isNaN(parsed.getTime())?null:parsed;
+    }
+    function countToday(history) {
+      const today = new Intl.DateTimeFormat('en-CA',{timeZone:'Asia/Ho_Chi_Minh',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
+      const parts=today.match(/(\d{4})-(\d{2})-(\d{2})/);
+      if(!parts)return 0;
+      return history.filter(item=>{const d=v16ParseHistoryDate(item.date);return d && d.getFullYear()===Number(parts[1]) && d.getMonth()+1===Number(parts[2]) && d.getDate()===Number(parts[3]);}).length;
+    }
+
+    /* =====================================================
+       LOAD HISTORY
+    ====================================================== */
+
+    const savedCount = document.getElementById("savedCount");
+    const recentTabCount = document.getElementById("recentTabCount");
+    const savedTabCount = document.getElementById("savedTabCount");
+    const tabRecent = document.getElementById("tabRecent");
+    const tabSaved = document.getElementById("tabSaved");
+    const languageFilter = document.getElementById("historyLanguageFilter");
+    const filterToggle = document.getElementById("filterToggle");
+    const filterPanel = document.getElementById("historyFilterPanel");
+    let activeHistoryTab = "recent";
+    let activeHistoryPage = 1;
+    const V16_PAGE_SIZE = 5;
+
+    const languageNames = {
+      vi:"Tiếng Việt", en:"Tiếng Anh", zh:"Tiếng Trung", ja:"Tiếng Nhật",
+      ko:"Tiếng Hàn", fr:"Tiếng Pháp", de:"Tiếng Đức", es:"Tiếng Tây Ban Nha",
+      it:"Tiếng Ý", pt:"Tiếng Bồ Đào Nha", ru:"Tiếng Nga", th:"Tiếng Thái",
+      ar:"Tiếng Ả Rập", hi:"Tiếng Hindi"
+    };
+    function displayLanguage(item, side) {
+      const code = item[side + "Language"];
+      return item[side + "LanguageName"] || languageNames[code] || (side === "source" ? "Tiếng Anh" : "Tiếng Việt");
+    }
+    function saveHistoryArray(items) {
+      localStorage.setItem("translationHistory", JSON.stringify(items));
+    }
+    function toggleSaved(index) {
+      const history = getHistory();
+      if (!history[index]) return;
+      history[index].saved = !history[index].saved;
+      saveHistoryArray(history);
+      loadHistory();
+    }
+    function selectHistoryTab(tab) {
+      activeHistoryTab = tab;
+      activeHistoryPage = 1;
+      const recent = tab === "recent";
+      tabRecent.classList.toggle("is-active", recent);
+      tabSaved.classList.toggle("is-active", !recent);
+      tabRecent.setAttribute("aria-selected", String(recent));
+      tabSaved.setAttribute("aria-selected", String(!recent));
+      loadHistory();
+    }
+    tabRecent.addEventListener("click", () => selectHistoryTab("recent"));
+    tabSaved.addEventListener("click", () => selectHistoryTab("saved"));
+    filterToggle.addEventListener("click", () => {
+      filterPanel.hidden = !filterPanel.hidden;
+      filterToggle.setAttribute("aria-expanded", String(!filterPanel.hidden));
+    });
+    document.getElementById("clearFilterBtn").addEventListener("click", () => {
+      languageFilter.value = "";
+      providerFilter.value = "";
+      timeFilter.value = "";
+      historySearch.value = "";
+      loadHistory();
+    });
+    languageFilter.addEventListener("change", () => { activeHistoryPage = 1; loadHistory(); });
+    const providerFilter = document.getElementById('v15ProviderFilter');
+    const timeFilter = document.getElementById('v15TimeFilter');
+    providerFilter.addEventListener('change', () => {activeHistoryPage=1;loadHistory();});
+    timeFilter.addEventListener('change', () => {activeHistoryPage=1;loadHistory();});
+    function isInTimeRange(item, mode) {
+      if(!mode) return true;
+      const date=v16ParseHistoryDate(item.date);if(!date)return false;
+      const now=new Date();const midnight=new Date(now.getFullYear(),now.getMonth(),now.getDate());
+      if(mode==='today')return date.getFullYear()===midnight.getFullYear() && date.getMonth()===midnight.getMonth() && date.getDate()===midnight.getDate();
+      if(mode==='last7'){const cutoff=new Date(midnight);cutoff.setDate(cutoff.getDate()-6);return date>=cutoff && date<=now;}
+      return true;
+    }
+
+    function v16Icon(name) {
+      const paths = {
+        calendar: '<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M7 2v6m10-6v6M3 10h18M8 14h4m-4 4h8"/>',
+        dots: '<circle cx="12" cy="5" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.6" fill="currentColor" stroke="none"/><circle cx="12" cy="19" r="1.6" fill="currentColor" stroke="none"/>',
+        star: '<path d="m12 2.5 2.9 6 6.6 1-4.7 4.6 1.1 6.5-5.9-3.1-5.9 3.1 1.1-6.5-4.7-4.6 6.6-1Z"/>',
+      };
+      return `<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.85" stroke-linecap="round" stroke-linejoin="round">${paths[name]||''}</svg>`;
+    }
+    const v16FlagFile = {en:'flag-uk.svg',vi:'flag-vn.svg'};
+    const v16Flags = {zh:'🇨🇳',ja:'🇯🇵',ko:'🇰🇷',fr:'🇫🇷',de:'🇩🇪',es:'🇪🇸',it:'🇮🇹',pt:'🇵🇹',ru:'🇷🇺',th:'🇹🇭',ar:'🇸🇦',hi:'🇮🇳'};
+    function v16Flag(code, name) {
+      const key = (code || (name==='Tiếng Anh'?'en':name==='Tiếng Việt'?'vi':''));
+      if(v16FlagFile[key]) return `<img class="v16-flag" src="images/${v16FlagFile[key]}" alt="${escapeHTML(name||key)}"/>`;
+      return `<span class="v16-flag-fallback" title="${escapeHTML(name||key)}">${v16Flags[key]||'🌐'}</span>`;
+    }
+    function v16LangCode(item,side) {
+      const name=displayLanguage(item,side);
+      return item[side+'Language'] || Object.keys(languageNames).find(k=>languageNames[k]===name) || '';
+    }
+    function v16Provider(item) {
+      const raw=String(item.provider||'').toLowerCase().trim();
+      if(raw==='gemini'||raw.includes('gemini')) return ['Gemini','images/v31-gemini-approved.png'];
+      if(raw==='google_translate'||raw.includes('google')) return ['Google Translate','images/v31-google-translate-approved.png'];
+      return ['Chưa ghi nhận',''];
+    }
+    function v16EscapeDate(item){return escapeHTML(item.date||'Không rõ');}
+    function v16RenderPagination(total, begin, end, pages) {
+      const buttons=[];
+      const pageBtn=(page,label,extra='')=>`<button type="button" class="v16-page-btn ${page===activeHistoryPage&&extra===''?'is-active':''}" data-v16-page="${page}" ${extra}>${label}</button>`;
+      buttons.push(pageBtn(1,'«',activeHistoryPage===1?'disabled':''));
+      buttons.push(pageBtn(Math.max(1,activeHistoryPage-1),'‹',activeHistoryPage===1?'disabled':''));
+      let first = Math.max(1,activeHistoryPage-2), last=Math.min(pages,first+4);first=Math.max(1,last-4);
+      for(let i=first;i<=last;i++) buttons.push(pageBtn(i,String(i)));
+      buttons.push(pageBtn(Math.min(pages,activeHistoryPage+1),'›',activeHistoryPage===pages?'disabled':''));
+      buttons.push(pageBtn(pages,'»',activeHistoryPage===pages?'disabled':''));
+      return `<div class="v16-table-bottom"><div class="v16-count-actions"><span>Hiển thị <strong>${begin} – ${end}</strong> trong <strong>${total}</strong> bản dịch</span><span class="v16-delete-all-slot"></span></div><nav class="v16-pagination" aria-label="Phân trang lịch sử">${buttons.join('')}</nav></div>`;
+    }
+    function v16RenderRow(entry, displayIndex) {
+      const {item,originalIndex}=entry;
+      const sourceName=displayLanguage(item,'source'), targetName=displayLanguage(item,'target');
+      const srcCode=v16LangCode(item,'source'),dstCode=v16LangCode(item,'target');
+      const provider=v16Provider(item), saved=Boolean(item.saved);
+      const providerBadge=`<span class="v16-provider-badge">${provider[1]?`<img src="${provider[1]}" alt=""/>`:''}<span>${escapeHTML(provider[0])}</span></span>`;
+      return `<tr class="v16-history-row">
+        <td><span class="v16-number">${displayIndex}</span></td>
+        <td><span class="v16-text">${escapeHTML(item.source||'')}</span></td>
+        <td><span class="v16-text">${escapeHTML(item.result||'')}</span></td>
+        <td><div class="v16-language-pair">${v16Flag(srcCode,sourceName)}<span class="v16-language-arrow">→</span>${v16Flag(dstCode,targetName)}</div></td>
+        <td>${providerBadge}</td>
+        <td><span class="v16-date">${v16Icon('calendar')}${v16EscapeDate(item)}</span></td>
+        <td><div class="v16-actions"><button type="button" class="v16-star ${saved?'is-saved':''}" data-action="save" data-index="${originalIndex}" title="${saved?'Bỏ lưu':'Lưu bản dịch'}" aria-label="${saved?'Bỏ lưu':'Lưu bản dịch'}">${v16Icon('star')}</button><button class="v16-more" type="button" data-action="menu" data-index="${originalIndex}" title="Tùy chọn bản dịch" aria-label="Tùy chọn bản dịch">${v16Icon('dots')}</button></div></td>
+      </tr>`;
+    }
+    function loadHistory() {
+      const history = getHistory();
+      const pinned = history.filter(item=>item.saved===true).length;
+      historyTotal.textContent=history.length;
+      historyCountTop.textContent=history.length;
+      todayCount.textContent=countToday(history);
+      savedCount.textContent=pinned;
+      recentTabCount.textContent=history.length;
+      savedTabCount.textContent=pinned;
+      clearAllButton.style.display=history.length?'block':'none';
+      const previousFilter=languageFilter.value;
+      languageFilter.innerHTML='<option value="">Tất cả ngôn ngữ</option>'+Object.entries(languageNames).map(([code,name])=>`<option value="${escapeHTML(code)}">${escapeHTML(name)}</option>`).join('');
+      languageFilter.value=Object.prototype.hasOwnProperty.call(languageNames,previousFilter)?previousFilter:'';
+      const selectedLanguage=languageFilter.value;
+      const keyword=historySearch.value.trim().toLowerCase();
+      const filtered=history.map((item,originalIndex)=>({item,originalIndex})).filter(({item})=>
+        (activeHistoryTab==='recent'||item.saved===true)&&
+        (!selectedLanguage||item.sourceLanguage===selectedLanguage||item.targetLanguage===selectedLanguage)&&
+        (!providerFilter.value || (providerFilter.value==='legacy'?!item.provider:
+          (providerFilter.value==='gemini'?v16Provider(item)[0]==='Gemini':v16Provider(item)[0]==='Google Translate')))&&
+        isInTimeRange(item,timeFilter.value)&&
+        (!keyword||String(item.source||'').toLowerCase().includes(keyword)||String(item.result||'').toLowerCase().includes(keyword))
+      );
+      const total=filtered.length,pages=Math.max(1,Math.ceil(total/V16_PAGE_SIZE));
+      activeHistoryPage=Math.min(Math.max(1,activeHistoryPage),pages);
+      const offset=(activeHistoryPage-1)*V16_PAGE_SIZE;
+      const current=filtered.slice(offset,offset+V16_PAGE_SIZE);
+      const rows=current.length ? current.map((entry,i)=>v16RenderRow(entry,offset+i+1)).join('') :
+        `<tr><td colspan="7"><div class="v16-empty"><div class="v16-empty-icon">${v16Icon('calendar')}</div><h3>${activeHistoryTab==='saved'&&!pinned?'Chưa có câu nào được lưu':history.length?'Không có bản dịch phù hợp':'Chưa có lịch sử dịch'}</h3><p>${history.length?'Thử từ khóa hoặc bộ lọc khác để tìm bản dịch.':'Bạn có thể bắt đầu dịch để các bản dịch xuất hiện tại đây.'}</p><a href="index.html#translationWorkspace">Bắt đầu dịch →</a></div></td></tr>`;
+      historyContainer.innerHTML=`<div class="v16-table-scroll"><table class="v16-history-table"><thead><tr><th>#</th><th>Văn bản gốc</th><th>Bản dịch</th><th>Ngôn ngữ</th><th>Nhà cung cấp</th><th>Thời gian</th><th>Thao tác</th></tr></thead><tbody>${rows}</tbody></table></div>${v16RenderPagination(total,total?offset+1:0,total?offset+current.length:0,pages)}`;
+      const slot=historyContainer.querySelector('.v16-delete-all-slot');
+      if(slot)slot.appendChild(clearAllButton);
+      clearAllButton.style.display=history.length?'inline-flex':'none';
+    }
+    historyContainer.addEventListener('click',e=>{
+      const btn=e.target.closest('button[data-v16-page],button[data-action]');if(!btn)return;
+      if(btn.hasAttribute('data-v16-page')){activeHistoryPage=Number(btn.dataset.v16Page)||1;loadHistory();return;}
+      const index=Number(btn.dataset.index);
+      if(btn.dataset.action==='save') {toggleSaved(index);return;}
+      if(btn.dataset.action==='menu') {
+        const old=document.getElementById('v16-floating-menu');if(old)old.remove();
+        const rect=btn.getBoundingClientRect();
+        const menu=document.createElement('div');menu.id='v16-floating-menu';menu.className='v16-floating-menu';
+        menu.style.left=Math.min(window.innerWidth-224,Math.max(8,rect.right-204))+'px';
+        menu.style.top=Math.min(window.innerHeight-155,rect.bottom+5)+'px';
+        const explanation=getHistory()[index]?.explanation;
+        menu.innerHTML=`<button data-menu-action="copy" data-index="${index}">⧉ &nbsp; Sao chép bản dịch</button>${explanation?`<button data-menu-action="context" data-index="${index}">☰ &nbsp; Xem ngữ cảnh</button>`:''}<button data-menu-action="delete" data-index="${index}">✕ &nbsp; Xóa bản dịch</button>`;
+        document.body.appendChild(menu);
+      }
+    });
+    document.addEventListener('click',e=>{
+      const menu=document.getElementById('v16-floating-menu');if(!menu)return;
+      const button=e.target.closest('[data-menu-action]');
+      if(button){const index=Number(button.dataset.index), action=button.dataset.menuAction;menu.remove();
+        if(action==='delete')deleteHistory(index);
+        else if(action==='copy') {const result=getHistory()[index]?.result||'';if(navigator.clipboard?.writeText)navigator.clipboard.writeText(result).catch(()=>alert('Không thể sao chép tự động.'));else alert('Trình duyệt không hỗ trợ sao chép tự động.');}
+        else if(action==='context')alert(getHistory()[index]?.explanation||'Không có phân tích ngữ cảnh.');
+      } else if(!e.target.closest('.v16-more')&&!menu.contains(e.target))menu.remove();
+    });
+
+    /* =====================================================
+       DELETE ONE
+    ====================================================== */
+
+    function deleteHistory(
+        index
+    ) {
+
+
+        const confirmDelete =
+            confirm(
+                "Bạn có chắc muốn xóa bản dịch này?"
+            );
+
+
+        if (!confirmDelete) {
+
+            return;
+
+        }
+
+
+        const history =
+            getHistory();
+
+
+        history.splice(
+            index,
+            1
+        );
+
+
+        localStorage.setItem(
+
+            "translationHistory",
+
+            JSON.stringify(
+                history
+            )
+
+        );
+
+
+        loadHistory(
+            historySearch.value
+        );
+
+    }
+
+
+    /* =====================================================
+       DELETE ALL
+    ====================================================== */
+
+    clearAllButton.addEventListener(
+        "click",
+        function () {
+
+
+            const history =
+                getHistory();
+
+
+            if (
+                history.length === 0
+            ) {
+
+                return;
+
+            }
+
+
+            const confirmDelete =
+                confirm(
+                    "Bạn có chắc muốn xóa toàn bộ lịch sử dịch?"
+                );
+
+
+            if (!confirmDelete) {
+
+                return;
+
+            }
+
+
+            localStorage.removeItem(
+                "translationHistory"
+            );
+
+
+            historySearch.value =
+                "";
+
+
+            loadHistory();
+
+        }
+    );
+
+
+    /* =====================================================
+       COPY RESULT
+    ====================================================== */
+
+    function copyTranslation(
+        index,
+        button
+    ) {
+
+
+        const history =
+            getHistory();
+
+
+        const item =
+            history[index];
+
+
+        if (
+            !item ||
+            !item.result
+        ) {
+
+            alert(
+                "Không có nội dung để sao chép."
+            );
+
+            return;
+
+        }
+
+
+        navigator.clipboard
+            .writeText(
+                item.result
+            )
+            .then(
+                function () {
+
+
+                    const originalHTML =
+                        button.innerHTML;
+
+
+                    button.textContent =
+                        "Đã sao chép";
+
+
+                    setTimeout(
+                        function () {
+
+                            button.innerHTML =
+                                originalHTML;
+
+                        },
+                        1200
+                    );
+
+                }
+            );
+
+    }
+
+
+    /* =====================================================
+       SEARCH
+    ====================================================== */
+
+    historySearch.addEventListener(
+        "input",
+        function () {
+
+            loadHistory(
+                historySearch.value
+            );
+
+        }
+    );
+
+
+    /* =====================================================
+       START
+    ====================================================== */
+
+    loadHistory();
+
+
+</script>
+<script src="js/nav-user.js?v=20261023-spacing2"></script>
+<script src="js/i18n.js?v=menu-fix-20261023"></script>
+<script src="js/transense-v15-enhance.js?v=20261102"></script></body>
+</html>

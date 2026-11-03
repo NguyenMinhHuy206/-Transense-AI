@@ -1,0 +1,79 @@
+/* Transense AI V22 — approved instructional journey + academic About hero + 4-category technology showcase.
+   Scoped: no modifications to translation engine, auth, history or theme controller. */
+:root{--v22-blue:#176cf2;--v22-navy:#10295c;--v22-muted:#526b91;--v22-border:#d9e8fc}
+#howItWorks.v22-how{padding:24px 0 36px!important;max-width:100%;overflow:visible;position:relative}
+#howItWorks .v22-steps-heading{position:relative;isolation:isolate;padding:16px 10px 19px;margin:0 0 8px;background:linear-gradient(180deg,#edf6ff 0%,#eff7ff 72%,transparent 100%);border-radius:32px}
+#howItWorks .v22-steps-heading:after{content:"";position:absolute;inset:auto 0 0;height:48px;z-index:-1;background:radial-gradient(ellipse at 8% 100%,#d9eaff 0%,transparent 50%),radial-gradient(ellipse at 92% 100%,#d8e9ff 0%,transparent 50%)}
+#howItWorks .v7-section-title{position:relative;z-index:1;margin:14px auto 18px!important;max-width:700px}
+#howItWorks .v7-section-title h2{font-family:"Be Vietnam Pro",sans-serif!important;font-size:clamp(27px,3.1vw,44px)!important;font-weight:750!important;line-height:1.25!important;color:#112b5e!important;letter-spacing:-.9px!important}
+#howItWorks .v7-section-title p{font-size:14px!important;line-height:1.7!important;color:#59719a!important}
+#howItWorks .v22-steps-decoration{position:absolute;top:15px;max-width:22%;width:190px;height:130px;object-fit:contain;mix-blend-mode:multiply;opacity:.88;pointer-events:none}
+#howItWorks .v22-steps-deco-left{left:7%}
+#howItWorks .v22-steps-deco-right{right:7%}
+#howItWorks .v22-step-journey{display:grid!important;grid-template-columns:minmax(0,1fr) 26px minmax(0,1fr) 26px minmax(0,1fr)!important;gap:10px!important;align-items:center!important;width:100%}
+#howItWorks .v22-step-card{min-width:0;display:flex!important;flex-direction:column!important;align-items:stretch!important;gap:16px;min-height:390px;padding:20px 17px 17px!important;border-radius:25px!important;background:linear-gradient(155deg,#fff 20%,#f8fbff 100%)!important;border:1px solid #d7e5f9!important;box-shadow:0 13px 28px rgba(52,108,174,.075)!important;transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease!important;overflow:visible}
+#howItWorks .v22-step-card:hover{transform:translateY(-4px);box-shadow:0 18px 35px rgba(46,103,175,.13)!important;border-color:#a7c7ff!important}
+#howItWorks .v22-step-info{min-height:99px;position:relative;display:flex;align-items:center;gap:14px;min-width:0}
+#howItWorks .v22-step-number{position:absolute;left:0;top:-7px;z-index:2;display:grid;place-items:center;width:34px;height:34px;border-radius:50%;color:#1469e9;font-size:17px;font-weight:800;background:#dceaff;border:2px solid #fff}
+#howItWorks .v22-step-icon{display:grid;place-items:center;flex:none;width:75px;height:75px;border-radius:50%;color:#157af5;background:linear-gradient(135deg,#dbeaff,#eef5ff);margin-top:12px}
+#howItWorks .v22-step-icon svg{width:33px;height:33px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round}
+#howItWorks .v22-step-info h3{font-size:clamp(15px,1.25vw,18px)!important;font-weight:700!important;line-height:1.4!important;color:#152d60!important;margin:0 0 7px!important;letter-spacing:-.3px}
+#howItWorks .v22-step-info p{margin:0!important;color:#52658b!important;line-height:1.55!important;font-size:clamp(11px,.91vw,13px)!important}
+#howItWorks .v22-step-preview{position:relative;margin-top:auto;min-width:0;overflow:hidden;padding:0;border-radius:18px;background:linear-gradient(140deg,#f0f6ff,#e9f3ff);border:1px solid #edf4ff;box-shadow:inset 0 2px 6px rgba(115,158,212,.035)}
+#howItWorks .v22-step-preview img{width:100%;height:auto;max-height:250px;display:block;object-fit:cover;object-position:center;transition:transform .5s ease}
+#howItWorks .v22-step-card:hover .v22-step-preview img{transform:scale(1.025)}
+#howItWorks .v22-typing-indicator{position:absolute;bottom:19%;left:46%;width:2px;height:13px;background:#1676ef;animation:v22Caret 1.1s steps(1) infinite;pointer-events:none;opacity:.75}
+#howItWorks .v22-journey-arrow{display:grid;place-items:center;color:#1979f8;min-width:0}
+#howItWorks .v22-journey-arrow svg{width:27px;height:27px;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;animation:v22Arrow 3.5s ease-in-out infinite}
+#howItWorks .v22-steps-disclaimer{font-size:11px!important;color:#7c8fa8!important;text-align:center!important;margin:14px auto 0!important;line-height:1.5!important}
+@keyframes v22Arrow{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@keyframes v22Caret{50%{opacity:0}}
+/* Approved academic option A. Large banner displays entire artwork without cutting it. */
+html[data-theme] body .v15-about-heading{min-height:254px!important}
+html[data-theme] body .v15-about-illustration.v22-about-illustration{width:48%!important;overflow:visible!important;background:transparent!important}
+html[data-theme] body .v15-about-illustration.v22-about-illustration img{display:block!important;width:100%!important;height:auto!important;max-width:100%!important;max-height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important;filter:none!important;border-radius:12px!important;mix-blend-mode:multiply}
+/* Preserve both original marquee tracks and their movement. The new art is isolated to heading. */
+html[data-theme] body .technology-showcase .v22-technology-heading{position:relative;isolation:isolate;min-height:172px;display:flex;align-items:center;justify-content:center;flex-direction:column;padding:18px 220px 14px!important;background:linear-gradient(100deg,#f6faff,#edf6ff,#f4f9ff);border-radius:19px;margin-bottom:15px;overflow:hidden}
+html[data-theme] body .technology-showcase .v22-technology-heading .v22-tech-decoration{position:absolute;top:4px;width:200px;height:160px;object-fit:contain;mix-blend-mode:multiply;pointer-events:none;opacity:.92}
+html[data-theme] body .technology-showcase .v22-technology-heading .v22-tech-left{left:12px}
+html[data-theme] body .technology-showcase .v22-technology-heading .v22-tech-right{right:12px}
+html[data-theme] body .technology-showcase .v22-technology-heading .technology-label,
+html[data-theme] body .technology-showcase .v22-technology-heading h2,
+html[data-theme] body .technology-showcase .v22-technology-heading p{position:relative;z-index:1}
+html[data-theme] body .v22-technology-usage{padding:26px 21px 23px!important}
+html[data-theme] body .v22-technology-usage .usage-header{text-align:center;margin-bottom:24px!important}
+html[data-theme] body .v22-technology-usage .usage-header h3{font-size:clamp(23px,2.3vw,30px)!important;line-height:1.3!important;margin:7px 0!important}
+html[data-theme] body .v22-technology-usage .usage-header p{max-width:750px;margin:0 auto;color:#61799f;font-size:13px!important}
+html[data-theme] body .v22-tech-group-grid{display:grid!important;grid-template-columns:repeat(4,minmax(0,1fr))!important;gap:13px!important;align-items:stretch;min-width:0}
+html[data-theme] body .v22-tech-group{min-width:0;display:flex;flex-direction:column;border:1px solid #dae6f9;border-radius:21px;overflow:hidden;background:linear-gradient(180deg,#f9fbff,#fff);box-shadow:0 8px 20px rgba(64,103,160,.055);transition:transform .25s ease,box-shadow .25s ease}
+html[data-theme] body .v22-tech-group:hover{transform:translateY(-3px);box-shadow:0 15px 28px rgba(64,103,160,.115)}
+html[data-theme] body .v22-tech-group-header{position:relative;color:#fff;min-height:137px;padding:23px 18px 17px;display:flex;flex-direction:column;justify-content:center;overflow:hidden;background:linear-gradient(122deg,#198ff7,#42baf9)}
+html[data-theme] body .v22-tech-group--tools .v22-tech-group-header{background:linear-gradient(130deg,#806bea,#b0a2fb)}
+html[data-theme] body .v22-tech-group--ai .v22-tech-group-header{background:linear-gradient(130deg,#05a9ae,#48d5c6)}
+html[data-theme] body .v22-tech-group--features .v22-tech-group-header{background:linear-gradient(130deg,#657be7,#9ca3f5)}
+html[data-theme] body .v22-tech-group-header:after{content:"";position:absolute;right:-24px;top:-26px;width:115px;height:115px;border:2px solid rgba(255,255,255,.18);border-radius:35%;transform:rotate(18deg);box-shadow:0 0 0 20px rgba(255,255,255,.07)}
+html[data-theme] body .v22-tech-group-kicker{font-size:10px;font-weight:650;letter-spacing:.065em;opacity:.85;margin-bottom:6px}
+html[data-theme] body .v22-tech-group-header h4{font-weight:750!important;font-size:clamp(15px,1.2vw,18px)!important;line-height:1.35!important;color:#fff!important;margin:0 0 7px!important}
+html[data-theme] body .v22-tech-group-header p{font-size:11px!important;line-height:1.6!important;color:rgba(255,255,255,.94)!important;margin:0!important;max-width:260px}
+html[data-theme] body .v22-tech-group-items{display:grid;gap:10px;padding:12px;align-content:start;flex:1}
+html[data-theme] body .v22-tech-group .usage-card{display:flex!important;align-items:flex-start!important;min-height:90px!important;gap:10px!important;padding:11px 9px!important;border:1px solid #dfe8f8!important;border-radius:13px!important;background:#fff!important;box-shadow:none!important;transition:background .2s ease,transform .2s ease}
+html[data-theme] body .v22-tech-group .usage-card:hover{background:#f4f9ff!important;transform:translateY(-2px)!important}
+html[data-theme] body .v22-tech-group .usage-card .usage-icon{flex:0 0 41px;width:41px!important;height:41px!important;display:grid;place-items:center;border-radius:12px!important;background:#edf3ff!important;color:#427bfd!important;margin:0!important}
+html[data-theme] body .v22-tech-group .usage-card .usage-icon i{font-size:20px!important;color:#527ef9!important}
+html[data-theme] body .v22-tech-group .usage-card .usage-brand-logo{width:27px!important;height:27px!important;object-fit:contain!important}
+html[data-theme] body .v22-tech-group .usage-card h4{font-size:12.5px!important;line-height:1.35!important;margin:0 0 5px!important;color:#102b60!important}
+html[data-theme] body .v22-tech-group .usage-card p{font-size:10.5px!important;line-height:1.52!important;color:#637699!important;margin:0!important}
+/* Tablets and narrow laptops */
+@media(max-width:1200px){html[data-theme] body .v22-tech-group-grid{grid-template-columns:repeat(2,minmax(0,1fr))!important}html[data-theme] body .technology-showcase .v22-technology-heading{padding-left:160px!important;padding-right:160px!important}html[data-theme] body .technology-showcase .v22-technology-heading .v22-tech-decoration{width:153px!important;height:143px!important}}
+@media(max-width:900px){#howItWorks .v22-step-journey{grid-template-columns:1fr!important;gap:8px!important;max-width:590px;margin:auto}#howItWorks .v22-step-card{min-height:0!important;padding:18px!important}#howItWorks .v22-step-preview img{max-height:265px!important;object-fit:contain}#howItWorks .v22-journey-arrow svg{transform:rotate(90deg);animation:none}#howItWorks .v22-journey-arrow{height:26px}#howItWorks .v22-step-info{min-height:87px}#howItWorks .v22-steps-decoration{width:125px!important}html[data-theme] body .technology-showcase .v22-technology-heading{min-height:150px!important;padding-left:130px!important;padding-right:130px!important}html[data-theme] body .technology-showcase .v22-technology-heading .v22-tech-decoration{width:120px!important;height:130px!important}}
+@media(max-width:740px){html[data-theme] body .v15-about-heading{padding:20px 18px!important;min-height:0!important}html[data-theme] body .v15-about-illustration.v22-about-illustration{position:relative!important;width:100%!important;height:auto!important;min-height:95px!important;margin:15px auto 0!important;overflow:visible!important}html[data-theme] body .v15-about-illustration.v22-about-illustration img{height:auto!important;max-height:175px!important}#howItWorks .v22-steps-heading{padding-top:6px}#howItWorks .v22-steps-decoration{position:relative;display:none!important}html[data-theme] body .technology-showcase .v22-technology-heading{padding:20px!important;min-height:0!important}html[data-theme] body .technology-showcase .v22-technology-heading .v22-tech-decoration{display:none!important}}
+@media(max-width:620px){html[data-theme] body .v22-tech-group-grid{grid-template-columns:minmax(0,1fr)!important;gap:15px!important}html[data-theme] body .v22-tech-group-header{min-height:106px!important}html[data-theme] body .v22-tech-group-items{grid-template-columns:1fr 1fr!important;gap:8px!important}html[data-theme] body .v22-tech-group .usage-card{min-height:110px!important;flex-direction:column!important;gap:6px!important}#howItWorks .v22-step-info h3{font-size:16px!important}#howItWorks .v22-step-info p{font-size:12px!important}}
+@media(max-width:370px){html[data-theme] body .v22-tech-group-items{grid-template-columns:1fr!important}#howItWorks .v22-step-icon{width:63px;height:63px}#howItWorks .v22-step-icon svg{width:26px;height:26px}}
+html[data-theme="dark"] body .v22-step-card,html[data-theme="dark"] body .v22-tech-group{background:#17283f!important;border-color:#3e5378!important}html[data-theme="dark"] body .v22-step-info h3,html[data-theme="dark"] body .v22-technology-usage .usage-header h3{color:#e3edff!important}html[data-theme="dark"] body .v22-step-info p{color:#bbcae0!important}html[data-theme="dark"] body .v22-tech-group .usage-card{background:#203450!important;border-color:#3e5378!important}html[data-theme="dark"] body .v22-tech-group .usage-card h4{color:#f0f5ff!important}html[data-theme="dark"] body .v22-tech-group .usage-card p{color:#c2d0e8!important}html[data-theme="dark"] body .v22-steps-heading,html[data-theme="dark"] body .technology-showcase .v22-technology-heading{background:linear-gradient(130deg,#20395e,#233755)!important}html[data-theme="dark"] body #howItWorks .v7-section-title h2{color:#f4f8ff!important}
+@media(prefers-reduced-motion:reduce){#howItWorks .v22-journey-arrow svg,#howItWorks .v22-typing-indicator{animation:none!important}#howItWorks .v22-step-card,#howItWorks .v22-step-preview img,html[data-theme] body .v22-tech-group{transition:none!important}}
+
+/* V22 bundled brand-neutral symbol assets ensure technology icons remain visible offline. */
+html[data-theme] body .v22-tech-group .usage-card .usage-icon img.v22-symbol{display:block!important;object-fit:contain!important;width:29px!important;height:29px!important;max-width:29px!important;max-height:29px!important;}
+html[data-theme] body .technology-showcase .technology-icon img.v22-symbol{display:block!important;object-fit:contain!important;width:35px!important;height:35px!important;max-width:35px!important;max-height:35px!important;margin:auto!important;}
+#howItWorks .v22-steps-decoration{-webkit-mask-image:radial-gradient(ellipse at center,#000 43%,transparent 77%);mask-image:radial-gradient(ellipse at center,#000 43%,transparent 77%)}
+html[data-theme] body .v15-about-illustration.v22-about-illustration img{-webkit-mask-image:linear-gradient(to right,transparent 0%,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(to right,transparent 0%,#000 9%,#000 91%,transparent 100%)}

@@ -1,0 +1,104 @@
+/* Transense AI V14: minimal overrides scoped to V13 landing and the provider switcher. */
+/* Desktop: move all four navigation links 35–45px from the right edge of the logo. */
+@media (min-width: 1121px) {
+  html[data-theme] body header.navbar.ts13-navbar {
+    grid-template-columns: max-content minmax(0, 1fr) max-content !important;
+    column-gap: 0 !important;
+  }
+  html body .ts13-navbar .ts13-links {
+    justify-content: flex-start !important;
+    margin-left: 40px !important;
+  }
+}
+/* Mid-size screens use a stacked actions row as before; maintain left alignment for links. */
+@media (min-width: 741px) and (max-width: 1120px) {
+  html body .ts13-navbar .ts13-links {
+    justify-content: flex-start !important;
+    margin-left: 20px !important;
+  }
+}
+/* On phones, continue the existing centered wrapping navigation; no horizontal overflow. */
+@media (max-width: 740px) {
+  html body .ts13-navbar .ts13-links {margin-left: 0 !important; justify-content:center !important;}
+}
+
+/* Keep the original rounded model selector intact, but match the selected logo to its service. */
+html body .ai-model-trigger .ai-model-icon {
+  width: 44px !important;
+  height: 44px !important;
+  min-width: 44px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  border-radius: 12px !important;
+  border: 0 !important;
+  background: transparent !important;
+  display: grid !important;
+  place-items: center !important;
+  flex: 0 0 auto !important;
+}
+html body .ai-model-trigger .ts14-current-logo {
+  display:block !important;
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  min-height:44px !important;
+  object-fit:contain !important;
+  border-radius: 12px !important;
+}
+html body .ai-model-option .model-badge {
+  width:44px !important;
+  height:44px !important;
+  min-width:44px !important;
+  padding:0 !important;
+  background:transparent !important;
+  border:0 !important;
+  border-radius:12px !important;
+  overflow:hidden !important;
+}
+html body .ai-model-option .model-badge .ts14-option-logo {
+  width:44px !important;
+  height:44px !important;
+  display:block !important;
+  object-fit:contain !important;
+  border-radius:12px !important;
+}
+@keyframes ts14-provider-enter {
+  0% {opacity:.35; transform:scale(.84) translateY(3px)}
+  70% {opacity:1; transform:scale(1.045) translateY(-1px)}
+  100% {opacity:1; transform:none}
+}
+@keyframes ts14-provider-label {
+  from {opacity:.5;transform:translateY(3px)}
+  to {opacity:1;transform:none}
+}
+html body .ai-model-trigger.ts14-model-changed .ts14-current-logo {
+  animation: ts14-provider-enter .30s cubic-bezier(.2,.9,.2,1) both;
+}
+html body .ai-model-trigger.ts14-model-changed .ai-model-name {
+  animation: ts14-provider-label .26s ease-out both;
+}
+/* Don't perturb the original padlock size or text alignment in the approved hero. */
+html body .ts13-hero .ts14-hero-cta svg {
+  width:20px !important;height:20px !important;min-width:20px !important;
+  fill:none !important;stroke:currentColor !important;
+}
+@media (prefers-reduced-motion:reduce) {
+  html body .ai-model-trigger.ts14-model-changed .ts14-current-logo,
+  html body .ai-model-trigger.ts14-model-changed .ai-model-name {animation:none!important;}
+}
+/* Four items stay in a balanced 2×2 grid on narrow mobile screens. */
+@media (max-width: 470px) {
+  html body .ts13-navbar .ts13-links {
+    display:grid !important;
+    grid-template-columns:repeat(2,minmax(0,1fr)) !important;
+    width:min(100%,310px) !important;
+    gap:4px 8px !important;
+    margin:0 auto !important;
+    align-items:center !important;
+  }
+  html body .ts13-navbar .ts13-links a {
+    width:100% !important;
+    min-width:0 !important;
+    text-align:center !important;
+  }
+}

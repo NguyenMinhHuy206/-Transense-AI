@@ -1,0 +1,44 @@
+/* Transense AI — static website final polish.
+   The animated multilingual Hero is intentionally NOT changed. */
+html { -webkit-text-size-adjust:100%; }
+body { overflow-x:clip; }
+img, video, svg { max-width:100%; }
+button, input, select, textarea { font:inherit; }
+:where(a,button,input,select,textarea,summary):focus-visible { outline:3px solid #3b82f6; outline-offset:3px; }
+/* Main informational page: keep long-form project text readable. */
+.page { max-width:1200px; margin-inline:auto; }
+.page :is(p,li) { line-height:1.72; }
+.page :is(p,li,td) { overflow-wrap:break-word; }
+/* Translation history toolbar / summary remain usable on narrow screens. */
+.history-page, .profile-page { min-width:0; }
+.history-toolbar-left, .history-search, .history-tabs, .history-stats, .history-card-pro, .history-language-box { min-width:0; }
+.history-empty { min-height:160px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:24px; }
+/* Empty profile activity: preserve existing rendering and avoid an oversized blank panel. */
+.recent-empty { min-height:135px; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; padding:24px; line-height:1.6; }
+/* Accessible disabled account menu options; no opacity on the whole row. */
+.account-action-stable:disabled, .account-action-stable[aria-disabled="true"] { opacity:1!important; cursor:not-allowed; }
+html[data-theme="light"] .account-action-stable:disabled .menu-action-label,
+html[data-theme="light"] .account-action-stable[aria-disabled="true"] .menu-action-label { color:#66758c!important; opacity:1!important; }
+html[data-theme="light"] .account-action-stable:disabled small,
+html[data-theme="light"] .account-action-stable[aria-disabled="true"] small { color:#75849a!important; opacity:1!important; }
+html[data-theme="dark"] .account-action-stable:disabled .menu-action-label,
+html[data-theme="dark"] .account-action-stable[aria-disabled="true"] .menu-action-label { color:#aebdd2!important; opacity:1!important; }
+html[data-theme="dark"] .account-action-stable:disabled small,
+html[data-theme="dark"] .account-action-stable[aria-disabled="true"] small { color:#a1b0c5!important; opacity:1!important; }
+/* Smaller screens: prevent horizontal scrolling and keep form actions tappable. */
+@media (max-width: 760px) {
+  .page, .history-page, .profile-page { width:calc(100% - 24px)!important; max-width:100%!important; margin-inline:auto!important; }
+  .history-toolbar, .history-toolbar-left { flex-wrap:wrap; }
+  .history-search { flex:1 1 240px; }
+  .history-stats { grid-template-columns:repeat(auto-fit,minmax(min(100%,190px),1fr))!important; }
+  .history-translation { grid-template-columns:1fr!important; }
+  .profile-dashboard { max-width:100%; }
+  .page h1, .history-page h1, .profile-page h1 { overflow-wrap:break-word; }
+}
+@media (max-width: 480px) {
+  .history-toolbar :is(button,input), .history-filter-btn { max-width:100%; }
+  .history-card-actions { flex-wrap:wrap; gap:6px; }
+  .history-tabs { display:grid!important; grid-template-columns:repeat(2,minmax(0,1fr))!important; }
+  .history-tab { white-space:normal!important; }
+  .page :is(p,li) { line-height:1.65; }
+}
